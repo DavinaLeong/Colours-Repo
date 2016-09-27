@@ -1,9 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+/**********************************************************************************
+	- File Info -
+		File name		: head_resources.php
+		Author(s)		: DAVINA Leong Shi Yun
+		Date Created	: 23rd Sep 2016
+
+	- Contact Info -
+		Email	: leong.shi.yun@gmail.com
+		Mobile	: (+65) 9369 3752 [Singapore]
+
+***********************************************************************************/
 ?><title>Colours Repo</title>
 
 <!-- favicon -->
-<link rel="icon" type="image/png" href="<?=RESOURCES_FOLDER;?>img/webpage_icon.png">
+<link rel="icon" type="image/png" href="<?=RESOURCES_FOLDER;?>img/cr_img/webpage_icon.png">
 
 <!-- Bootstrap core CSS -->
 <link href="<?=RESOURCES_FOLDER;?>css/bootstrap.css" rel="stylesheet">
