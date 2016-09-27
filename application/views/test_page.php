@@ -1,47 +1,135 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <?php $this->load->view('admin/_snippets/meta_admin'); ?>
 
     <?php $this->load->view('admin/_snippets/head_resources'); ?>
 </head>
+
 <body>
-    <div class="container">
 
-        <h1 class="page-header">
-            Test Page
-        </h1>
+<section id="container" >
 
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-            Launch demo modal <i class="fa fa-external-link fa-fw"></i>
-        </button>
+    <?php $this->load->view('admin/_snippets/navbar_admin'); ?>
+    <!-- **********************************************************************************************************************************************************
+    MAIN SIDEBAR MENU
+    *********************************************************************************************************************************************************** -->
+    <!--sidebar start-->
+    <aside>
+        <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
 
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                    </div>
-                    <div class="modal-body">
-                        Hello
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
+                <p class="centered"><a href="profile.html"><img src="img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                <h5 class="centered">Marcel Newman</h5>
+
+                <li class="mt">
+                    <a href="index.html">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;" >
+                        <i class="fa fa-desktop"></i>
+                        <span>UI Elements</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="general.html">General</a></li>
+                        <li><a  href="buttons.html">Buttons</a></li>
+                        <li><a  href="panels.html">Panels</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;" >
+                        <i class="fa fa-cogs"></i>
+                        <span>Components</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="calendar.html">Calendar</a></li>
+                        <li><a  href="gallery.html">Gallery</a></li>
+                        <li><a  href="todo_list.html">Todo List</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a class="active" href="javascript:;" >
+                        <i class="fa fa-book"></i>
+                        <span>Extra Pages</span>
+                    </a>
+                    <ul class="sub">
+                        <li class="active"><a  href="blank.html">Blank Page</a></li>
+                        <li><a  href="login.html">Login</a></li>
+                        <li><a  href="lock_screen.html">Lock Screen</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" >
+                        <i class="fa fa-tasks"></i>
+                        <span>Forms</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="form_component.html">Form Components</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" >
+                        <i class="fa fa-th"></i>
+                        <span>Data Tables</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="basic_table.html">Basic Table</a></li>
+                        <li><a  href="responsive_table.html">Responsive Table</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;" >
+                        <i class=" fa fa-bar-chart-o"></i>
+                        <span>Charts</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="morris.html">Morris</a></li>
+                        <li><a  href="chartjs.html">Chartjs</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!--sidebar end-->
+
+    <!-- **********************************************************************************************************************************************************
+    MAIN CONTENT
+    *********************************************************************************************************************************************************** -->
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper site-min-height">
+            <h3><i class="fa fa-angle-right"></i> Blank Page</h3>
+            <div class="row mt">
+                <div class="col-lg-12">
+                    <p>Place your content here.</p>
                 </div>
             </div>
+
+        </section><! --/wrapper -->
+    </section><!-- /MAIN CONTENT -->
+
+    <!--main content end-->
+    <!--footer start-->
+    <footer class="site-footer">
+        <div class="text-center">
+            2014 - Alvarez.is
+            <a href="blank.html#" class="go-top">
+                <i class="fa fa-angle-up"></i>
+            </a>
         </div>
+    </footer>
+    <!--footer end-->
+</section>
 
-        <h2>Images</h2>
-        <img src="<?=RESOURCES_FOLDER;?>img/favicon.png" alt="site_icon" />
-
-    </div>
-</body>
 <?php $this->load->view('admin/_snippets/body_resources'); ?>
+</body>
 </html>
