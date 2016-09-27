@@ -4,6 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
     <?php $this->load->view('admin/_snippets/meta_admin'); ?>
+
     <?php $this->load->view('admin/_snippets/head_resources'); ?>
 </head>
 <body>
@@ -36,6 +37,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
             </div>
         </div>
+
+        <h2>Images</h2>
+        <img src="<?=RESOURCES_FOLDER;?>img/favicon.png" alt="site_icon" />
 
     </div>
 </body>
