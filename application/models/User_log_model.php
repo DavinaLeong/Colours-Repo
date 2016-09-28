@@ -34,13 +34,13 @@ class User_log_model extends CI_Model
             "message" => $message
         );
 
-        $now = new DateTime("now", new DateTimeZone(DATETIMEZONE));
+        $now = new DateTime("now", new DateTimeZone(DATE_TIME_ZONE));
         $this->db->set("timestamp", $now->format("c"));
         $this->db->insert("user_log", $temp_array);
         return $this->db->insert_id();
     }
 
-    public function validate_access($requiredAccess, $userAccess)
+    private function _validate_access($requiredAccess, $userAccess)
     {
         $valid = false;
 
@@ -55,5 +55,13 @@ class User_log_model extends CI_Model
         return $valid;
     }
 
+    public function validate_access()
+    {
+        if( ! $this->_validate_access("A", $this->session->userdata('access')))
+        {
+            $this->session->set_userdata('message', 'This user has invalid access rights.');
+            redirect('admin/authenticate/login');
+        }
+    }
 
 } //end User_log_model class

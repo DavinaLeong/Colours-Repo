@@ -17,7 +17,6 @@ class Authenticate extends CI_Controller
 	{
 		parent::__construct();
         $this->load->library('Debug_helper');
-        $this->_create_new_user();
 	}
 
     public function index()
@@ -27,26 +26,85 @@ class Authenticate extends CI_Controller
 
     public function login()
     {
-        $this->Debug_helper->_error_not_implemented('login');
+        if($this->session->userdata('user_id') || $this->session->userdata('access'))
+        {
+            $this->User_log_model->log_message('User is logged out.');
+            $this->session->unset_userdata('user_id');
+            $this->session->unset_userdata('access');
+            $this->session->set_userdata('message', 'You have been logged out.');
+        }
+
+        $this->load->library('form_validation');
+        $this->_set_rules_login();
+
+        if($this->form_validation->run())
+        {
+            $this->load->model('User_model');
+            if($user = $this->User_model->get_by_username($this->input->post('username')))
+            {
+                if($user['status'] === 'Active')
+                {
+                    if(password_verify($this->input->post('password'), $user['password_hash']))
+                    {
+                        $this->session->set_userdata('user_id', $user['user_id']);
+                        $this->session->set_userdata('username', $user['username']);
+                        $this->session->set_userdata('name', $user['name']);
+                        $this->session->set_userdata('access', $user['access']);
+
+                        $this->User_log_model->log_message('User logged in.');
+                        $this->session->set_userdata('message', 'Login successful.');
+                        redirect('admin/authenticate/start');
+                    }
+                    else
+                    {
+                        $this->session->set_userdata('message', 'Password is <strong>incorrent</strong>.');
+                    }
+                }
+                else
+                {
+                    $this->session->set_userdata('message', 'This account as been <strong>deactivated</strong>.');
+                }
+            }
+            else
+            {
+                $this->session->set_userdata('message', '<strong>Invalid</strong> Username or Password.');
+            }
+        }
+
+        $this->load->view('admin/authenticate/login_page');
+    }
+
+    private function _set_rules_login()
+    {
+        $this->form_validation->set_rules('username', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
     }
 
     public function logout()
     {
-        $this->Debug_helper->_error_not_implemented('logout');
+        redirect('admin/authenticate/login');
     }
 
     public function start()
     {
-        $this->Debug_helper->_error_not_implemented('login');
+        $this->User_log_model->validate_access();
+        $this->load->view('admin/authenticate/start_page');
     }
 
+    /**
+     * A helper function to create a new user
+     *
+     * @param string $username
+     * @param string $name
+     * @param string $password
+     */
     private function _create_new_user($username='user', $name='User', $password='password')
     {
         $this->load->model('User_model');
         $user = array(
             'username' => $username,
             'name' => $name,
-            'password' => password_hash($password, PASSWORD_DEFAULT),
+            'password_hash' => password_hash($password, PASSWORD_DEFAULT),
             'access' => 'A',
             'status' => 'Active'
         );

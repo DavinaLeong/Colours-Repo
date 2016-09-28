@@ -34,12 +34,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <img src="<?=RESOURCES_FOLDER;?>img/cr_img/webpage_icon.png" alt="colours repo icon" height="20px" /> Colours Repo
             </h2>
             <div class="login-wrap">
+                <?php $this->load->view('admin/_snippets/validation_errors_box'); ?>
+                <?php $this->load->view('admin/_snippets/message_box'); ?>
+
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Username" autofocus />
+                    <input type="text" class="form-control" id="username" name="username"
+                           placeholder="Username" autofocus />
                 </div>
 
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Password" />
+                    <input type="password" class="form-control" id="password" name="password"
+                           placeholder="Password" />
                 </div>
                 <br/>
 
