@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <h6 class="centered"><?=$this->session->userdata('username');?></h6>
 
             <li class="mt">
-                <a href="index.html">
+                <a href="<?= site_url('admin/authenticate/start'); ?>">
                     <i class="fa fa-dashboard"></i>
                     <span>Dashboard</span>
                 </a>
@@ -55,65 +55,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <li class="sub-menu">
                 <a href="javascript:;" >
-                    <i class="fa fa-desktop"></i>
-                    <span>UI Elements</span>
+                    <i class="fa fa-user"></i>
+                    <span>Manage Users</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="general.html">General</a></li>
-                    <li><a  href="buttons.html">Buttons</a></li>
-                    <li><a  href="panels.html">Panels</a></li>
+                    <li><a href="<?= site_url('admin/user/browse_user'); ?>">Browse Users</a></li>
+                    <li><a href="<?= site_url('admin/user/new_user'); ?>">New User</a></li>
                 </ul>
             </li>
 
             <li class="sub-menu">
                 <a href="javascript:;" >
-                    <i class="fa fa-cogs"></i>
-                    <span>Components</span>
+                    <i class="fa fa-globe"></i>
+                    <span>Web Safe Colours</span>
                 </a>
                 <ul class="sub">
-                    <li><a  href="calendar.html">Calendar</a></li>
-                    <li><a  href="gallery.html">Gallery</a></li>
-                    <li><a  href="todo_list.html">Todo List</a></li>
-                </ul>
-            </li>
-            <li class="sub-menu">
-                <a class="active" href="javascript:;" >
-                    <i class="fa fa-book"></i>
-                    <span>Extra Pages</span>
-                </a>
-                <ul class="sub">
-                    <li class="active"><a  href="blank.html">Blank Page</a></li>
-                    <li><a  href="login.html">Login</a></li>
-                    <li><a  href="lock_screen.html">Lock Screen</a></li>
-                </ul>
-            </li>
-            <li class="sub-menu">
-                <a href="javascript:;" >
-                    <i class="fa fa-tasks"></i>
-                    <span>Forms</span>
-                </a>
-                <ul class="sub">
-                    <li><a  href="form_component.html">Form Components</a></li>
-                </ul>
-            </li>
-            <li class="sub-menu">
-                <a href="javascript:;" >
-                    <i class="fa fa-th"></i>
-                    <span>Data Tables</span>
-                </a>
-                <ul class="sub">
-                    <li><a  href="basic_table.html">Basic Table</a></li>
-                    <li><a  href="responsive_table.html">Responsive Table</a></li>
-                </ul>
-            </li>
-            <li class="sub-menu">
-                <a href="javascript:;" >
-                    <i class=" fa fa-bar-chart-o"></i>
-                    <span>Charts</span>
-                </a>
-                <ul class="sub">
-                    <li><a  href="morris.html">Morris</a></li>
-                    <li><a  href="chartjs.html">Chartjs</a></li>
+                    <li><a href="<?= site_url('admin/web_safe_colours/browse_web_safe_colours'); ?>">
+                            Browse Web Safe Colours</a></li>
+                    <li><a href="<?= site_url('admin/web_safe_colours/new_web_safe_colours'); ?>">
+                            New Web Safe Colour</a></li>
                 </ul>
             </li>
 
