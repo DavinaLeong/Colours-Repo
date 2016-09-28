@@ -91,6 +91,7 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 */
 
 define('RESOURCES_FOLDER', 'http://localhost/colours_repo/resources/');
+define('DATE_TIME_ZONE', 'Asia/Singapore');
 define('SYSTEM_DATE_FORMAT', 'd-m-Y');
 
 // regex patterns
