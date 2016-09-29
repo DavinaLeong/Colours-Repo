@@ -17,6 +17,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ***********************************************************************************/
 class Debug_helper
 {
+    public function _error_page_not_implemented($page_name='page')
+    {
+        show_error(
+            '<h2>Page <span style="color: #c00;">' . $page_name . '</span> doesn\'t exist</h2>' .
+            '<p>Click <a href="' . site_url('admin/authenticate/start') . '">here</a> to return.</p>'
+        );
+    }
+
     public function _error_not_implemented($function_name='function')
     {
         show_error('<p style="font-size: 1em;"><strong style="font-size: 2em; color: #c00;">' .

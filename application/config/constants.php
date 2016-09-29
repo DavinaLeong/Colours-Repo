@@ -98,3 +98,6 @@ define('SYSTEM_DATE_FORMAT', 'd-m-Y');
 define('SYSTEM_DATE_REGEX', '/^[0-9]{2}-[0-9]{2}-[0-9]{4}$/');
 define('DECIMAL_REGEX', '/^\d+\.?\d+$/');
 define('COLOUR_HEX_REGEX', '/^#[0-9|a-f]{6}$/');
+
+define('ADMIN_LOGIN_URL', 'admin/authenticate/login');
+define('ADMIN_HOME_URL', 'admin/authenticate/start');

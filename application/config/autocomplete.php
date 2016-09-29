@@ -50,8 +50,8 @@
  *
  *
  * --- CUSTOM LIBRARIES ---
- * @property Datetime_helper $Datetime_helper
- * @property Debug_helper $Debug_helper
+ * @property Datetime_helper $datetime_helper
+ * @property Debug_helper $debug_helper
  *
  * @property Authenticate $Authenticate
  * @property User $User
@@ -101,8 +101,8 @@ class MY_Controller extends CI_Controller {};
  *
  *
  * --- CUSTOM LIBRARIES ---
- * @property Datetime_helper $Datetime_helper
- * @property Debug_helper $Debug_helper
+ * @property Datetime_helper $datetime_helper
+ * @property Debug_helper $debug_helper
  *
  * @property Authenticate $Authenticate
  * @property User $User

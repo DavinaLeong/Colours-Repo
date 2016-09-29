@@ -42,12 +42,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
 
-            <p class="centered"><a href="profile.html"><img src="<?=RESOURCES_FOLDER;?>img/cr_img/webpage_icon.png" alt="Website Logo" height="60px" /></a></p>
+            <p class="centered"><a href="#"><img src="<?=RESOURCES_FOLDER;?>img/cr_img/webpage_icon.png" alt="Website Logo" height="60px" /></a></p>
             <h5 class="centered"><?=$this->session->userdata('name');?></h5>
             <h6 class="centered"><?=$this->session->userdata('username');?></h6>
 
             <li class="mt">
-                <a href="<?= site_url('admin/authenticate/start'); ?>">
+                <a href="<?= site_url(ADMIN_HOME_URL); ?>">
                     <i class="fa fa-dashboard"></i>
                     <span>Dashboard</span>
                 </a>
@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="sub-menu">
                 <a href="javascript:;" >
                     <i class="fa fa-user"></i>
-                    <span>Manage Users</span>
+                    <span>Users</span>
                 </a>
                 <ul class="sub">
                     <li><a href="<?= site_url('admin/user/browse_user'); ?>">Browse Users</a></li>

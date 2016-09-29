@@ -1,0 +1,18 @@
+/**********************************************************************************
+	- File Info -
+		File name		: cr_styles_main.css
+		Author(s)		: DAVINA Leong Shi Yun
+		Date Created	: 28th Sep 2016
+
+	- Contact Info -
+		Email	: leong.shi.yun@gmail.com
+		Mobile	: (+65) 9369 3752 [Singapore]
+
+***********************************************************************************/
+.page-header {
+    border-color: #ccc;
+}
+
+.cr-clickable:hover {
+    cursor: pointer;
+}

@@ -2,25 +2,17 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**********************************************************************************
 	- File Info -
-		File name		: Test.php
+		File name		: user_moduel_header.php
 		Author(s)		: DAVINA Leong Shi Yun
-		Date Created	: 23rd Sep 2016
+		Date Created	: 28th Sep 2016
 
 	- Contact Info -
 		Email	: leong.shi.yun@gmail.com
 		Mobile	: (+65) 9369 3752 [Singapore]
 
 ***********************************************************************************/
-
-class Test extends CI_Controller
-{
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    public function index()
-    {
-        $this->load->view('test_page');
-    }
-}
+/**
+ * @var $page_name
+ */
+?><h1 class="page-header"><i class="fa fa-user fa-fw"></i> User Module</h1>
+<h3><i class="fa fa-angle-right fa-fw"></i> <?= $page_name; ?></h3>
