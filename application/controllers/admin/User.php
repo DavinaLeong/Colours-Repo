@@ -32,7 +32,6 @@ class User extends CI_Controller
             $users[$key] = $user;
         }
         $data = array(
-            'page_name' => 'Browse Users',
             'users' => $users
         );
         $this->load->view('admin/user/browse_user_page', $data);
@@ -41,17 +40,53 @@ class User extends CI_Controller
     public function new_user()
     {
         $this->User_log_model->validate_access();
-        $this->debug_helper->_error_page_not_implemented('new_user');
+
+        $this->load->library('form_validation');
+        $this->_set_rules_new_user();
+
+        if($this->form_validation->run())
+        {
+            if($user_id = $this->User_model->insert($this->_prepare_new_user()))
+            {
+                $this->User_log_model->log_message('New User record CREATED. | user_id: ' . $user_id);
+                $this->session->set_userdata('New User record <mark>created</mark>/');
+                redirect('admin/user/view_user/' . $user_id);
+            }
+            else
+            {
+                $this->User_log_model->log_message('Unable to CREATE new User.');
+                $this->session->set_userdata('<mark>Unable</mark> to create new User.');
+            }
+        }
+
+        $data = array(
+            'access_options' => $this->User_model->_get_access_array()
+        );
+        $this->load->view('admin/user/new_user_page', $data);
     }
 
     private function _set_rules_new_user()
     {
-        $this->debug_helper->_error_not_implemented('_set_rules_new_user');
+        $this->form_validation->set_rules('username', 'Username',
+            'trim|required|alpha_numeric|is_unique[user.username]|max_length[512]');
+        $this->form_validation->set_rules('name', 'Name', 'trim|required|max_length[512]');
+        $this->form_validation->set_rules('password', 'Password', 'trim|required|max_length[512]');
+        $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|max_length[512]|matches[password]');
+
+        $access_str = implode(',', array_keys($this->User_model->_get_access_array()));
+        $this->form_validation->set_rules('access', 'Access', 'trim|required|in_list[' . $access_str . ']|max_length[512]');
+        $this->form_validation->set_rules('status', 'Status', 'trim|required|in_list[Active]|max_length[512]');
     }
 
     private function _prepare_new_user()
     {
-        $this->debug_helper->_error_not_implemented('_prepare_new_user');
+        $user['username'] = $this->input->post('username');
+        $user['name'] = $this->input->post('name');
+        $user['password_hash'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+        $user['access'] = $this->input->post('access');
+        $user['status'] = $this->input->post('status');
+
+        return $user;
     }
 
     public function edit_user($user_id)

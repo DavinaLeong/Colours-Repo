@@ -31,7 +31,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!--main content start-->
     <section id="main-content">
         <section class="wrapper site-min-height">
-            <h3><i class="fa fa-angle-right fa-fw"></i> Welcome to <strong>Colour Repo</strong></h3>
+            <ol class="breadcrumb">
+                <li class="active">Home</li>
+            </ol>
+
+            <h1><i class="fa fa-dashboard fa-fw"></i> Welcome to <strong>Colour Repo</strong></h1>
             <div class="row mt">
                 <div class="col-lg-12">
                     <?php $this->load->view('admin/_snippets/message_box'); ?>

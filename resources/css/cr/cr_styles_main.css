@@ -16,3 +16,23 @@
 .cr-clickable:hover {
     cursor: pointer;
 }
+
+.breadcrumb {
+    background: none;
+    margin-top: 20px;
+    border-radius: 0;
+    border-bottom: thin solid #ccc;
+}
+
+.breadcrumb > li + li:before {
+    color: #ccc;
+    content: "> ";
+    padding: 0 5px;
+    font-family: Consolas, "Courier New", Courier, monospace;
+    font-size: 1.2em;
+}
+
+.content-panel {
+    padding-left: 5px;
+    padding-right: 5px;
+}

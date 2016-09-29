@@ -12,7 +12,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 ***********************************************************************************/
 /**
- * @var $page_header
  * @var $users
  */
 ?><!DOCTYPE html>
@@ -35,38 +34,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!--main content start-->
     <section id="main-content">
         <section class="wrapper site-min-height">
-            <?php $this->load->view('admin/user/user_module_header'); ?>
+            <ol class="breadcrumb">
+                <li><a href="<?=site_url(ADMIN_HOME_URL);?>">Home</a></li>
+                <li class="active">Users</li>
+            </ol>
+
+            <h1 class="page-header"><i class="fa fa-user fa-fw"></i> User Module</h1>
+            <h3><i class="fa fa-angle-right fa-fw"></i> Browse Users</h3>
+            <p class="lead">Click on a row to view a User record.</p>
+
             <div class="row mt">
                 <div class="col-lg-12">
+
                     <?php $this->load->view('admin/_snippets/message_box'); ?>
 
-                    <table id="table_users" class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th>Username</th>
-                            <th>Name</th>
-                            <th>Access</th>
-                            <th>Status</th>
-                            <th>Last Updated</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php foreach($users as $user): ?>
-                            <tr id="view_user_<?=$user['user_id'];?>" class="cr-clickable"
-                                onclick="window.open('<?=site_url("admin/user/view_user/" . $user["user_id"]); ?>', '_blank')">
-                                <td><?= $user['username']; ?></td>
-                                <td><?= $user['name']; ?></td>
-                                <td><?= $user['access_str']; ?></td>
-                                <td><?= $user['status']; ?></td>
-                                <td><?= $this->datetime_helper->format_yyyy_mm_dd_dash($user['last_updated']); ?></td>
+                    <div class="content-panel">
+                        <table id="table_users" class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Name</th>
+                                <th>Access</th>
+                                <th>Status</th>
+                                <th>Last Updated</th>
                             </tr>
-                        <?php endforeach; ?>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            <?php foreach($users as $user): ?>
+                                <tr id="view_user_<?=$user['user_id'];?>" class="cr-clickable"
+                                    onclick="window.open('<?=site_url("admin/user/view_user/" . $user["user_id"]); ?>', '_blank')">
+                                    <td><?= $user['username']; ?></td>
+                                    <td><?= $user['name']; ?></td>
+                                    <td><?= $user['access_str']; ?></td>
+                                    <td><?= $user['status']; ?></td>
+                                    <td><?= $this->datetime_helper->format_dd_mm_yyyy_dash($user['last_updated']); ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
             </div>
-
-        </section><! --/wrapper -->
+        </section><!-- /wrapper -->
     </section><!-- /MAIN CONTENT -->
 
     <!--main content end-->
