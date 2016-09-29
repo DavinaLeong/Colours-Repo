@@ -21,6 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php $this->load->view('admin/_snippets/meta_admin'); ?>
 
     <?php $this->load->view('admin/_snippets/head_resources'); ?>
+    <link rel="stylesheet" type="text/css" href="<?=RESOURCES_FOLDER;?>css/parsley.css" />
 </head>
 
 <body>
@@ -53,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="content-panel">
                         <p class="lead">Fill up the form and click <span class="text-primary">Submit</span> to save.</p>
 
-                        <form id="new_user_form" class="form-horizontal" method="post">
+                        <form id="new_user_form" class="form-horizontal" method="post" data-parsley-validate>
 
                             <div class="form-group">
                                 <label class="col-md-2 control-label"
@@ -79,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                        for="password">Password <span class="text-danger">*</span></label>
                                 <div class="col-md-10">
                                     <input class="form-control" type="password" id="password" name="password"
-                                           placeholder="Password" required maxlength="512" />
+                                           required maxlength="512" />
                                 </div>
                             </div>
 
@@ -88,7 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                        for="confirm_password">Confirm Password <span class="text-danger">*</span></label>
                                 <div class="col-md-10">
                                     <input class="form-control" type="password" id="confirm_password" name="confirm_password"
-                                           placeholder="Confirm Password" required maxlength="512" />
+                                           required maxlength="512" />
                                 </div>
                             </div>
                             <br/>
@@ -137,5 +138,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </section>
 
 <?php $this->load->view('admin/_snippets/body_resources'); ?>
+<script src="<?=RESOURCES_FOLDER;?>js/parsley.min.js"></script>
 </body>
 </html>

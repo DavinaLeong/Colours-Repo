@@ -28,8 +28,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script>
     //custom select box
 
-    $(function(){
-        $('select.styled').customSelect();
-    });
+    //$(function(){
+    //    $('select.styled').customSelect();
+    //});
 
 </script>
