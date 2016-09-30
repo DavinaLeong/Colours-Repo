@@ -62,11 +62,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <tbody>
                             <?php foreach($users as $user): ?>
                                 <tr id="view_user_<?=$user['user_id'];?>" class="cr-clickable"
-                                    onclick="window.open('<?=site_url("admin/user/view_user/" . $user["user_id"]); ?>', '_blank')">
+                                    onclick="location.href = '<?=site_url("admin/user/view_user/" . $user["user_id"]); ?>'">
                                     <td><?= $user['username']; ?></td>
                                     <td><?= $user['name']; ?></td>
                                     <td><?= $user['access_str']; ?></td>
-                                    <td><?= $user['status']; ?></td>
+                                    <td>
+                                        <?php if($user['status'] == 'Active'): ?>
+                                            <span class="label label-success"><?= $user['status']; ?></span>
+                                        <?php else: ?>
+                                            <span class="label label-danger"><?= $user['status']; ?></span>
+                                        <?php endif; ?>
+                                    </td>
                                     <td><?= $this->datetime_helper->format_dd_mm_yyyy_dash($user['last_updated']); ?></td>
                                 </tr>
                             <?php endforeach; ?>

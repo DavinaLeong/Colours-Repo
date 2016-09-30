@@ -92,17 +92,71 @@ class User extends CI_Controller
     public function edit_user($user_id)
     {
         $this->User_log_model->validate_access();
-        $this->debug_helper->_error_page_not_implemented('edit_user');
+        $this->load->library('form_validation');
+
+        $user = $this->User_model->get_by_user_id($user_id);
+        if($user !== FALSE)
+        {
+            $this->_set_rules_edit_user($user);
+            if($this->form_validation->run())
+            {
+                if($user = $this->User_model->update($this->_prepare_edit_user($user)))
+                {
+                    $this->User_log_model->log_message('User record UPDATED. | user_id: ' . $user_id);
+                    $this->session->set_userdata('message', 'User record <mark>updated</mark>.');
+                    redirect('admin/user/view_user/' . $user_id);
+                }
+                else
+                {
+                    $this->User_log_model->log_message('Unable to UPDATE User record. | user_id: ' . $user_id);
+                    $this->session->set_userdata('message', '<mark>Unable</mark> to update User record.');
+                }
+            }
+
+            $access_options = $this->User_model->_get_access_array();
+            $user['access_str'] = $access_options[$user['access']];
+            $data = array(
+                'user' => $user,
+                'access_options' => $access_options,
+                'status_options' => $this->User_model->_get_status_array()
+            );
+            $this->load->view('admin/user/edit_user_page', $data);
+        }
+        else
+        {
+            $this->session->set_userdata('message', 'User record not found.');
+            redirect('admin/user/browse_use');
+        }
     }
 
-    private function _set_rules_edit_user()
+    private function _set_rules_edit_user($user)
     {
-        $this->debug_helper->_error_not_implemented('_set_rules_edit_user');
+        if($user['username'] == $this->input->post('username'))
+        {
+            $this->form_validation->set_rules('username', 'Username',
+                'trim|required|alpha_numeric|max_length[512]');
+        }
+        else
+        {
+            $this->form_validation->set_rules('username', 'Username',
+                'trim|required|alpha_numeric|is_unique[user.username]|max_length[512]');
+        }
+        $this->form_validation->set_rules('name', 'Name', 'trim|required|max_length[512]');
+
+        $access_str = implode(',', array_keys($this->User_model->_get_access_array()));
+        $this->form_validation->set_rules('access', 'Access', 'trim|required|in_list[' . $access_str . ']|max_length[512]');
+        $status_str = implode(',', $this->User_model->_get_status_array());
+        $this->form_validation->set_rules('status', 'Status', 'trim|required|in_list[' . $status_str . ']|max_length[512]');
     }
 
-    private function _prepare_edit_user()
+    private function _prepare_edit_user($user)
     {
-        $this->debug_helper->_error_not_implemented('_prepare_edit_user');
+        $user['username'] = $this->input->post('username');
+        $user['name'] = $this->input->post('name');
+        $user['access'] = $this->input->post('access');
+        $user['status'] = $this->input->post('status');
+
+        return $user;
     }
 
     public function view_user($user_id)
@@ -122,6 +176,16 @@ class User extends CI_Controller
             $this->session->set_userdata('message', 'User record not found.');
             redirect('admin/user/browse_user');
         }
+    }
+
+    public function reset_password($user_id)
+    {
+        $this->debug_helper->_error_page_not_implemented('reset_password');
+    }
+
+    private function _set_rules_reset_password()
+    {
+        $this->debug_helper->_error_not_implemented('_set_rules_reset_password');
     }
 	
 } // end User controller class

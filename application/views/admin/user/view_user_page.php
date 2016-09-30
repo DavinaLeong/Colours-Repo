@@ -37,12 +37,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <section class="wrapper site-min-height">
             <ol class="breadcrumb">
                 <li><a href="<?=site_url(ADMIN_HOME_URL);?>">Home</a></li>
-                <li><a href="<?=site_url('admin/users/browse_user');?>">Users</a></li>
-                <li class="active">New User</li>
+                <li><a href="<?=site_url('admin/user/browse_user');?>">Users</a></li>
+                <li class="active">User ID: <?=$user['user_id'];?></li>
             </ol>
 
             <h1 class="page-header"><i class="fa fa-user fa-fw"></i> User Module</h1>
-            <h3><i class="fa fa-angle-right fa-fw"></i> View User</h3>
+            <h3><i class="fa fa-angle-right fa-fw"></i> View User&nbsp;
+                <div id="action-dropdown" class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        Action <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="<?=site_url('admin/user/edit_user/' . $user['user_id']);?>">
+                                <i class="fa fa-pencil-square-o fa-fw"></i> Edit User</a></li>
+                        <li><a id="reset_password_btn" href="<?=site_url('admin/user/reset_password/' . $user['user_id']); ?>">
+                                <i class="fa fa-key fa-fw"></i> Reset Password</a></li>
+                    </ul>
+                </div>
+            </h3>
 
             <div class="row mt">
                 <div class="col-lg-12">
@@ -87,6 +100,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <?php else: ?>
                                         <span class="label label-danger"><?= $user['status']; ?></span>
                                     <?php endif; ?>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Last Updated</label>
+                                <div class="col-md-10">
+                                    <p id="last_updated" class="form-control-static">
+                                        <?=$this->datetime_helper->format_internet_standard($user['last_updated']);?>
                                     </p>
                                 </div>
                             </div>

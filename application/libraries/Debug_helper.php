@@ -20,7 +20,7 @@ class Debug_helper
     public function _error_page_not_implemented($page_name='page')
     {
         show_error(
-            '<h2>Page <span style="color: #c00;">' . $page_name . '</span> doesn\'t exist</h2>' .
+            '<p style="font-size: 1.5em;">Page <strong style="color: #c00;">' . $page_name . '</strong> doesn\'t exist</p>' .
             '<p>Click <a href="' . site_url('admin/authenticate/start') . '">here</a> to return.</p>'
         );
     }

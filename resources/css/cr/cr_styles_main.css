@@ -9,12 +9,12 @@
 		Mobile	: (+65) 9369 3752 [Singapore]
 
 ***********************************************************************************/
-.page-header {
-    border-color: #ccc;
-}
-
 .cr-clickable:hover {
     cursor: pointer;
+}
+
+.page-header {
+    border-bottom: dotted thin #ccc;
 }
 
 .breadcrumb {
@@ -35,4 +35,22 @@
 .content-panel {
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.btn-default,
+.btn-primary,
+.btn-danger,
+.btn-success,
+.btn-warning,
+.btn-info,
+.btn-theme,
+.btn-theme02,
+.btn-theme03,
+.btn-theme,
+.dropdown-menu {
+    border: none;
+}
+
+.btn-default-border {
+    border: thin solid #ccc;
 }

@@ -2,9 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**********************************************************************************
 	- File Info -
-		File name		: new_user_page.php
+		File name		: edit_user_page.php
 		Author(s)		: DAVINA Leong Shi Yun
-		Date Created	: 29th Sep 2016
+		Date Created	: 30th Sep 2016
 
 	- Contact Info -
 		Email	: leong.shi.yun@gmail.com
@@ -13,7 +13,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ***********************************************************************************/
 
 /**
+ * @var $user
  * @var $access_options
+ * @var $status_options
  */
 ?><!DOCTYPE html>
 <html lang="en">
@@ -39,11 +41,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <ol class="breadcrumb">
                 <li><a href="<?=site_url(ADMIN_HOME_URL);?>">Home</a></li>
                 <li><a href="<?=site_url('admin/user/browse_user');?>">Users</a></li>
-                <li class="active">New User</li>
+                <li><a href="<?=site_url('admin/user/view_user/' . $user['user_id']);?>">User ID: <?=$user['user_id'];?></a></li>
+                <li class="active">Edit User</li>
             </ol>
 
             <h1 class="page-header"><i class="fa fa-user fa-fw"></i> User Module</h1>
-            <h3><i class="fa fa-angle-right fa-fw"></i> New User</h3>
+            <h3><i class="fa fa-angle-right fa-fw"></i> Edit User</h3>
 
             <div class="row mt">
                 <div class="col-lg-12">
@@ -61,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                        for="username">Username <span class="text-danger">*</span></label>
                                 <div class="col-md-10">
                                     <input class="form-control" type="text" id="username" name="username" placeholder="Username"
-                                           required maxlength="512" value="<?=set_value('username');?>" />
+                                           required maxlength="512" value="<?=set_value('username', $user['username']);?>" />
                                 </div>
                             </div>
 
@@ -70,26 +73,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                        for="name">Name <span class="text-danger">*</span></label>
                                 <div class="col-md-10">
                                     <input class="form-control" type="text" id="name" name="name" placeholder="Name"
-                                           required maxlength="512" value="<?=set_value('name');?>" />
+                                           required maxlength="512" value="<?=set_value('name', $user['name']);?>" />
                                 </div>
                             </div>
                             <br/>
 
                             <div class="form-group">
-                                <label class="col-md-2 control-label"
-                                       for="password">Password <span class="text-danger">*</span></label>
-                                <div class="col-md-10">
-                                    <input class="form-control" type="password" id="password" name="password"
-                                           required maxlength="512" />
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-md-2 control-label"
-                                       for="confirm_password">Confirm Password <span class="text-danger">*</span></label>
-                                <div class="col-md-10">
-                                    <input class="form-control" type="password" id="confirm_password" name="confirm_password"
-                                           required maxlength="512" />
+                                <div class="col-md-10 col-md-offset-2">
+                                    <a id="reset_password_btn" class="btn btn-default btn-default-border" href="<?=site_url('admin/user/reset_password/' . $user['user_id']); ?>"><i class="fa fa-key fa-fw"></i> Reset Password</a>
                                 </div>
                             </div>
                             <br/>
@@ -101,17 +92,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <option value="" id="access_none">&nbsp;</option>
                                         <?php foreach($access_options as $key=>$option): ?>
                                         <option value="<?=$key;?>" id="access_<?=$key;?>"
-                                            <?=set_select('access', $option);?>><?=$option;?></option>
+                                            <?=set_select('access', $option, ($user['access'] == $key));?>
+                                            ><?=$option;?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-2 control-label">Status</label>
+                                <label class="col-md-2 control-label" for="status">Status <span class="text-danger">*</span></label>
                                 <div class="col-md-10">
-                                    <p id="status" class="form-control-static">Active</p>
-                                    <input type="hidden" name="status" value="Active" />
+                                    <select class="form-control" id="status" name="status" required>
+                                        <option value="" id="status_none">&nbsp;</option>
+                                        <?php foreach($status_options as $key=>$option): ?>
+                                            <option value="<?=$option;?>" id="status_<?=$key;?>"
+                                                <?=set_select('status', $option, ($user['status'] == $option));?>
+                                                ><?=$option;?></option>
+                                        <?php endforeach; ?>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Last Updated</label>
+                                <div class="col-md-10">
+                                    <p id="last_updated" class="form-control-static">
+                                        <?=$this->datetime_helper->format_internet_standard($user['last_updated']);?>
+                                    </p>
                                 </div>
                             </div>
                             <br/>
