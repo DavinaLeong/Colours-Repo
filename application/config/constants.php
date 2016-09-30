@@ -101,3 +101,8 @@ define('COLOUR_HEX_REGEX', '/^#[0-9|a-f]{6}$/');
 
 define('ADMIN_LOGIN_URL', 'admin/authenticate/login');
 define('ADMIN_HOME_URL', 'admin/authenticate/start');
+
+// table names
+define('TABLE_USER', 'user');
+define('TABLE_USER_LOG', 'user_log');
+define('TABLE_WEB_SAFE_COLOURS', 'web_safe_colours');

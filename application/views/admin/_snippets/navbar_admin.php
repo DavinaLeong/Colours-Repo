@@ -74,9 +74,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span>Web Safe Colours</span>
                 </a>
                 <ul class="sub">
-                    <li><a href="<?= site_url('admin/web_safe_colours/browse_web_safe_colours'); ?>">
+                    <li><a href="<?= site_url('admin/web_safe_colour/browse_web_safe_colour'); ?>">
                             Browse Web Safe Colours</a></li>
-                    <li><a href="<?= site_url('admin/web_safe_colours/new_web_safe_colours'); ?>">
+                    <li><a href="<?= site_url('admin/web_safe_colour/new_web_safe_colour'); ?>">
                             New Web Safe Colour</a></li>
                 </ul>
             </li>
