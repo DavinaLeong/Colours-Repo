@@ -105,4 +105,4 @@ define('ADMIN_HOME_URL', 'admin/authenticate/start');
 // table names
 define('TABLE_USER', 'user');
 define('TABLE_USER_LOG', 'user_log');
-define('TABLE_WEB_SAFE_COLOURS', 'web_safe_colours');
+define('TABLE_WEB_SAFE_COLOUR', 'web_safe_colour');
