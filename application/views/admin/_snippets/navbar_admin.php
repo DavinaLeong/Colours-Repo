@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <div class="top-menu">
         <ul class="nav pull-right top-menu">
-            <li><a class="logout" href="<?= site_url('admin/authenticate/logout'); ?>">Logout</a></li>
+            <li><a class="logout" href="<?= site_url('admin/authenticate/logout'); ?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
         </ul>
     </div>
 </header>
@@ -42,12 +42,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
 
-            <div id="profile_anchor" class="cr-clickable"
-                 onClick="location.href= '<?=site_url('admin/personal_profile/view_personal_profile');?>'">
+            <div id="profile_anchor">
                 <p class="centered"><img src="<?=RESOURCES_FOLDER;?>img/cr_img/webpage_icon.png"
                                          alt="Website Logo" height="60px" /></p>
                 <h5 class="centered"><?=$this->session->userdata('name');?></h5>
                 <h6 class="centered"><?=$this->session->userdata('username');?></h6>
+                <div class="centered"><a id="view_profile" class="btn btn-theme02 btn-sm" href="<?=site_url('admin/personal_profile/view_personal_profile');?>"><i class="fa fa-user fa-fw"></i> View Profile</a></div>
             </div>
 
             <li class="mt">

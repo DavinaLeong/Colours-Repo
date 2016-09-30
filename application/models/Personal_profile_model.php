@@ -18,7 +18,7 @@ class Personal_profile_model extends CI_Model
     {
         if($this->session->userdata('user_id'))
         {
-            $this->db->select('username, name, last_updated');
+            $this->db->select('username, name, password_hash, last_updated');
             $this->db->from('user');
             $this->db->where('user_id = ', $this->session->userdata('user_id'));
 

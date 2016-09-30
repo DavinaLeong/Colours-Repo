@@ -41,8 +41,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <div class="col-lg-12">
                     <?php $this->load->view('admin/_snippets/message_box'); ?>
 
-                    <p>Click on the links on the sidebar to the left to begin.</p>
-                    <p><strong>Colour Repo</strong> serves as a database of commonly used colours like Web Safe colours, 'Paint' colours, etc.</p>
+                    <div class="content-panel">
+                        <h2>About this Repo</h2>
+                        <p>Click on the links on the sidebar to the left to begin.</p>
+                        <p><strong>Colour Repo</strong> serves as a database of commonly used colours like Web Safe colours, 'Paint' colours, etc.</p>
+                    </div>
                 </div>
             </div>
 
