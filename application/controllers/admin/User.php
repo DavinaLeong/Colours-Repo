@@ -108,7 +108,20 @@ class User extends CI_Controller
     public function view_user($user_id)
     {
         $this->User_log_model->validate_access();
-        $this->debug_helper->_error_page_not_implemented('view_user');
+        $user = $this->User_model->get_by_user_id($user_id);
+        if($user !== FALSE)
+        {
+            $user['access_str'] = $this->User_model->_get_access_array()[$user['access']];
+            $data = array(
+                'user' => $user
+            );
+            $this->load->view('admin/user/view_user_page', $data);
+        }
+        else
+        {
+            $this->session->set_userdata('message', 'User record not found.');
+            redirect('admin/user/browse_user');
+        }
     }
 	
 } // end User controller class
