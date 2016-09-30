@@ -14,6 +14,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Datetime_helper
 {
+    public function now($format_str='r')
+    {
+        $now = new DateTime('now', new DateTimeZone(DATE_TIME_ZONE));
+        return $now->format($format_str);
+    }
+
+    public function today($format_str='r')
+    {
+        $today = new DateTime('today', new DateTimeZone(DATE_TIME_ZONE));
+        return $today->format($format_str);
+    }
+
 	public function format_dd_mm_yyyy_dash($date_str)
     {
         $datetime = new DateTime($date_str, new DateTimeZone(DATE_TIME_ZONE));
