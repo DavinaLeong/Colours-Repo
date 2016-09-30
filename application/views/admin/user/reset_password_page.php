@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**********************************************************************************
 	- File Info -
-		File name		: edit_user_page.php
+		File name		: reset_password_page.php
 		Author(s)		: DAVINA Leong Shi Yun
 		Date Created	: 30th Sep 2016
 
@@ -14,8 +14,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
  * @var $user
- * @var $access_options
- * @var $status_options
  */
 ?><!DOCTYPE html>
 <html lang="en">
@@ -41,12 +39,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <ol class="breadcrumb">
                 <li><a href="<?=site_url(ADMIN_HOME_URL);?>">Home</a></li>
                 <li><a href="<?=site_url('admin/user/browse_user');?>">Users</a></li>
-                <li><a href="<?=site_url('admin/user/view_user/' . $user['user_id']);?>">User ID: <?=$user['user_id'];?></a></li>
-                <li class="active">Edit User</li>
+                <li><a href="<?=site_url('admin/user/view_user/' . $user['user_id']);?>">
+                        User ID: <?=$user['user_id'];?></a></li>
+                <li><a href="<?=site_url('admin/user/edit_user/' . $user['user_id']);?>">
+                        Edit User</a></li>
+                <li class="active">Reset Password</li>
             </ol>
 
             <h1 class="page-header"><i class="fa fa-user fa-fw"></i> User Module</h1>
-            <h3><i class="fa fa-angle-right fa-fw"></i> Edit User</h3>
+            <h3><i class="fa fa-angle-right fa-fw"></i> Reset Password</h3>
 
             <div class="row mt">
                 <div class="col-lg-12">
@@ -57,59 +58,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="content-panel">
                         <p class="lead">Fill up the form and click <span class="text-primary">Submit</span> to save.</p>
 
-                        <form id="edit_user_form" class="form-horizontal" method="post" data-parsley-validate>
+                        <form id="reset_password_form" class="form-horizontal" method="post" data-parsley-validate>
+
+                            <input id="user_id" type="hidden" value="<?=$user['user_id'];?>" />
 
                             <div class="form-group">
-                                <label class="col-md-2 control-label"
-                                       for="username">Username <span class="text-danger">*</span></label>
+                                <label class="col-md-2 control-label" for="username">Username</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" type="text" id="username" name="username" placeholder="Username"
-                                           required maxlength="512" value="<?=set_value('username', $user['username']);?>" />
+                                    <p id="username" class="form-control-static"><?= $user['username']; ?></p>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-2 control-label"
-                                       for="name">Name <span class="text-danger">*</span></label>
+                                <label class="col-md-2 control-label" for="name">Name</label>
                                 <div class="col-md-10">
-                                    <input class="form-control" type="text" id="name" name="name" placeholder="Name"
-                                           required maxlength="512" value="<?=set_value('name', $user['name']);?>" />
-                                </div>
-                            </div>
-                            <br/>
-
-                            <div class="form-group">
-                                <div class="col-md-10 col-md-offset-2">
-                                    <a id="reset_password_btn" class="btn btn-default btn-default-border" href="<?=site_url('admin/user/reset_password/' . $user['user_id']); ?>"><i class="fa fa-key fa-fw"></i> Reset Password</a>
+                                    <p id="name" class="form-control-static"><?= $user['name']; ?></p>
                                 </div>
                             </div>
                             <br/>
 
                             <div class="form-group">
-                                <label class="col-md-2 control-label" for="access">Access <span class="text-danger">*</span></label>
+                                <label class="col-md-2 control-label"
+                                       for="new_password">New Password <span class="text-danger">*</span></label>
                                 <div class="col-md-10">
-                                    <select class="form-control" id="access" name="access" required>
-                                        <option value="" id="access_none">&nbsp;</option>
-                                        <?php foreach($access_options as $key=>$option): ?>
-                                        <option value="<?=$key;?>" id="access_<?=$key;?>"
-                                            <?=set_select('access', $option, ($user['access'] == $key));?>
-                                            ><?=$option;?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                    <input class="form-control" type="password" id="new_password" name="new_password"
+                                           required minlength="6" maxlength="512" />
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-2 control-label" for="status">Status <span class="text-danger">*</span></label>
+                                <label class="col-md-2 control-label" for="confirm_new_password">
+                                    Confirm New Password <span class="text-danger">*</span></label>
                                 <div class="col-md-10">
-                                    <select class="form-control" id="status" name="status" required>
-                                        <option value="" id="status_none">&nbsp;</option>
-                                        <?php foreach($status_options as $key=>$option): ?>
-                                            <option value="<?=$option;?>" id="status_<?=$key;?>"
-                                                <?=set_select('status', $option, ($user['status'] == $option));?>
-                                                ><?=$option;?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                    <input class="form-control" type="password" id="confirm_new_password"
+                                           name="confirm_new_password" required minlength="6" maxlength="512"
+                                           data-parsley-equalto="#new_password" />
+                                </div>
+                            </div>
+                            <br/>
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label" for="access">Access</label>
+                                <div class="col-md-10">
+                                    <p id="access" class="form-control-static"><?= $user['access_str']; ?></p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">Status</label>
+                                <div class="col-md-10">
+                                    <p id="status" class="form-control-static">
+                                        <?php if($user['status'] == 'Active'): ?>
+                                            <span class="label label-success"><?= $user['status']; ?></span>
+                                        <?php else: ?>
+                                            <span class="label label-danger"><?= $user['status']; ?></span>
+                                        <?php endif; ?>
+                                    </p>
                                 </div>
                             </div>
 

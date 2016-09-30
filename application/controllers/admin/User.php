@@ -69,9 +69,11 @@ class User extends CI_Controller
     {
         $this->form_validation->set_rules('username', 'Username',
             'trim|required|alpha_numeric|is_unique[user.username]|max_length[512]');
-        $this->form_validation->set_rules('name', 'Name', 'trim|required|max_length[512]');
-        $this->form_validation->set_rules('password', 'Password', 'trim|required|max_length[512]');
-        $this->form_validation->set_rules('confirm_password', 'Confirm Password', 'trim|required|max_length[512]|matches[password]');
+        $this->form_validation->set_rules('name', 'Name', 'trim|required|min_length[6]|max_length[512]');
+        $this->form_validation->set_rules('password', 'Password',
+            'trim|required|min_length[6]|max_length[512]');
+        $this->form_validation->set_rules('confirm_password', 'Confirm Password',
+            'trim|required|min_length[6]|max_length[512]|matches[password]');
 
         $access_str = implode(',', array_keys($this->User_model->_get_access_array()));
         $this->form_validation->set_rules('access', 'Access', 'trim|required|in_list[' . $access_str . ']|max_length[512]');
@@ -180,12 +182,48 @@ class User extends CI_Controller
 
     public function reset_password($user_id)
     {
-        $this->debug_helper->_error_page_not_implemented('reset_password');
+        $this->User_log_model->validate_access();
+        $user = $this->User_model->get_by_user_id($user_id);
+        if($user !== FALSE)
+        {
+            $this->load->library('form_validation');
+            $this->_set_rules_reset_password();
+
+            if($this->form_validation->run())
+            {
+                $user['password_hash'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+                if($user = $this->User_model->update($user))
+                {
+                    $this->User_log_model->log_message('User\'s password UPDATED. | user_id: ' . $user_id);
+                    $this->session->set_userdata('message', 'User\'s password <mark>updated</mark>.');
+                    redirect('admin/user/view_user/' . $user_id);
+                }
+                else
+                {
+                    $this->User_log_model->log_message('Unable to UPDATE User\'s password. | user_id: ' . $user_id);
+                    $this->session->set_userdata('message', '<mark>Unable</mark> to update User\'s password.');
+                }
+            }
+
+            $user['access_str'] = $this->User_model->_get_access_array()[$user['access']];
+            $data = array(
+                'user' => $user
+            );
+            $this->load->view('admin/user/reset_password_page', $data);
+        }
+        else
+        {
+            $this->session->set_userdata('message', 'User record not found.');
+            redirect('admin/user/browse_user');
+        }
     }
 
     private function _set_rules_reset_password()
     {
-        $this->debug_helper->_error_not_implemented('_set_rules_reset_password');
+        $this->form_validation->set_rules('new_password', 'New Password',
+            'trim|required|min_length[6]|max_length[512]');
+        $this->form_validation->set_rules('confirm_new_password', 'Confirm New Password',
+            'trim|required|min_length[6]|max_length[512]|matches[new_password]');
     }
 	
 } // end User controller class

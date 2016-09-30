@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                             <div class="form-group">
                                 <label class="col-md-2 control-label"
-                                       for="username">Username <span class="text-danger">*</span></label>
+                                       for="username">Username</label>
                                 <div class="col-md-10">
                                     <p id="username" class="form-control-static"><?= $user['username']; ?></p>
                                 </div>
@@ -77,7 +77,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                             <div class="form-group">
                                 <label class="col-md-2 control-label"
-                                       for="name">Name <span class="text-danger">*</span></label>
+                                       for="name">Name</label>
                                 <div class="col-md-10">
                                     <p id="name" class="form-control-static"><?= $user['name']; ?></p>
                                 </div>

@@ -80,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                        for="password">Password <span class="text-danger">*</span></label>
                                 <div class="col-md-10">
                                     <input class="form-control" type="password" id="password" name="password"
-                                           required maxlength="512" />
+                                           required minlength="6" maxlength="512" />
                                 </div>
                             </div>
 
@@ -89,7 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                        for="confirm_password">Confirm Password <span class="text-danger">*</span></label>
                                 <div class="col-md-10">
                                     <input class="form-control" type="password" id="confirm_password" name="confirm_password"
-                                           required maxlength="512" />
+                                           required minlength="6" maxlength="512" data-parsley-equalto="#password" />
                                 </div>
                             </div>
                             <br/>
