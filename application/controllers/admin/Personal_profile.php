@@ -17,7 +17,6 @@ class Personal_profile extends CI_Controller
 	{
 		parent::__construct();
         $this->load->model('Personal_profile_model');
-        $this->load->library('Debug_helper');
 	}
 
     public function view_personal_profile()

@@ -26,7 +26,7 @@ class User_model extends CI_Model
         return $query->row_array();
     }
 
-    public function get_by_user_id($user_id = FALSE)
+    public function get_by_id($user_id = FALSE)
     {
         $query = $this->db->get_where('user', array('user_id' => $user_id));
         return $query->row_array();

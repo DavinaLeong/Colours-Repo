@@ -95,7 +95,7 @@ class User extends CI_Controller
         $this->User_log_model->validate_access();
         $this->load->library('form_validation');
 
-        $user = $this->User_model->get_by_user_id($user_id);
+        $user = $this->User_model->get_by_id($user_id);
         if($user !== FALSE)
         {
             $this->_set_rules_edit_user($user);
@@ -163,7 +163,7 @@ class User extends CI_Controller
     public function view_user($user_id)
     {
         $this->User_log_model->validate_access();
-        $user = $this->User_model->get_by_user_id($user_id);
+        $user = $this->User_model->get_by_id($user_id);
         if($user !== FALSE)
         {
             $user['access_str'] = $this->User_model->_get_access_array()[$user['access']];
@@ -182,7 +182,7 @@ class User extends CI_Controller
     public function reset_password($user_id)
     {
         $this->User_log_model->validate_access();
-        $user = $this->User_model->get_by_user_id($user_id);
+        $user = $this->User_model->get_by_id($user_id);
         if($user !== FALSE)
         {
             $this->load->library('form_validation');
