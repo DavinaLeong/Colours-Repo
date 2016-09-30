@@ -55,9 +55,11 @@
  *
  * @property Authenticate $Authenticate
  * @property User $User
+ * @property Personal_profile $Personal_profile
  *
  * @property User_log_model $User_log_model
  * @property User_model $User_model
+ * @property Personal_profile_model $Personal_profile_model
  */
 class CI_Controller {};
 class MY_Controller extends CI_Controller {};
@@ -106,8 +108,10 @@ class MY_Controller extends CI_Controller {};
  *
  * @property Authenticate $Authenticate
  * @property User $User
+ * @property Personal_profile $Personal_profile
  *
  * @property User_log_model $User_log_model
  * @property User_model $User_model
+ * @property Personal_profile_model $Personal_profile_model
  */
 class CI_Model {};

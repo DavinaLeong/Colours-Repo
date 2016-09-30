@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li class="active">Users</li>
             </ol>
 
-            <h1 class="page-header"><i class="fa fa-user fa-fw"></i> User Module</h1>
+            <h1 class="page-header"><i class="fa fa-users fa-fw"></i> User Module</h1>
             <h3><i class="fa fa-angle-right fa-fw"></i> Browse Users</h3>
             <p class="lead">Click on a row to view a User record.</p>
 

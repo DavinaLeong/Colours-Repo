@@ -14,8 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!--footer start-->
 <footer class="site-footer">
     <div class="text-center">
-        <?php $today = new DateTime('today', new DateTimeZone(DATE_TIME_ZONE)); ?>
-        <?= $today->format('Y'); ?> &#8226; Colour Repo
+        <?= $this->datetime_helper->today('Y'); ?> &#8226; Colour Repo
         <a href="blank.html#" class="go-top">
             <i class="fa fa-angle-up"></i>
         </a>

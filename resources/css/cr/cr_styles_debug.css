@@ -1,0 +1,30 @@
+/**********************************************************************************
+	- File Info -
+		File name		: cr_styles_debug.css
+		Author(s)		: DAVINA Leong Shi Yun
+		Date Created	: 30th Sep 2016
+
+	- Contact Info -
+		Email	: leong.shi.yun@gmail.com
+		Mobile	: (+65) 9369 3752 [Singapore]
+
+    Description:
+        This stylesheet is used for debugging styles.
+
+***********************************************************************************/
+* {
+    border: thin dotted #00f;
+}
+
+div, p, form,
+h1, h2, h3, h4, h5, h6 {
+    border-color: #080;
+}
+
+span, button, strong, em, i, b {
+    border-color: #c00;
+}
+
+nav, header, section, blockquote {
+    border-color: #000;
+}

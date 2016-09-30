@@ -17,7 +17,6 @@ class User extends CI_Controller
 	{
 		parent::__construct();
         $this->load->model('User_model');
-        $this->load->library('debug_helper');
 	}
 
     public function browse_user()
