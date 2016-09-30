@@ -35,12 +35,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li class="active">Home</li>
             </ol>
 
-            <h1><i class="fa fa-dashboard fa-fw"></i> Welcome to <strong>Colour Repo</strong></h1>
+            <h1><i class="fa fa-dashboard fa-fw"></i> Welcome, <strong><?= $this->session->userdata('name'); ?></strong></h1>
+            <p><small>Today: <?= $this->datetime_helper->now('r'); ?></small></p>
             <div class="row mt">
                 <div class="col-lg-12">
                     <?php $this->load->view('admin/_snippets/message_box'); ?>
 
-                    <p>This serves as a storage for </p>
+                    <p>Click on the links on the sidebar to the left to begin.</p>
+                    <p><strong>Colour Repo</strong> serves as a database of commonly used colours like Web Safe colours, 'Paint' colours, etc.</p>
                 </div>
             </div>
 
