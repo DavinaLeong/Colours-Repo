@@ -42,9 +42,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
 
-            <p class="centered"><a href="#"><img src="<?=RESOURCES_FOLDER;?>img/cr_img/webpage_icon.png" alt="Website Logo" height="60px" /></a></p>
-            <h5 class="centered"><?=$this->session->userdata('name');?></h5>
-            <h6 class="centered"><?=$this->session->userdata('username');?></h6>
+            <div id="profile_anchor" class="cr-clickable"
+                 onClick="location.href= '<?=site_url('admin/personal_profile/view_personal_profile');?>'">
+                <p class="centered"><img src="<?=RESOURCES_FOLDER;?>img/cr_img/webpage_icon.png"
+                                         alt="Website Logo" height="60px" /></p>
+                <h5 class="centered"><?=$this->session->userdata('name');?></h5>
+                <h6 class="centered"><?=$this->session->userdata('username');?></h6>
+            </div>
 
             <li class="mt">
                 <a href="<?= site_url(ADMIN_HOME_URL); ?>">
@@ -55,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <li class="sub-menu">
                 <a href="javascript:;" >
-                    <i class="fa fa-user"></i>
+                    <i class="fa fa-users"></i>
                     <span>Users</span>
                 </a>
                 <ul class="sub">

@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li class="active">Edit User</li>
             </ol>
 
-            <h1 class="page-header"><i class="fa fa-user fa-fw"></i> User Module</h1>
+            <h1 class="page-header"><i class="fa fa-users fa-fw"></i> User Module</h1>
             <h3><i class="fa fa-angle-right fa-fw"></i> Edit User</h3>
 
             <div class="row mt">
