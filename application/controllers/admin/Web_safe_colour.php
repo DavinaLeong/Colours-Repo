@@ -30,7 +30,13 @@ class Web_safe_colour extends CI_Controller
 
 	public function new_web_safe_colour()
 	{
-		$this->debug_helper->_error_page_not_implemented('new_web_safe_colour');
+		$this->User_log_model->validate_access();
+		$this->load->library('form_validation');
+
+		$data = array(
+			'colour_type_options' => $this->Web_safe_colour_model->_get_colour_types_array()
+		);
+		$this->load->view('admin/web_safe_colour/new_web_safe_colour_page', $data);
 	}
 
 	private function _set_rules_new_web_safe_colour()

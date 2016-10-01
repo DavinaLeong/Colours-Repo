@@ -59,59 +59,64 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                         <form id="edit_user_form" class="form-horizontal" method="post" data-parsley-validate>
 
-                            <div class="form-group">
-                                <label class="col-md-2 control-label"
-                                       for="username">Username <span class="text-danger">*</span></label>
-                                <div class="col-md-10">
-                                    <input class="form-control" type="text" id="username" name="username" placeholder="Username"
-                                           required maxlength="512" value="<?=set_value('username', $user['username']);?>" />
+                            <fieldset>
+                                <legend>Username &amp; Name</legend>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label"
+                                           for="username">Username <span class="text-danger">*</span></label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="text" id="username" name="username" placeholder="Username"
+                                               required maxlength="512" data-parsley-type="alphanum"
+                                               value="<?=set_value('username', $user['username']);?>" />
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label class="col-md-2 control-label"
-                                       for="name">Name <span class="text-danger">*</span></label>
-                                <div class="col-md-10">
-                                    <input class="form-control" type="text" id="name" name="name" placeholder="Name"
-                                           required maxlength="512" value="<?=set_value('name', $user['name']);?>" />
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label"
+                                           for="name">Name <span class="text-danger">*</span></label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="text" id="name" name="name" placeholder="Name"
+                                               required maxlength="512" value="<?=set_value('name', $user['name']);?>" />
+                                    </div>
                                 </div>
-                            </div>
-                            <br/>
+                            </fieldset>
 
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-2">
                                     <a id="reset_password_btn" class="btn btn-default btn-default-border" href="<?=site_url('admin/user/reset_password/' . $user['user_id']); ?>"><i class="fa fa-key fa-fw"></i> Reset Password</a>
                                 </div>
                             </div>
-                            <br/>
 
-                            <div class="form-group">
-                                <label class="col-md-2 control-label" for="access">Access <span class="text-danger">*</span></label>
-                                <div class="col-md-10">
-                                    <select class="form-control" id="access" name="access" required>
-                                        <option value="" id="access_none">&nbsp;</option>
-                                        <?php foreach($access_options as $key=>$option): ?>
-                                        <option value="<?=$key;?>" id="access_<?=$key;?>"
-                                            <?=set_select('access', $option, ($user['access'] == $key));?>
-                                            ><?=$option;?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-md-2 control-label" for="status">Status <span class="text-danger">*</span></label>
-                                <div class="col-md-10">
-                                    <select class="form-control" id="status" name="status" required>
-                                        <option value="" id="status_none">&nbsp;</option>
-                                        <?php foreach($status_options as $key=>$option): ?>
-                                            <option value="<?=$option;?>" id="status_<?=$key;?>"
-                                                <?=set_select('status', $option, ($user['status'] == $option));?>
+                            <fieldset>
+                                <legend>Admin</legend>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="access">Access <span class="text-danger">*</span></label>
+                                    <div class="col-md-10">
+                                        <select class="form-control" id="access" name="access" required>
+                                            <option value="" id="access_none">&nbsp;</option>
+                                            <?php foreach($access_options as $key=>$option): ?>
+                                                <option value="<?=$key;?>" id="access_<?=$key;?>"
+                                                    <?=set_select('access', $option, ($user['access'] == $key));?>
                                                 ><?=$option;?></option>
-                                        <?php endforeach; ?>
-                                    </select>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="status">Status <span class="text-danger">*</span></label>
+                                    <div class="col-md-10">
+                                        <select class="form-control" id="status" name="status" required>
+                                            <option value="" id="status_none">&nbsp;</option>
+                                            <?php foreach($status_options as $key=>$option): ?>
+                                                <option value="<?=$option;?>" id="status_<?=$key;?>"
+                                                    <?=set_select('status', $option, ($user['status'] == $option));?>
+                                                ><?=$option;?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </fieldset>
 
                             <div class="form-group">
                                 <label class="col-md-2 control-label">Last Updated</label>

@@ -17,6 +17,12 @@
     list-style-type: none;
 }
 
+.cr-content-panel-header {
+    margin-top: 0;
+    padding-bottom: 5px;
+    border-bottom: thin dotted #999;
+}
+
 .page-header {
     border-bottom: dotted thin #ccc;
 }

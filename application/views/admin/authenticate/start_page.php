@@ -42,7 +42,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <?php $this->load->view('admin/_snippets/message_box'); ?>
 
                     <div class="content-panel">
-                        <h3><i class="fa fa-angle-right fa-fw"></i> About this Repo</h3>
+                        <h3 class="cr-content-panel-header"><i class="fa fa-angle-right fa-fw"></i> Status</h3>
+                        <div class="alert alert-danger">
+                            <h4 style="font-weight: bold;"><i class="fa fa-times-circle-o fa-fw"></i> Alpha</h4>
+                            <p>Repo not ready</p>
+                        </div>
+                    </div>
+                    <br/>
+
+                    <div class="content-panel">
+                        <h3 class="cr-content-panel-header"><i class="fa fa-angle-right fa-fw"></i> About this Repo</h3>
                         <p>Click on the links on the sidebar to the left to begin.</p>
                         <p><strong>Colour Repo</strong> serves as a database of commonly used colours like Web Safe colours,
                             'Paint' colours, etc.</p>
@@ -50,23 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <br/>
 
                     <div class="content-panel">
-                        <h3><i class="fa fa-angle-right fa-fw"></i> Status</h3>
-                        <div class="alert alert-danger">
-                            <h4 style="font-weight: bold;"><i class="fa fa-times-circle-o fa-fw"></i> Alpha</h4>
-                            <p>Repo not ready</p>
-                        </div>
-
-                        <p><i class="fa fa-tasks fa-fw"></i> Functions:</p>
-                        <?php
-                        /* Copy & Paste
-                         * class="text-success"
-                         * <i class="fa fa-check-circle fa-fw"></i>
-                         * <i class="fa fa-check fa-fw"></i>
-                         * class="text-danger"
-                         * <i class="fa fa-times-circle fa-fw"></i>
-                         * <i class="fa fa-times fa-fw"></i>
-                         */
-                        ?>
+                        <h3 class="cr-content-panel-header"><i class="fa fa-angle-right fa-fw"></i> Tasks</h3>
                         <ol class="cr-no-bullets">
                             <li class="text-danger"><i class="fa fa-times fa-fw"></i> Site Template</li>
                             <li class="text-success"><i class="fa fa-check fa-fw"></i> Login Screen</li>

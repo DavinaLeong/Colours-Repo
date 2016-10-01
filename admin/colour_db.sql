@@ -1,5 +1,5 @@
 -- --------------------------------------------------------
--- Host:                         localhost
+-- Host:                         127.0.0.1
 -- Server version:               5.7.9 - MySQL Community Server (GPL)
 -- Server OS:                    Win64
 -- HeidiSQL Version:             9.3.0.4984
@@ -10,7 +10,14 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
+-- Dumping database structure for colours_db
+DROP DATABASE IF EXISTS `colours_db`;
+CREATE DATABASE IF NOT EXISTS `colours_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `colours_db`;
+
+
 -- Dumping structure for table colours_db.ci_sessions
+DROP TABLE IF EXISTS `ci_sessions`;
 CREATE TABLE IF NOT EXISTS `ci_sessions` (
   `id` varchar(40) NOT NULL,
   `ip_address` varchar(45) NOT NULL,
@@ -158,6 +165,7 @@ INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 
 
 -- Dumping structure for table colours_db.user
+DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(512) DEFAULT NULL,
@@ -177,15 +185,16 @@ INSERT INTO `user` (`user_id`, `username`, `password_hash`, `name`, `access`, `s
 
 
 -- Dumping structure for table colours_db.user_log
+DROP TABLE IF EXISTS `user_log`;
 CREATE TABLE IF NOT EXISTS `user_log` (
   `ulid` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) DEFAULT NULL,
   `message` text,
   `timestamp` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`ulid`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
--- Dumping data for table colours_db.user_log: 0 rows
+-- Dumping data for table colours_db.user_log: 16 rows
 /*!40000 ALTER TABLE `user_log` DISABLE KEYS */;
 INSERT INTO `user_log` (`ulid`, `user_id`, `message`, `timestamp`) VALUES
 	(1, 1, 'User logged in.', '2016-09-28 11:25:50'),
@@ -195,30 +204,40 @@ INSERT INTO `user_log` (`ulid`, `user_id`, `message`, `timestamp`) VALUES
 	(5, 1, 'User logged in.', '2016-09-28 11:34:21'),
 	(6, 1, 'User is logged out.', '2016-09-28 11:44:12'),
 	(7, 1, 'User logged in.', '2016-09-28 11:49:41'),
-	(8, 1, 'User is logged out.', '2016-09-28 11:57:35');
+	(8, 1, 'User is logged out.', '2016-09-28 11:57:35'),
+	(9, 1, 'User logged in.', '2016-09-30 22:31:29'),
+	(10, 1, 'User is logged out.', '2016-10-01 00:01:11'),
+	(11, 1, 'User logged in.', '2016-10-01 01:09:56'),
+	(12, 1, 'User logged in.', '2016-10-01 23:08:10'),
+	(13, 1, 'User is logged out.', '2016-10-01 23:36:59'),
+	(14, 1, 'User logged in.', '2016-10-02 01:25:28'),
+	(15, 1, 'User is logged out.', '2016-10-02 01:58:37'),
+	(16, 1, 'User logged in.', '2016-10-02 02:20:11');
 /*!40000 ALTER TABLE `user_log` ENABLE KEYS */;
 
 
--- Dumping structure for table colours_db.web_safe_colours
-CREATE TABLE IF NOT EXISTS `web_safe_colours` (
-  `web_safe_colours_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `web_colour_name` varchar(128) DEFAULT NULL,
-  `web_colour_selector` varchar(128) DEFAULT NULL,
+-- Dumping structure for table colours_db.web_safe_colour
+DROP TABLE IF EXISTS `web_safe_colour`;
+CREATE TABLE IF NOT EXISTS `web_safe_colour` (
+  `colour_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `colour_name` varchar(512) DEFAULT NULL,
+  `colour_selector` varchar(512) DEFAULT NULL,
   `red_255` int(10) unsigned DEFAULT NULL,
   `green_255` int(10) unsigned DEFAULT NULL,
   `blue_255` int(10) unsigned DEFAULT NULL,
   `red_percentage` decimal(10,3) unsigned DEFAULT NULL,
-  `greeen_percentage` decimal(10,3) unsigned DEFAULT NULL,
+  `green_percentage` decimal(10,3) unsigned DEFAULT NULL,
   `blue_percentage` decimal(10,3) unsigned DEFAULT NULL,
   `hex` varchar(7) DEFAULT NULL,
+  `color_type` varchar(512) DEFAULT NULL,
   `date_added` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `last_updated` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`web_safe_colours_id`)
+  PRIMARY KEY (`colour_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
--- Dumping data for table colours_db.web_safe_colours: 0 rows
-/*!40000 ALTER TABLE `web_safe_colours` DISABLE KEYS */;
-/*!40000 ALTER TABLE `web_safe_colours` ENABLE KEYS */;
+-- Dumping data for table colours_db.web_safe_colour: 0 rows
+/*!40000 ALTER TABLE `web_safe_colour` DISABLE KEYS */;
+/*!40000 ALTER TABLE `web_safe_colour` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -45,7 +45,8 @@ class Web_safe_colour_model extends CI_Model
                 'red_percentage' => $web_safe_colour['red_percentage'],
                 'green_percentage' => $web_safe_colour['green_percentage'],
                 'blue_percentage' => $web_safe_colour['blue_percentage'],
-                'hex' => $web_safe_colour['hex']
+                'hex' => $web_safe_colour['hex'],
+                'colour_type' => $web_safe_colour['colour_type']
             );
 
             $this->db->set('date_added', $this->datetime_helper->now('c'));
@@ -73,7 +74,8 @@ class Web_safe_colour_model extends CI_Model
                 'red_percentage' => $web_safe_colour['red_percentage'],
                 'green_percentage' => $web_safe_colour['green_percentage'],
                 'blue_percentage' => $web_safe_colour['blue_percentage'],
-                'hex' => $web_safe_colour['hex']
+                'hex' => $web_safe_colour['hex'],
+                'colour_type' => $web_safe_colour['colour_type']
             );
 
             $this->db->set('last_updated', $this->datetime_helper->now('c'));
@@ -108,6 +110,14 @@ class Web_safe_colour_model extends CI_Model
             $id_array[] = $colour['colour_id'];
         }
         return $id_array;
+    }
+
+    public function _get_colour_types_array()
+    {
+        return array(
+            'Default',
+            'Others'
+        );
     }
 
 } // end Web_safe_colours_model class
