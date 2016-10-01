@@ -42,9 +42,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <?php $this->load->view('admin/_snippets/message_box'); ?>
 
                     <div class="content-panel">
-                        <h2>About this Repo</h2>
+                        <h3><i class="fa fa-angle-right fa-fw"></i> About this Repo</h3>
                         <p>Click on the links on the sidebar to the left to begin.</p>
-                        <p><strong>Colour Repo</strong> serves as a database of commonly used colours like Web Safe colours, 'Paint' colours, etc.</p>
+                        <p><strong>Colour Repo</strong> serves as a database of commonly used colours like Web Safe colours,
+                            'Paint' colours, etc.</p>
+                    </div>
+                    <br/>
+
+                    <div class="content-panel">
+                        <h3><i class="fa fa-angle-right fa-fw"></i> Status</h3>
+                        <div class="alert alert-danger">
+                            <h4 style="font-weight: bold;"><i class="fa fa-times-circle-o fa-fw"></i> Alpha</h4>
+                            <p>Repo not ready</p>
+                        </div>
+
+                        <p><i class="fa fa-tasks fa-fw"></i> Functions:</p>
+                        <?php
+                        /* Copy & Paste
+                         * class="text-success"
+                         * <i class="fa fa-check-circle fa-fw"></i>
+                         * <i class="fa fa-check fa-fw"></i>
+                         * class="text-danger"
+                         * <i class="fa fa-times-circle fa-fw"></i>
+                         * <i class="fa fa-times fa-fw"></i>
+                         */
+                        ?>
+                        <ol class="cr-no-bullets">
+                            <li class="text-danger"><i class="fa fa-times fa-fw"></i> Site Template</li>
+                            <li class="text-success"><i class="fa fa-check fa-fw"></i> Login Screen</li>
+                            <li class="text-success"><i class="fa fa-check fa-fw"></i> User Module
+                                <ol class="cr-no-bullets">
+                                    <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> Browse Users</li>
+                                    <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> New User</li>
+                                    <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> View User</li>
+                                    <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> Edit User</li>
+                                    <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> Reset User</li>
+                                </ol>
+                            </li>
+                            <li class="text-success"><i class="fa fa-check fa-fw"></i> Personal Profile Module
+                                <ol class="cr-no-bullets">
+                                    <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> View Personal Profile</li>
+                                    <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> Edit Personal Profile</li>
+                                    <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> Change Password</li>
+                                </ol>
+                            </li>
+                            <li class="text-danger"><i class="fa fa-times fa-fw"></i> Web Safe Colours Module
+                                <ol class="cr-no-bullets">
+                                    <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> Browse Web Safe Colours</li>
+                                    <li class="text-danger"><i class="fa fa-times-circle fa-fw"></i> New Web Safe Colour (RGB Values)</li>
+                                    <li class="text-danger"><i class="fa fa-times-circle fa-fw"></i> New Web Safe Colour (Colour Picker)</li>
+                                    <li class="text-danger"><i class="fa fa-times-circle fa-fw"></i> View Web Safe Colour</li>
+                                    <li class="text-danger"><i class="fa fa-times-circle fa-fw"></i> Edit Web Safe Colour (RGB Values)</li>
+                                    <li class="text-danger"><i class="fa fa-times-circle fa-fw"></i> Edit Web Safe Colour (Colour Picker)</li>
+                                    <li class="text-danger"><i class="fa fa-times-circle fa-fw"></i> Delete Web Safe Colour</li>
+                                </ol>
+                            </li>
+                        </ol>
                     </div>
                 </div>
             </div>

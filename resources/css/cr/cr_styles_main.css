@@ -13,6 +13,10 @@
     cursor: pointer;
 }
 
+.cr-no-bullets {
+    list-style-type: none;
+}
+
 .page-header {
     border-bottom: dotted thin #ccc;
 }
