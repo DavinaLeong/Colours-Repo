@@ -38,11 +38,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <ol class="breadcrumb">
                 <li><a href="<?=site_url(ADMIN_HOME_URL);?>">Home</a></li>
                 <li><a href="<?=site_url('admin/web_safe_colour/browse_web_safe_colour');?>">Web Safe Colours</a></li>
-                <li class="active">New Web Safe Colour</li>
+                <li class="active">New Web Safe Colour (Colour Values)</li>
             </ol>
 
             <h1 class="page-header"><i class="fa fa-globe fa-fw"></i> Web Safe Colours Module</h1>
-            <h3><i class="fa fa-angle-right fa-fw"></i> New Web Safe Colour</h3>
+            <h3><i class="fa fa-angle-right fa-fw"></i> New Web Safe Colour (Colour Values)</h3>
 
             <div class="row mt">
                 <div class="col-lg-12">
@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         Name <span class="text-danger">*</span></label>
                                     <div class="col-md-10">
                                         <input class="form-control" type="text" id="colour_name" name="colour_name"
-                                               placeholder="Name" required maxlength="512" value="<?=set_value('colour_name');?>" />
+                                               placeholder="Name" required minlength="3" maxlength="512" value="<?=set_value('colour_name');?>" />
                                     </div>
                                 </div>
 
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         Selector <span class="text-danger">*</span></label>
                                     <div class="col-md-10">
                                         <input class="form-control" type="text" id="colour_selector" name="colour_selector"
-                                               placeholder="Name" required maxlength="512" data-parsley-type="alphanum"
+                                               placeholder="Name" required minlength="3" maxlength="512" data-parsley-type="alphanum"
                                                value="<?=set_value('colour_selector');?>" />
                                     </div>
                                 </div>
