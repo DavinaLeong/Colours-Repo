@@ -192,9 +192,9 @@ CREATE TABLE IF NOT EXISTS `user_log` (
   `message` text,
   `timestamp` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`ulid`)
-) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
--- Dumping data for table colours_db.user_log: 16 rows
+-- Dumping data for table colours_db.user_log: 20 rows
 /*!40000 ALTER TABLE `user_log` DISABLE KEYS */;
 INSERT INTO `user_log` (`ulid`, `user_id`, `message`, `timestamp`) VALUES
 	(1, 1, 'User logged in.', '2016-09-28 11:25:50'),
@@ -212,7 +212,15 @@ INSERT INTO `user_log` (`ulid`, `user_id`, `message`, `timestamp`) VALUES
 	(13, 1, 'User is logged out.', '2016-10-01 23:36:59'),
 	(14, 1, 'User logged in.', '2016-10-02 01:25:28'),
 	(15, 1, 'User is logged out.', '2016-10-02 01:58:37'),
-	(16, 1, 'User logged in.', '2016-10-02 02:20:11');
+	(16, 1, 'User logged in.', '2016-10-02 02:20:11'),
+	(17, 1, 'User is logged out.', '2016-10-02 03:58:12'),
+	(18, 1, 'User logged in.', '2016-10-02 13:15:50'),
+	(19, 1, 'User logged in.', '2016-10-02 18:21:04'),
+	(20, 1, 'User logged in.', '2016-10-02 22:55:02'),
+	(21, 1, 'New Web Safe Colour CREATED. | colour_id: 1', '2016-10-02 23:15:03'),
+	(22, 1, 'New Web Safe Colour CREATED. | colour_id: 2', '2016-10-02 23:19:09'),
+	(23, 1, 'New Web Safe Colour CREATED. | colour_id: 3', '2016-10-02 23:19:54'),
+	(24, 1, 'User is logged out.', '2016-10-02 23:20:13');
 /*!40000 ALTER TABLE `user_log` ENABLE KEYS */;
 
 
@@ -229,14 +237,18 @@ CREATE TABLE IF NOT EXISTS `web_safe_colour` (
   `green_percentage` decimal(10,3) unsigned DEFAULT NULL,
   `blue_percentage` decimal(10,3) unsigned DEFAULT NULL,
   `hex` varchar(7) DEFAULT NULL,
-  `color_type` varchar(512) DEFAULT NULL,
+  `colour_type` varchar(512) DEFAULT NULL,
   `date_added` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `last_updated` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`colour_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- Dumping data for table colours_db.web_safe_colour: 0 rows
 /*!40000 ALTER TABLE `web_safe_colour` DISABLE KEYS */;
+INSERT INTO `web_safe_colour` (`colour_id`, `colour_name`, `colour_selector`, `red_255`, `green_255`, `blue_255`, `red_percentage`, `green_percentage`, `blue_percentage`, `hex`, `colour_type`, `date_added`, `last_updated`) VALUES
+	(1, 'Black', 'Black', 0, 0, 0, 0.000, 0.000, 0.000, '#000000', 'Default', '2016-10-02 23:15:03', '2016-10-02 23:15:03'),
+	(2, 'White', 'White', 255, 255, 255, 1.000, 1.000, 1.000, '#FFFFFF', 'Default', '2016-10-02 23:19:09', '2016-10-02 23:19:09'),
+	(3, 'Red', 'Red', 255, 0, 0, 1.000, 0.000, 0.000, '#FF0000', 'Default', '2016-10-02 23:19:54', '2016-10-02 23:19:54');
 /*!40000 ALTER TABLE `web_safe_colour` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
