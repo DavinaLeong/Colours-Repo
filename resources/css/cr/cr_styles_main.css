@@ -23,6 +23,12 @@
     border-bottom: thin dotted #999;
 }
 
+.cr-colour-bar {
+    min-height: 20px;
+    border: thin solid #ccc;
+    min-width: 50px;
+}
+
 .page-header {
     border-bottom: dotted thin #ccc;
 }

@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <th>Name</th>
                                 <th>Selector</th>
                                 <th>Hex</th>
-                                <th style="width: 20%;">Colour</th>
+                                <th style="width: 10%;">Colour</th>
                                 <th>Last Updated</th>
                             </tr>
                             </thead>
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <td><?= $colour['colour_name']; ?></td>
                                     <td><?= $colour['colour_selector']; ?></td>
                                     <td><?= $colour['hex']; ?></td>
-                                    <td style="width: 20%; background: <?=$colour['hex']; ?>;">&nbsp;</td>
+                                    <td style="border: thin solid #ccc; width: 10%; background: <?=$colour['hex']; ?>;">&nbsp;</td>
                                     <td><?= $this->datetime_helper->format_dd_mm_yyyy_dash($colour['last_updated']); ?></td>
                                 </tr>
                             <?php

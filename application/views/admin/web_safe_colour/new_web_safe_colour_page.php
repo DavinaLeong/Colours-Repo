@@ -132,7 +132,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </div>
 
                                         </div>
-                                        <span class="help-block">(0 &mdash; 255)</span>
+                                        <span class="help-block">(0&mdash;255)</span>
                                     </div>
                                 </div>
 
@@ -148,9 +148,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         R <span class="text-danger">*</span></label>
                                                     <div class="col-md-10">
                                                         <input class="form-control" type="number" step="0.01" id="red_percentage"
-                                                               name="red_percentage" placeholder="0" required min="0" max="1"
-                                                               data-parsley-pattern="<?=REGEX_PARSLEY_DECIMAL;?>"
-                                                               value="<?=set_value('red_percentage');?>" />
+                                                               name="red_percentage" placeholder="0.00" required min="0" max="1"
+                                                               data-parsley-type="number" value="<?=set_value('red_percentage');?>"
+                                                               onchange="format_decimal('#red_percentage')" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -161,9 +161,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         G <span class="text-danger">*</span></label>
                                                     <div class="col-md-10">
                                                         <input class="form-control" type="number" step="0.01" id="green_percentage"
-                                                               name="green_percentage" placeholder="0" required min="0" max="1"
-                                                               data-parsley-pattern="<?=REGEX_PARSLEY_DECIMAL;?>"
-                                                               value="<?=set_value('green_percentage');?>" />
+                                                               name="green_percentage" placeholder="0.00" required min="0" max="1"
+                                                               data-parsley-type="number" value="<?=set_value('green_percentage');?>"
+                                                               onchange="format_decimal('#green_percentage')" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -174,15 +174,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                         B <span class="text-danger">*</span></label>
                                                     <div class="col-md-10">
                                                         <input class="form-control" type="number" step="0.01" id="blue_percentage"
-                                                               name="blue_percentage" placeholder="0" required min="0" max="1"
-                                                               data-parsley-pattern="<?=REGEX_PARSLEY_DECIMAL;?>"
-                                                               value="<?=set_value('blue_percentage');?>" />
+                                                               name="blue_percentage" placeholder="0.00" required min="0" max="1"
+                                                               data-parsley-type="number" value="<?=set_value('blue_percentage');?>"
+                                                               onchange="format_decimal('#blue_percentage')" />
                                                     </div>
                                                 </div>
                                             </div>
 
                                         </div>
-                                        <span class="help-block">(0.00 &mdash; 1.00)</span>
+                                        <span class="help-block">(0.00&mdash;1.00)</span>
                                     </div>
                                 </div>
 
@@ -190,7 +190,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <label class="control-label col-md-2" for="hex">Hex <span class="text-danger">*</span></label>
                                     <div class="col-md-10">
                                         <input class="form-control" type="text" id="hex" name="hex" placeholder="#000000"
-                                               required maxlength="7" data-parsley-pattern="<?=REGEX_PARSLEY_DECIMAL;?>"
+                                               required maxlength="7" data-parsley-pattern="<?=REGEX_PARSLEY_COLOUR_HEX;?>"
                                                value="<?=set_value('hex');?>" />
                                     </div>
                                 </div>
@@ -220,5 +220,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <?php $this->load->view('admin/_snippets/body_resources'); ?>
 <script src="<?=RESOURCES_FOLDER;?>js/parsley.min.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>js/numeral.min.js"></script>
+<script>
+    function format_decimal(selector)
+    {
+        var val_numeral = numeral($(selector).val());
+        $(selector).val(val_numeral.format('0.00'));
+    }
+</script>
 </body>
 </html>

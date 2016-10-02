@@ -36,7 +36,6 @@ class Web_safe_colour_model extends CI_Model
         if($web_safe_colour !== FALSE)
         {
             $temp_array = array(
-                'colour_id' => $web_safe_colour['colour_id'],
                 'colour_name' => $web_safe_colour['colour_name'],
                 'colour_selector' => $web_safe_colour['colour_selector'],
                 'red_255' => $web_safe_colour['red_255'],
@@ -65,7 +64,6 @@ class Web_safe_colour_model extends CI_Model
         if($web_safe_colour !== FALSE)
         {
             $temp_array = array(
-                'colour_id' => $web_safe_colour['colour_id'],
                 'colour_name' => $web_safe_colour['colour_name'],
                 'colour_selector' => $web_safe_colour['colour_selector'],
                 'red_255' => $web_safe_colour['red_255'],

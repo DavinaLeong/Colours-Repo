@@ -61,11 +61,45 @@ class Web_safe_colour extends CI_Controller
 		$this->form_validation->set_rules('colour_selector', 'Selector', 'trim|required|alpha_dash|min_length[3]|max_length[512]');
 		$colour_types_str = implode(',', $this->Web_safe_colour_model->_get_colour_types_array());
 		$this->form_validation->set_rules('colour_type', 'Colour Type', 'trim|required|in_list[' . $colour_types_str .']|max_length[512]');
+
+		// RGB 0 - 255
+		$this->form_validation->set_rules('red_255', 'R (0-255)' ,
+			'trim|required|is_natural|greater_than_equal_to[0]|less_than_equal_to[255]');
+		$this->form_validation->set_rules('green_255', 'G (0-255)' ,
+			'trim|required|is_natural|greater_than_equal_to[0]|less_than_equal_to[255]');
+		$this->form_validation->set_rules('blue_255', 'B (0-255)' ,
+			'trim|required|is_natural|greater_than_equal_to[0]|less_than_equal_to[255]');
+
+		// RGB 0.00 - 1.00
+		$this->form_validation->set_rules('red_percentage', 'R (0.00-1.00)' ,
+			'trim|required|decimal|greater_than_equal_to[0.00]|less_than_equal_to[1.00]');
+		$this->form_validation->set_rules('green_percentage', 'G (0.00-1.00)' ,
+			'trim|required|decimal|greater_than_equal_to[0.00]|less_than_equal_to[1.00]');
+		$this->form_validation->set_rules('blue_percentage', 'B (0.00-1.00)' ,
+			'trim|required|decimal|greater_than_equal_to[0.00]|less_than_equal_to[1.00]');
+
+		$this->form_validation->set_rules('hex', 'Hex', 'trim|required|regex_match[' . REGEX_COLOUR_HEX . ']');
 	}
 
 	private function _prepare_new_web_safe_colour_array()
 	{
-		$this->debug_helper->_error_not_implemented('_prepare_new_web_safe_colour_array');
+		$colour = array();
+
+		$colour['colour_name'] = $this->input->post('colour_name');
+		$colour['colour_selector'] = $this->input->post('colour_selector');
+		$colour['colour_type'] = $this->input->post('colour_type');
+
+		$colour['red_255'] = $this->input->post('red_255');
+		$colour['green_255'] = $this->input->post('green_255');
+		$colour['blue_255'] = $this->input->post('blue_255');
+
+		$colour['red_percentage'] = $this->input->post('red_percentage');
+		$colour['green_percentage'] = $this->input->post('green_percentage');
+		$colour['blue_percentage'] = $this->input->post('blue_percentage');
+
+		$colour['hex'] = strtoupper($this->input->post('hex'));
+
+		return $colour;
 	}
 
 	public function view_web_safe_colour($colour_id=FALSE)
