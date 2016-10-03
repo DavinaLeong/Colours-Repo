@@ -104,7 +104,22 @@ class Web_safe_colour extends CI_Controller
 
 	public function view_web_safe_colour($colour_id=FALSE)
 	{
-		$this->debug_helper->_error_page_not_implemented('view_web_safe_colour');
+		$this->User_log_model->validate_access();
+        $colour = $this->Web_safe_colour_model->get_by_id($colour_id);
+        if($colour !== FALSE)
+        {
+            $data = array(
+                'colour' => $colour,
+                'web_safe_colours' => $this->Web_safe_colour_model->get_all()
+            );
+
+            $this->load->view('admin/web_safe_colour/view_web_safe_colour_page', $data);
+        }
+        else
+        {
+            $this->session->set_userdata('message', 'Web Safe Colour not found.');
+            redirect('admin/web_safe_colour/browse_web_safe_colour');
+        }
 	}
 
 	public function edit_web_safe_colour($colour_id=FALSE)

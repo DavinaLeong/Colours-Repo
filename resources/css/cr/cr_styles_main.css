@@ -29,6 +29,13 @@
     min-width: 50px;
 }
 
+.cr-colour-row > .cr-colour-col {
+    height: 50px;
+    text-align: center;
+    padding-top: 15px;
+    border: thin solid #ccc;
+}
+
 .page-header {
     border-bottom: dotted thin #ccc;
 }

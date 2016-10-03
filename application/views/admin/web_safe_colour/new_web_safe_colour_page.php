@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	- File Info -
 		File name		: new_web_safe_colour.php
 		Author(s)		: DAVINA Leong Shi Yun
-		Date Created	: 30th Sep 2016
+		Date Created	: 01 Oct 2016
 
 	- Contact Info -
 		Email	: leong.shi.yun@gmail.com
