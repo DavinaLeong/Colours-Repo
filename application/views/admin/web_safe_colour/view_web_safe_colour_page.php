@@ -125,9 +125,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <label class="control-label col-md-2">RGB<br/>(0.00-1.00)</label>
                                     <div class="col-md-10">
                                         <p class="form-control-static">
-                                            <p id="red_percentage" class="cr-red">R: <?=$colour['red_percentage'];?></p>
-                                            <p id="green_percentage" class="cr-green">G: <?=$colour['green_percentage'];?></p>
-                                            <p id="blue_percentage" class="cr-blue">B: <?=$colour['blue_percentage'];?></p>
+                                            <p id="red_ratio" class="cr-red">R: <?=$colour['red_ratio'];?></p>
+                                            <p id="green_ratio" class="cr-green">G: <?=$colour['green_ratio'];?></p>
+                                            <p id="blue_ratio" class="cr-blue">B: <?=$colour['blue_ratio'];?></p>
                                         </p>
                                     </div>
                                 </div>
@@ -136,6 +136,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <label class="control-label col-md-2" for="hex">Hex</label>
                                     <div class="col-md-10">
                                         <p id="hex" class="form-control-static"><?= $colour['hex']; ?></p>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend>Dates</legend>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="date_added">Date Added</label>
+                                    <div class="col-md-10">
+                                        <p id="date_added" class="form-control-static">
+                                            <?= $this->datetime_helper->format_dd_mmm_yyyy_space($colour['date_added']) ;?>
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-2" for="last_updated">Last Updated</label>
+                                    <div class="col-md-10">
+                                        <p id="last_updated" class="form-control-static">
+                                            <?= $this->datetime_helper->format_internet_standard($colour['last_updated']) ;?>
+                                        </p>
                                     </div>
                                 </div>
                             </fieldset>

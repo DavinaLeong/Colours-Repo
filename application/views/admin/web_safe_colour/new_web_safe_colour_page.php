@@ -144,39 +144,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-2" for="red_percentage">
+                                                    <label class="control-label col-md-2" for="red_ratio">
                                                         R <span class="text-danger">*</span></label>
                                                     <div class="col-md-10">
-                                                        <input class="form-control" type="number" step="0.01" id="red_percentage"
-                                                               name="red_percentage" placeholder="0.00" required min="0" max="1"
-                                                               data-parsley-type="number" value="<?=set_value('red_percentage');?>"
-                                                               onchange="format_decimal('#red_percentage')" />
+                                                        <input class="form-control" type="number" step="0.01" id="red_ratio"
+                                                               name="red_ratio" placeholder="0.00" required min="0" max="1"
+                                                               data-parsley-type="number" value="<?=set_value('red_ratio');?>"
+                                                               onchange="format_decimal('#red_ratio')" />
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-2" for="green_percentage">
+                                                    <label class="control-label col-md-2" for="green_ratio">
                                                         G <span class="text-danger">*</span></label>
                                                     <div class="col-md-10">
-                                                        <input class="form-control" type="number" step="0.01" id="green_percentage"
-                                                               name="green_percentage" placeholder="0.00" required min="0" max="1"
-                                                               data-parsley-type="number" value="<?=set_value('green_percentage');?>"
-                                                               onchange="format_decimal('#green_percentage')" />
+                                                        <input class="form-control" type="number" step="0.01" id="green_ratio"
+                                                               name="green_ratio" placeholder="0.00" required min="0" max="1"
+                                                               data-parsley-type="number" value="<?=set_value('green_ratio');?>"
+                                                               onchange="format_decimal('#green_ratio')" />
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="control-label col-md-2" for="blue_percentage">
+                                                    <label class="control-label col-md-2" for="blue_ratio">
                                                         B <span class="text-danger">*</span></label>
                                                     <div class="col-md-10">
-                                                        <input class="form-control" type="number" step="0.01" id="blue_percentage"
-                                                               name="blue_percentage" placeholder="0.00" required min="0" max="1"
-                                                               data-parsley-type="number" value="<?=set_value('blue_percentage');?>"
-                                                               onchange="format_decimal('#blue_percentage')" />
+                                                        <input class="form-control" type="number" step="0.01" id="blue_ratio"
+                                                               name="blue_ratio" placeholder="0.00" required min="0" max="1"
+                                                               data-parsley-type="number" value="<?=set_value('blue_ratio');?>"
+                                                               onchange="format_decimal('#blue_ratio')" />
                                                     </div>
                                                 </div>
                                             </div>

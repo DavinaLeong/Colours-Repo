@@ -41,9 +41,9 @@ class Web_safe_colour_model extends CI_Model
                 'red_255' => $web_safe_colour['red_255'],
                 'green_255' => $web_safe_colour['green_255'],
                 'blue_255' => $web_safe_colour['blue_255'],
-                'red_percentage' => $web_safe_colour['red_percentage'],
-                'green_percentage' => $web_safe_colour['green_percentage'],
-                'blue_percentage' => $web_safe_colour['blue_percentage'],
+                'red_ratio' => $web_safe_colour['red_ratio'],
+                'green_ratio' => $web_safe_colour['green_ratio'],
+                'blue_ratio' => $web_safe_colour['blue_ratio'],
                 'hex' => $web_safe_colour['hex'],
                 'colour_type' => $web_safe_colour['colour_type']
             );
@@ -69,9 +69,9 @@ class Web_safe_colour_model extends CI_Model
                 'red_255' => $web_safe_colour['red_255'],
                 'green_255' => $web_safe_colour['green_255'],
                 'blue_255' => $web_safe_colour['blue_255'],
-                'red_percentage' => $web_safe_colour['red_percentage'],
-                'green_percentage' => $web_safe_colour['green_percentage'],
-                'blue_percentage' => $web_safe_colour['blue_percentage'],
+                'red_ratio' => $web_safe_colour['red_ratio'],
+                'green_ratio' => $web_safe_colour['green_ratio'],
+                'blue_ratio' => $web_safe_colour['blue_ratio'],
                 'hex' => $web_safe_colour['hex'],
                 'colour_type' => $web_safe_colour['colour_type']
             );

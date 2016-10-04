@@ -71,11 +71,11 @@ class Web_safe_colour extends CI_Controller
 			'trim|required|is_natural|greater_than_equal_to[0]|less_than_equal_to[255]');
 
 		// RGB 0.00 - 1.00
-		$this->form_validation->set_rules('red_percentage', 'R (0.00-1.00)' ,
+		$this->form_validation->set_rules('red_ratio', 'R (0.00-1.00)' ,
 			'trim|required|decimal|greater_than_equal_to[0.00]|less_than_equal_to[1.00]');
-		$this->form_validation->set_rules('green_percentage', 'G (0.00-1.00)' ,
+		$this->form_validation->set_rules('green_ratio', 'G (0.00-1.00)' ,
 			'trim|required|decimal|greater_than_equal_to[0.00]|less_than_equal_to[1.00]');
-		$this->form_validation->set_rules('blue_percentage', 'B (0.00-1.00)' ,
+		$this->form_validation->set_rules('blue_ratio', 'B (0.00-1.00)' ,
 			'trim|required|decimal|greater_than_equal_to[0.00]|less_than_equal_to[1.00]');
 
 		$this->form_validation->set_rules('hex', 'Hex', 'trim|required|regex_match[' . REGEX_COLOUR_HEX . ']');
@@ -93,9 +93,9 @@ class Web_safe_colour extends CI_Controller
 		$colour['green_255'] = $this->input->post('green_255');
 		$colour['blue_255'] = $this->input->post('blue_255');
 
-		$colour['red_percentage'] = $this->input->post('red_percentage');
-		$colour['green_percentage'] = $this->input->post('green_percentage');
-		$colour['blue_percentage'] = $this->input->post('blue_percentage');
+		$colour['red_ratio'] = $this->input->post('red_ratio');
+		$colour['green_ratio'] = $this->input->post('green_ratio');
+		$colour['blue_ratio'] = $this->input->post('blue_ratio');
 
 		$colour['hex'] = strtoupper($this->input->post('hex'));
 
