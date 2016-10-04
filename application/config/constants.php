@@ -98,8 +98,8 @@ define('SYSTEM_DATE_FORMAT', 'd-m-Y');
 define('REGEX_SYSTEM_DATE', '/^[0-9]{2}-[0-9]{2}-[0-9]{4}$/');
 define('REGEX_DECIMAL', '/^\d+\.?\d+$/');
 define('REGEX_PARSLEY_DECIMAL', '^\d+\.?\d+$');
-define('REGEX_COLOUR_HEX', '/^#[0-9|a-f]{6}$/');
-define('REGEX_PARSLEY_COLOUR_HEX', '^#[0-9|a-f]{6}$');
+define('REGEX_COLOUR_HEX', '/^[#]{1}[0-9a-fA-F]{6}$/');
+define('REGEX_PARSLEY_COLOUR_HEX', '^[#]{1}[0-9a-fA-F]{6}$');
 
 define('ADMIN_LOGIN_URL', 'admin/authenticate/login');
 define('ADMIN_HOME_URL', 'admin/authenticate/start');

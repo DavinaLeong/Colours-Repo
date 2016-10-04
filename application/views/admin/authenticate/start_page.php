@@ -82,12 +82,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <li class="text-danger"><i class="fa fa-times fa-fw"></i> Web Safe Colours Module
                                 <ol class="cr-no-bullets">
                                     <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> Browse Web Safe Colours</li>
-                                    <li class="text-danger"><i class="fa fa-times-circle fa-fw"></i> New Web Safe Colour (RGB Values)</li>
+                                    <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> New Web Safe Colour (RGB Values)</li>
                                     <li class="text-danger"><i class="fa fa-times-circle fa-fw"></i> New Web Safe Colour (Colour Picker)</li>
-                                    <li class="text-danger"><i class="fa fa-times-circle fa-fw"></i> View Web Safe Colour</li>
-                                    <li class="text-danger"><i class="fa fa-times-circle fa-fw"></i> Edit Web Safe Colour (RGB Values)</li>
+                                    <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> View Web Safe Colour</li>
+                                    <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> Edit Web Safe Colour (RGB Values)</li>
                                     <li class="text-danger"><i class="fa fa-times-circle fa-fw"></i> Edit Web Safe Colour (Colour Picker)</li>
-                                    <li class="text-danger"><i class="fa fa-times-circle fa-fw"></i> Delete Web Safe Colour</li>
+                                    <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> Delete Web Safe Colour</li>
                                 </ol>
                             </li>
                         </ol>

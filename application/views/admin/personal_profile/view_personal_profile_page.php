@@ -48,9 +48,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         Action <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="<?=site_url('admin/personal_profile/edit_personal_profile');?>">
+                        <li><a id="edit_profile" href="<?=site_url('admin/personal_profile/edit_personal_profile');?>">
                                 <i class="fa fa-pencil-square-o fa-fw"></i> Edit Personal Profile</a></li>
-                        <li><a id="reset_password_btn" href="<?=site_url('admin/personal_profile/change_password/'); ?>">
+                        <li><a id="change_password" href="<?=site_url('admin/personal_profile/change_password/'); ?>">
                                 <i class="fa fa-key fa-fw"></i> Change Password</a></li>
                     </ul>
                 </div>

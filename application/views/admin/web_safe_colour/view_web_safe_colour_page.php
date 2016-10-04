@@ -14,6 +14,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /**
  * @var $colour
  * @var $web_safe_colours
+ * @var $modal_subject
+ * @var $delete_url
  */
 ?><!DOCTYPE html>
 <html lang="en">
@@ -55,7 +57,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </ol>
 
             <h1 class="page-header"><i class="fa fa-globe fa-fw"></i> Web Safe Colours Module</h1>
-            <h3><i class="fa fa-angle-right fa-fw"></i> Web Safe Colour ID: <?= $colour['colour_id']; ?></h3>
+            <h3><i class="fa fa-angle-right fa-fw"></i> Web Safe Colour ID: <?= $colour['colour_id']; ?>&nbsp;
+                <div id="action-dropdown" class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        Action <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a id="edit_record"
+                               href="<?=site_url('admin/web_safe_colour/edit_web_safe_colour/' . $colour['colour_id']); ?>">
+                                <i class="fa fa-pencil-square-o fa-fw"></i> Edit Web Safe Colour</a></li>
+                        <li><a id="delete_record" class="cr-clickable" data-toggle="modal" data-target="#delete_modal">
+                                <i class="fa fa-trash-o fa-fw"></i> Delete Web Safe Colour</a></li>
+                    </ul>
+                </div>
+            </h3>
 
             <div class="row mt">
                 <div class="col-lg-12">
@@ -223,6 +239,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                     </div>
+
+                    <?php $this->load->view('admin/_snippets/generic_delete_modal');?>
 
                 </div>
             </div>

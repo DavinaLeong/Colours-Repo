@@ -49,9 +49,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         Action <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="<?=site_url('admin/user/edit_user/' . $user['user_id']);?>">
+                        <li><a id="edit_record" href="<?=site_url('admin/user/edit_user/' . $user['user_id']);?>">
                                 <i class="fa fa-pencil-square-o fa-fw"></i> Edit User</a></li>
-                        <li><a id="reset_password_btn" href="<?=site_url('admin/user/reset_password/' . $user['user_id']); ?>">
+                        <li><a id="reset_password" href="<?=site_url('admin/user/reset_password/' . $user['user_id']); ?>">
                                 <i class="fa fa-key fa-fw"></i> Reset Password</a></li>
                     </ul>
                 </div>
