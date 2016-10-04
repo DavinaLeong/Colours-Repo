@@ -36,6 +36,17 @@
     border: thin solid #ccc;
 }
 
+.cr-foreground-sample,
+.cr-background-sample {
+    width: 100%;
+    height: 40%;
+    text-align: center;
+    border: thin dotted #ccc;
+    color: #000;
+    background-: #fff;
+    padding-top: 18%;
+}
+
 .page-header {
     border-bottom: dotted thin #ccc;
 }
