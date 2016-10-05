@@ -40,11 +40,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li><a href="<?=site_url(ADMIN_HOME_URL);?>">Home</a></li>
                 <li><a href="<?=site_url('admin/web_safe_colour/browse_web_safe_colour');?>">Web Safe Colours</a></li>
                 <li><a href="<?=site_url('admin/web_safe_colour/view_web_safe_colour/' . $colour['colour_id']);?>">Web Safe Colour ID: <?=$colour['colour_id'];?></a></li>
-                <li class="active">Edit Web Safe Colour (Colour Values)</li>
+                <li class="active">Edit Web Safe Colour</li>
             </ol>
 
             <h1 class="page-header"><i class="fa fa-globe fa-fw"></i> Web Safe Colours Module</h1>
-            <h3><i class="fa fa-angle-right fa-fw"></i> Edit Web Safe Colour (Colour Values)</h3>
+            <h3><i class="fa fa-angle-right fa-fw"></i> Edit Web Safe Colour</h3>
 
             <div class="row mt">
                 <div class="col-lg-12">
@@ -96,117 +96,133 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <fieldset>
                                 <legend>Values</legend>
                                 <!-- RGB (0 - 255) -->
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">RGB Values</label>
+                                <div class="row">
                                     <div class="col-md-10">
-                                        <div class="row">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">RGB Values</label>
+                                            <div class="col-md-10">
+                                                <div class="row">
 
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-2" for="red_255">
-                                                        R <span class="text-danger">*</span></label>
-                                                    <div class="col-md-10">
-                                                        <input class="form-control" type="number" step="1"
-                                                               id="red_255" name="red_255" placeholder="0"
-                                                               required min="0"  data-parsley-type="digits"
-                                                               value="<?=set_value('red_255', $colour['red_255']);?>" />
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-2" for="red_255">
+                                                                R <span class="text-danger">*</span></label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" type="number" step="1"
+                                                                       id="red_255" name="red_255" placeholder="0"
+                                                                       required min="0"  data-parsley-type="digits"
+                                                                       value="<?=set_value('red_255', $colour['red_255']);?>" />
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
 
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-2" for="green_255">
-                                                        G <span class="text-danger">*</span></label>
-                                                    <div class="col-md-10">
-                                                        <input class="form-control" type="number" step="1"
-                                                               id="green_255" name="green_255" placeholder="0"
-                                                               required min="0" max="255" data-parsley-type="digits"
-                                                               value="<?=set_value('green_255', $colour['green_255']);?>" />
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-2" for="green_255">
+                                                                G <span class="text-danger">*</span></label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" type="number" step="1"
+                                                                       id="green_255" name="green_255" placeholder="0"
+                                                                       required min="0" max="255" data-parsley-type="digits"
+                                                                       value="<?=set_value('green_255', $colour['green_255']);?>" />
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
 
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-2" for="blue_255">
-                                                        B <span class="text-danger">*</span></label>
-                                                    <div class="col-md-10">
-                                                        <input class="form-control" type="number" step="1"
-                                                               id="blue_255" name="blue_255" placeholder="0"
-                                                               required min="0" max="255" data-parsley-type="digits"
-                                                               value="<?=set_value('blue_255', $colour['blue_255']);?>" />
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-2" for="blue_255">
+                                                                B <span class="text-danger">*</span></label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" type="number" step="1"
+                                                                       id="blue_255" name="blue_255" placeholder="0"
+                                                                       required min="0" max="255" data-parsley-type="digits"
+                                                                       value="<?=set_value('blue_255', $colour['blue_255']);?>" />
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
 
+                                                </div>
+                                                <span class="help-block">(0&mdash;255)</span>
+                                            </div>
                                         </div>
-                                        <span class="help-block">(0&mdash;255)</span>
-                                    </div>
-                                </div>
 
-                                <!-- RGB (0.00 - 1.00) -->
-                                <div class="form-group">
-                                    <label class="control-label col-md-2">RGB Ratio</label>
-                                    <div class="col-md-10">
-                                        <div class="row">
+                                        <!-- RGB (0.00 - 1.00) -->
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2">RGB Ratio</label>
+                                            <div class="col-md-10">
+                                                <div class="row">
 
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-2" for="red_ratio">
-                                                        R <span class="text-danger">*</span></label>
-                                                    <div class="col-md-10">
-                                                        <input class="form-control" type="number" step="0.01"
-                                                               id="red_ratio" name="red_ratio" placeholder="0.00"
-                                                               required min="0" max="1" data-parsley-type="number"
-                                                               value="<?=set_value('red_ratio', $colour['red_ratio']);?>"
-                                                               onchange="format_decimal('#red_ratio')" />
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-2" for="red_ratio">
+                                                                R <span class="text-danger">*</span></label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" type="number" step="0.01"
+                                                                       id="red_ratio" name="red_ratio" placeholder="0.00"
+                                                                       required min="0" max="1" data-parsley-type="number"
+                                                                       value="<?=set_value('red_ratio', $colour['red_ratio']);?>"
+                                                                       onchange="format_decimal('#red_ratio')" />
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
 
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-2" for="green_ratio">
-                                                        G <span class="text-danger">*</span></label>
-                                                    <div class="col-md-10">
-                                                        <input class="form-control" type="number" step="0.01"
-                                                               id="green_ratio" name="green_ratio" placeholder="0.00"
-                                                               required min="0" max="1" data-parsley-type="number"
-                                                               value="<?=set_value('green_ratio', $colour['green_ratio']);?>"
-                                                               onchange="format_decimal('#green_ratio')" />
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-2" for="green_ratio">
+                                                                G <span class="text-danger">*</span></label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" type="number" step="0.01"
+                                                                       id="green_ratio" name="green_ratio" placeholder="0.00"
+                                                                       required min="0" max="1" data-parsley-type="number"
+                                                                       value="<?=set_value('green_ratio', $colour['green_ratio']);?>"
+                                                                       onchange="format_decimal('#green_ratio')" />
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
 
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label col-md-2" for="blue_ratio">
-                                                        B <span class="text-danger">*</span></label>
-                                                    <div class="col-md-10">
-                                                        <input class="form-control" type="number" step="0.01"
-                                                               id="blue_ratio" name="blue_ratio" placeholder="0.00"
-                                                               required min="0" max="1" data-parsley-type="number"
-                                                               value="<?=set_value('blue_ratio', $colour['blue_ratio']);?>"
-                                                               onchange="format_decimal('#blue_ratio')" />
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-2" for="blue_ratio">
+                                                                B <span class="text-danger">*</span></label>
+                                                            <div class="col-md-10">
+                                                                <input class="form-control" type="number" step="0.01"
+                                                                       id="blue_ratio" name="blue_ratio" placeholder="0.00"
+                                                                       required min="0" max="1" data-parsley-type="number"
+                                                                       value="<?=set_value('blue_ratio', $colour['blue_ratio']);?>"
+                                                                       onchange="format_decimal('#blue_ratio')" />
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
 
+                                                </div>
+                                                <span class="help-block">(0.00&mdash;1.00)</span>
+                                            </div>
                                         </div>
-                                        <span class="help-block">(0.00&mdash;1.00)</span>
-                                    </div>
-                                </div>
 
-                                <div class="form-group">
-                                    <label class="control-label col-md-2" for="hex">
-                                        Hex <span class="text-danger">*</span></label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" type="text" id="hex" name="hex" placeholder="#000000"
-                                               required maxlength="7" data-parsley-pattern="<?=REGEX_PARSLEY_COLOUR_HEX;?>"
-                                               value="<?=set_value('hex', $colour['hex']);?>" />
-                                        <span class="help-block">(#000000)</span>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-2" for="hex">
+                                                Hex <span class="text-danger">*</span></label>
+                                            <div class="col-md-10">
+                                                <input class="form-control" type="text" id="hex" name="hex"
+                                                       placeholder="#000000" required maxlength="7"
+                                                       data-parsley-pattern="<?=REGEX_PARSLEY_COLOUR_HEX;?>"
+                                                       value="<?=set_value('hex', $colour['hex']);?>" />
+                                                <span class="help-block">(#000000)</span>
+                                            </div>
+                                        </div>
                                     </div>
+
+                                    <div class="col-md-2" style="height: 280px">
+                                        <p>Colour Sample (Hex)</p>
+                                        <div id="cr-foreground-sample">
+                                            Foreground
+                                        </div>
+                                        <div id="cr-background-sample">
+                                            Background
+                                        </div>
+                                    </div>
+
                                 </div>
                             </fieldset>
 
@@ -261,6 +277,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         var val_numeral = numeral($(selector).val());
         $(selector).val(val_numeral.format('0.00'));
     }
+
+    function update_sample(selector)
+    {
+        var jq_selector = $(selector);
+        $('#cr-foreground-sample').attr('style', 'color: ' + jq_selector.val());
+        $('#cr-background-sample').attr('style', 'background-color: ' + jq_selector.val());
+    }
+
+    $(document).ready(function()
+    {
+        update_sample('#hex');
+    });
 </script>
 </body>
 </html>

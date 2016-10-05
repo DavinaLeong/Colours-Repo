@@ -38,11 +38,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <ol class="breadcrumb">
                 <li><a href="<?=site_url(ADMIN_HOME_URL);?>">Home</a></li>
                 <li><a href="<?=site_url('admin/web_safe_colour/browse_web_safe_colour');?>">Web Safe Colours</a></li>
-                <li class="active">New Web Safe Colour (Colour Values)</li>
+                <li class="active">New Web Safe Colour</li>
             </ol>
 
             <h1 class="page-header"><i class="fa fa-globe fa-fw"></i> Web Safe Colours Module</h1>
-            <h3><i class="fa fa-angle-right fa-fw"></i> New Web Safe Colour (Colour Values)</h3>
+            <h3><i class="fa fa-angle-right fa-fw"></i> New Web Safe Colour</h3>
 
             <div class="row mt">
                 <div class="col-lg-12">
@@ -59,7 +59,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         Name <span class="text-danger">*</span></label>
                                     <div class="col-md-10">
                                         <input class="form-control" type="text" id="colour_name" name="colour_name"
-                                               placeholder="Name" required minlength="3" maxlength="512" value="<?=set_value('colour_name');?>" />
+                                               placeholder="Name" required minlength="3" maxlength="512"
+                                               value="<?=set_value('colour_name');?>" />
                                     </div>
                                 </div>
 
@@ -67,8 +68,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <label class="control-label col-md-2" for="colour_selector">
                                         Selector <span class="text-danger">*</span></label>
                                     <div class="col-md-10">
-                                        <input class="form-control" type="text" id="colour_selector" name="colour_selector"
-                                               placeholder="Name" required minlength="3" maxlength="512" data-parsley-type="alphanum"
+                                        <input class="form-control" type="text" id="colour_selector"
+                                               name="colour_selector" placeholder="Name" required minlength="3"
+                                               maxlength="512" data-parsley-type="alphanum"
                                                value="<?=set_value('colour_selector');?>" />
                                     </div>
                                 </div>
@@ -209,12 +211,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </div>
 
                                     <div class="col-md-2" style="height: 280px">
-                                        <p>Colour Sample</p>
-                                        <div class="cr-foreground-sample">
-                                            Lorem Ipsum
+                                        <p>Colour Sample (Hex)</p>
+                                        <div id="cr-foreground-sample">
+                                            Foreground
                                         </div>
-                                        <div class="cr-background-sample">
-                                            Lorem Ipsum
+                                        <div id="cr-background-sample">
+                                            Background
                                         </div>
                                     </div>
 
