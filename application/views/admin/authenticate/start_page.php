@@ -155,15 +155,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <li class="list-group-item text-success">
                                             <i class="fa fa-check-circle fa-fw"></i> New Web Safe Colours (Values)</li>
                                         <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> New Web Safe Colours (Picker)</li>
+                                            <i class="fa fa-times-circle fa-fw"></i> Implement Colourpicker (New)
+                                            <p><strong>Task Summary</strong></p>
+                                            <p>Implement Colourpicker and use RGB</p>
+                                            <p>Autofill RGB Ratio and Hex fields based on Colourpicker</p>
+                                        </li>
                                         <li class="list-group-item text-success">
                                             <i class="fa fa-check-circle fa-fw"></i> View Web Safe Colours</li>
                                         <li class="list-group-item text-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Edit Web Safe Colours (Values)</li>
                                         <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> Edit Web Safe Colours (Picker)</li>
+                                            <i class="fa fa-times-circle fa-fw"></i> Implement Colourpicker (Edit)</li>
                                         <li class="list-group-item text-success">
-                                            <i class="fa fa-check-circle fa-fw"></i> Delete Web Safe Colours (Picker)</li>
+                                            <i class="fa fa-check-circle fa-fw"></i> Delete Web Safe Colours</li>
                                     </ul>
                                 </div>
                             </div>
@@ -182,17 +186,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <li class="list-group-item text-danger">
                                             <i class="fa fa-times-circle fa-fw"></i> Browse Standard Colours</li>
                                         <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> New Standard Colours (Values)</li>
+                                            <i class="fa fa-times-circle fa-fw"></i> New Standard Colours</li>
                                         <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> New Standard Colours (Picker)</li>
+                                            <i class="fa fa-times-circle fa-fw"></i> Implement Colourpicker (New)</li>
                                         <li class="list-group-item text-danger">
                                             <i class="fa fa-times-circle fa-fw"></i> View Standard Colours</li>
                                         <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> Edit Standard Colours (Values)</li>
+                                            <i class="fa fa-times-circle fa-fw"></i> Edit Standard Colours</li>
                                         <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> Edit Standard Colours (Picker)</li>
+                                            <i class="fa fa-times-circle fa-fw"></i> Implement Colourpicker (Edit)</li>
                                         <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> Delete Standard Colours (Picker)</li>
+                                            <i class="fa fa-times-circle fa-fw"></i> Delete Standard Colours</li>
                                     </ul>
                                 </div>
                             </div>
