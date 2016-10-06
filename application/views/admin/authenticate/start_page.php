@@ -62,42 +62,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <h3 class="cr-content-panel-header"><i class="fa fa-angle-right fa-fw"></i> Tasks</h3>
 
                         <!-- Task Accordion start -->
-                        <div class="panel-group" id="task_accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                             <!-- Site UI -->
                             <div class="panel panel-warning">
                                 <div class="panel-heading" role="tab" id="heading_one">
                                     <h4 class="panel-title">
-                                        <a role="button" data-toggle="collapse" data-parent="#task_accordion"
-                                           href="#collapse_one" aria-expanded="true" aria-controls="collapse_one">
-                                            <i class="fa fa-minus fa-fw"> Site UI
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                         href="#collapse_one" aria-expanded="true" aria-controls="collapse_one">
+                                            <i class="fa fa-minus fa-fw"></i> 1. Site UI
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapse_one" class="panel-collapse collapse in" role="tabpanel"
-                                     aria-labelledby="heading_one">
+                                <div id="collapse_one" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_one">
                                     <ul class="list-group">
-                                        <li class="list-group-item text-success">
-                                            <i class="fa fa-check-circle fa-fw"></i> Import DashGum</li>
-                                        <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> Change Colour Scheme</li>
+                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Import DashGum</li>
+                                        <li class="list-group-item text-danger"><i class="fa fa-times-circle fa-fw"></i> Change Colour Scheme</li>
                                     </ul>
                                 </div>
                             </div>
-                            <!-- Login Screen -->
+                            <!-- Login Page -->
                             <div class="panel panel-success">
                                 <div class="panel-heading" role="tab" id="heading_two">
                                     <h4 class="panel-title">
-                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#task_accordion"
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                                            href="#collapse_two" aria-expanded="false" aria-controls="collapse_two">
-                                            <i class="fa fa-check fa-fw"></i> Login Screen
+                                            <i class="fa fa-check fa-fw"></i> 2. Login Page
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapse_two" class="panel-collapse collapse" role="tabpanel"
-                                     aria-labelledby="heading_two">
+                                <div id="collapse_two" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_two">
                                     <ul class="list-group">
-                                        <li class="list-group-item text-success">
-                                            <i class="fa fa-check-circle fa-fw"></i> Login Screen</li>
+                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Page UI</li>
+                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Login Functionality</li>
                                     </ul>
                                 </div>
                             </div>
@@ -105,25 +101,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="panel panel-success">
                                 <div class="panel-heading" role="tab" id="heading_three">
                                     <h4 class="panel-title">
-                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#task_accordion"
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                                            href="#collapse_three" aria-expanded="false" aria-controls="collapse_three">
-                                            <i class="fa fa-check fa-fw"></i> User Module
+                                            <i class="fa fa-check fa-fw"></i> 3. User Module
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapse_three" class="panel-collapse collapse" role="tabpanel"
-                                     aria-labelledby="heading_three">
+                                <div id="collapse_three" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_three">
                                     <ul class="list-group">
-                                        <li class="list-group-item text-success">
-                                            <i class="fa fa-check-circle fa-fw"></i> Browse Users</li>
-                                        <li class="list-group-item text-success">
-                                            <i class="fa fa-check-circle fa-fw"></i> New User</li>
-                                        <li class="list-group-item text-success">
-                                            <i class="fa fa-check-circle fa-fw"></i> View User</li>
-                                        <li class="list-group-item text-success">
-                                            <i class="fa fa-check-circle fa-fw"></i> Edit User</li>
-                                        <li class="list-group-item text-success">
-                                            <i class="fa fa-check-circle fa-fw"></i> Reset User</li>
+                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Browse Users</li>
+                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> New User</li>
+                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> View User</li>
+                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Edit User</li>
+                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Reset Password</li>
                                     </ul>
                                 </div>
                             </div>
@@ -131,14 +121,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="panel panel-success">
                                 <div class="panel-heading" role="tab" id="heading_four">
                                     <h4 class="panel-title">
-                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#task_accordion"
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                                            href="#collapse_four" aria-expanded="false" aria-controls="collapse_four">
-                                            <i class="fa fa-check fa-fw"></i> Personal Profile Module
+                                            <i class="fa fa-check fa-fw"></i> 4. Personal Profile Module
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapse_four" class="panel-collapse collapse" role="tabpanel"
-                                     aria-labelledby="heading_four">
+                                <div id="collapse_four" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_four">
                                     <ul class="list-group">
                                         <li class="list-group-item text-success">
                                             <i class="fa fa-check-circle fa-fw"></i> View Personal Profile</li>
@@ -149,96 +138,66 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     </ul>
                                 </div>
                             </div>
-                            <!-- Web Safe Colours Module -->
+                            <!-- Web Safe Colour Module -->
                             <div class="panel panel-warning">
                                 <div class="panel-heading" role="tab" id="heading_five">
                                     <h4 class="panel-title">
-                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#task_accordion"
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                                            href="#collapse_five" aria-expanded="false" aria-controls="collapse_five">
-                                            Web Safe Colour Module
+                                            <i class="fa fa-minus fa-fw"></i> 5. Web Safe Colour Module
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapse_five" class="panel-collapse collapse" role="tabpanel"
-                                     aria-labelledby="heading_five">
+                                <div id="collapse_five" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading_five">
                                     <ul class="list-group">
                                         <li class="list-group-item text-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Browse Web Safe Colours</li>
                                         <li class="list-group-item text-success">
-                                            <i class="fa fa-check-circle fa-fw"></i> New Web Safe Colour</li>
+                                            <i class="fa fa-check-circle fa-fw"></i> New Web Safe Colours (Values)</li>
                                         <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> New Web Safe Colour (Colour Picker)</li>
+                                            <i class="fa fa-times-circle fa-fw"></i> New Web Safe Colours (Picker)</li>
                                         <li class="list-group-item text-success">
-                                            <i class="fa fa-check-circle fa-fw"></i> View Web Safe Colour</li>
+                                            <i class="fa fa-check-circle fa-fw"></i> View Web Safe Colours</li>
                                         <li class="list-group-item text-success">
-                                            <i class="fa fa-check-circle fa-fw"></i> Edit Web Safe Colour</li>
+                                            <i class="fa fa-check-circle fa-fw"></i> Edit Web Safe Colours (Values)</li>
                                         <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> Edit Web Safe Colour (Colour Picker)</li>
+                                            <i class="fa fa-times-circle fa-fw"></i> Edit Web Safe Colours (Picker)</li>
                                         <li class="list-group-item text-success">
-                                            <i class="fa fa-check-circle fa-fw"></i> Delete Web Safe Colour</li>
+                                            <i class="fa fa-check-circle fa-fw"></i> Delete Web Safe Colours (Picker)</li>
                                     </ul>
                                 </div>
                             </div>
-                            <!-- Standard Colours Module -->
+                            <!-- Standard Colour Module -->
                             <div class="panel panel-danger">
                                 <div class="panel-heading" role="tab" id="heading_six">
                                     <h4 class="panel-title">
-                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#task_accordion"
+                                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                                            href="#collapse_six" aria-expanded="false" aria-controls="collapse_six">
-                                            Standard Colour Module
+                                            <i class="fa fa-times fa-fw"></i> 6. Standard Colour Module
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapse_six" class="panel-collapse collapse" role="tabpanel"
-                                     aria-labelledby="heading_six">
+                                <div id="collapse_six" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_six">
                                     <ul class="list-group">
                                         <li class="list-group-item text-danger">
                                             <i class="fa fa-times-circle fa-fw"></i> Browse Standard Colours</li>
                                         <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> New Standard Colour</li>
+                                            <i class="fa fa-times-circle fa-fw"></i> New Standard Colours (Values)</li>
                                         <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> New Standard Colour (Colour Picker)</li>
+                                            <i class="fa fa-times-circle fa-fw"></i> New Standard Colours (Picker)</li>
                                         <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> View Standard Colour</li>
+                                            <i class="fa fa-times-circle fa-fw"></i> View Standard Colours</li>
                                         <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> Edit Standard Colour</li>
+                                            <i class="fa fa-times-circle fa-fw"></i> Edit Standard Colours (Values)</li>
                                         <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> Edit Standard Colour (Colour Picker)</li>
+                                            <i class="fa fa-times-circle fa-fw"></i> Edit Standard Colours (Picker)</li>
                                         <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> Delete Standard Colour</li>
+                                            <i class="fa fa-times-circle fa-fw"></i> Delete Standard Colours (Picker)</li>
                                     </ul>
                                 </div>
                             </div>
-
                         </div>
                         <!-- Task Accordion end -->
-                        <ol class="cr-no-bullets">
-                            <li class="text-warning"><i class="fa fa-minus fa-fw"></i> Site Template
-                                <ol class="cr-no-bullets">
-                                    <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> Import DashGum</li>
-                                    <li class="text-danger"><i class="fa fa-times-circle fa-fw"></i> Change Colour Scheme</li>
-                                </ol>
-                            </li>
-                            <li class="text-success"><i class="fa fa-check fa-fw"></i> Login Screen</li>
-                            <li class="text-success"><i class="fa fa-check fa-fw"></i> User Module
-                                <ol class="cr-no-bullets">
-                                    <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> Browse Users</li>
-                                    <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> New User</li>
-                                    <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> View User</li>
-                                    <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> Edit User</li>
-                                    <li class="text-success"><i class="fa fa-check-circle fa-fw"></i> Reset User</li>
-                                </ol>
-                            </li>
-                            <li class="text-success"><i class="fa fa-check fa-fw"></i> Personal Profile Module
-
-                            </li>
-                            <li class="text-danger"><i class="fa fa-times fa-fw"></i> Standard Colours Module
-
-                            </li>
-                            <li class="text-warning"><i class="fa fa-minus fa-fw"></i> Web Safe Colours Module
-
-                            </li>
-                        </ol>
                     </div>
                 </div>
             </div>
