@@ -11,6 +11,5 @@
 ***********************************************************************************/
 html,
 body {
-    background-image: url("../../img/cr_img/seigaiha.png");
-    background-repeat: repeat;
+    background: url("../../img/cr_img/colourful_balloons.jpg") no-repeat center;
 }
