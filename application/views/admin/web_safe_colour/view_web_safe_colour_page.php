@@ -64,9 +64,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         Action <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a id="edit_record"
-                               href="<?=site_url('admin/web_safe_colour/edit_web_safe_colour/' . $colour['colour_id']); ?>">
+                        <li><a id="edit_record_values"
+                               href="<?=site_url('admin/web_safe_colour/edit_web_safe_colour_from_values/' . $colour['colour_id']); ?>">
                                 <i class="fa fa-pencil-square-o fa-fw"></i> Edit Web Safe Colour (<em>Values</em>)</a></li>
+                        <li><a id="edit_record_picker"
+                               href="<?=site_url('admin/web_safe_colour/edit_web_safe_colour_from_picker/' . $colour['colour_id']); ?>">
+                                <i class="fa fa-eyedropper fa-fw"></i> Edit Web Safe Colour (<em>Picker</em>)</a></li>
                         <li><a id="delete_record" class="cr-clickable" data-toggle="modal" data-target="#delete_modal">
                                 <i class="fa fa-trash-o fa-fw"></i> Delete Web Safe Colour</a></li>
                     </ul>
