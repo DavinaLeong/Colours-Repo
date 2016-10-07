@@ -36,6 +36,26 @@
     border: thin solid #ccc;
 }
 
+.cr-bold {
+    font-weight: bold;
+}
+
+.cr-italic {
+    font-style: italic;
+}
+
+.cr-underline {
+    text-decoration: underline;
+}
+
+.cr-underline-dotted {
+    text-decoration: dotted;
+}
+
+.cr-underline-dash {
+    text-decoration: dashed;
+}
+
 #cr-foreground-sample,
 #cr-background-sample {
     width: 100%;

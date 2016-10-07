@@ -66,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <ul class="dropdown-menu">
                         <li><a id="edit_record"
                                href="<?=site_url('admin/web_safe_colour/edit_web_safe_colour/' . $colour['colour_id']); ?>">
-                                <i class="fa fa-pencil-square-o fa-fw"></i> Edit Web Safe Colour</a></li>
+                                <i class="fa fa-pencil-square-o fa-fw"></i> Edit Web Safe Colour (<em>Values</em>)</a></li>
                         <li><a id="delete_record" class="cr-clickable" data-toggle="modal" data-target="#delete_modal">
                                 <i class="fa fa-trash-o fa-fw"></i> Delete Web Safe Colour</a></li>
                     </ul>
