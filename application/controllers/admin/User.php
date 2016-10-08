@@ -23,11 +23,12 @@ class User extends CI_Controller
     {
         $this->User_log_model->validate_access();
 
-        $access_array = $this->User_model->_get_access_array();
+        $access_array = $this->User_model->_get_access_colours_array();
         $users = $this->User_model->get_all();
         foreach($users as $key=>$user)
         {
-            $user['access_str'] = $access_array[$user['access']];
+            $user['access_str'] = $access_array[$user['access']]['name'];
+            $user['access_col'] = $access_array[$user['access']]['hex'];
             $users[$key] = $user;
         }
         $data = array(
@@ -166,7 +167,8 @@ class User extends CI_Controller
         $user = $this->User_model->get_by_id($user_id);
         if($user !== FALSE)
         {
-            $user['access_str'] = $this->User_model->_get_access_array()[$user['access']];
+            $user['access_str'] = $this->User_model->_get_access_colours_array()[$user['access']]['name'];
+            $user['access_col'] = $this->User_model->_get_access_colours_array()[$user['access']]['hex'];
             $data = array(
                 'user' => $user
             );
@@ -204,7 +206,8 @@ class User extends CI_Controller
                 }
             }
 
-            $user['access_str'] = $this->User_model->_get_access_array()[$user['access']];
+            $user['access_str'] = $this->User_model->_get_access_colours_array()[$user['access']]['name'];
+            $user['access_col'] = $this->User_model->_get_access_colours_array()[$user['access']]['hex'];
             $data = array(
                 'user' => $user
             );

@@ -40,8 +40,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li><a href="<?=site_url('admin/user/browse_user');?>">Users</a></li>
                 <li><a href="<?=site_url('admin/user/view_user/' . $user['user_id']);?>">
                         User ID: <?=$user['user_id'];?></a></li>
-                <li><a href="<?=site_url('admin/user/edit_user/' . $user['user_id']);?>">
-                        Edit User</a></li>
                 <li class="active">Reset Password</li>
             </ol>
 
@@ -105,7 +103,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="form-group">
                                     <label class="col-md-2 control-label" for="access">Access</label>
                                     <div class="col-md-10">
-                                        <p id="access" class="form-control-static"><?= $user['access_str']; ?></p>
+                                        <p id="access" class="form-control-static">
+                                            <span class="badge" style="background: <?=$user['access_col'];?>;"><?= $user['access_str']; ?></span></p>
                                     </div>
                                 </div>
 

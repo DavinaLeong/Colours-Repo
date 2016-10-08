@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     onclick="location.href = '<?=site_url("admin/user/view_user/" . $user["user_id"]); ?>'">
                                     <td><?= $user['username']; ?></td>
                                     <td><?= $user['name']; ?></td>
-                                    <td><?= $user['access_str']; ?></td>
+                                    <td><span class="badge" style="background: <?=$user['access_col'];?>;"><?= $user['access_str']; ?></span></td>
                                     <td>
                                         <?php if($user['status'] == 'Active'): ?>
                                             <span class="label label-success"><?= $user['status']; ?></span>

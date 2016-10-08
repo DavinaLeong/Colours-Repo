@@ -88,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <h4 class="panel-title">
                                         <a role="button" data-toggle="collapse" data-parent="#accordion"
                                          href="#collapse_one" aria-expanded="true" aria-controls="collapse_one">
-                                            <i class="fa fa-cheeck fa-fw"></i> 1. Site UI
+                                            <i class="fa fa-check fa-fw"></i> 1. Site UI
                                         </a>
                                     </h4>
                                 </div>

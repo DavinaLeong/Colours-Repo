@@ -146,7 +146,26 @@ class User_model extends CI_Model
     {
         return array(
             'A' => 'Administrator',
-            'C' => 'Client'
+            'M' => 'Manager',
+            'U' => 'User'
+        );
+    }
+
+    public function _get_access_colours_array()
+    {
+        return array(
+            'A' => array(
+                'name' => 'Administrator',
+                'hex' => '#8ABBB2'
+            ),
+            'M' => array(
+                'name' => 'Manager',
+                'hex' => '#B88ABB'
+            ),
+            'U' => array(
+                'name' => 'User',
+                'hex' => '#BB988A'
+            )
         );
     }
 

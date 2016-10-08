@@ -91,7 +91,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="form-group">
                                     <label class="col-md-2 control-label" for="access">Access</label>
                                     <div class="col-md-10">
-                                        <p id="access" class="form-control-static"><?= $user['access_str']; ?></p>
+                                        <p id="access" class="form-control-static">
+                                            <span class="badge" style="background: <?=$user['access_col'];?>;"><?= $user['access_str']; ?></span></p>
                                     </div>
                                 </div>
 
