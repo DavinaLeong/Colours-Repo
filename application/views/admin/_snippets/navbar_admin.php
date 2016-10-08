@@ -63,6 +63,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <span>Users</span>
                 </a>
                 <ul class="sub">
+                    <?php if( $this->User_log_model->validate_access_custom("A", $this->session->userdata('access')) ): ?>
+                        <li><a href="<?= site_url('admin/user/browse_access'); ?>">Browse Access</a></li>
+                    <?php endif; ?>
                     <li><a href="<?= site_url('admin/user/browse_user'); ?>">Browse Users</a></li>
                     <li><a href="<?= site_url('admin/user/new_user'); ?>">New User</a></li>
                 </ul>

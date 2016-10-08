@@ -19,15 +19,25 @@ class User extends CI_Controller
         $this->load->model('User_model');
 	}
 
+    public function browse_access()
+    {
+        $this->User_log_model->validate_access_admin();
+        $data = array(
+            'access_options' => $this->User_model->_get_access_colours_array()
+        );
+        $this->load->view('admin/user/browse_access_page', $data);
+    }
+
     public function browse_user()
     {
         $this->User_log_model->validate_access();
 
-        $access_array = $this->User_model->_get_access_array();
+        $access_array = $this->User_model->_get_access_colours_array();
         $users = $this->User_model->get_all();
         foreach($users as $key=>$user)
         {
-            $user['access_str'] = $access_array[$user['access']];
+            $user['access_str'] = $access_array[$user['access']]['name'];
+            $user['access_col'] = $access_array[$user['access']]['hex'];
             $users[$key] = $user;
         }
         $data = array(
@@ -115,7 +125,8 @@ class User extends CI_Controller
             }
 
             $access_options = $this->User_model->_get_access_array();
-            $user['access_str'] = $access_options[$user['access']];
+            $user['access_str'] = $this->User_model->_get_access_colours_array()[$user['access']]['name'];
+            $user['access_col'] = $this->User_model->_get_access_colours_array()[$user['access']]['hex'];
             $data = array(
                 'user' => $user,
                 'access_options' => $access_options,
@@ -166,7 +177,8 @@ class User extends CI_Controller
         $user = $this->User_model->get_by_id($user_id);
         if($user !== FALSE)
         {
-            $user['access_str'] = $this->User_model->_get_access_array()[$user['access']];
+            $user['access_str'] = $this->User_model->_get_access_colours_array()[$user['access']]['name'];
+            $user['access_col'] = $this->User_model->_get_access_colours_array()[$user['access']]['hex'];
             $data = array(
                 'user' => $user
             );
@@ -181,7 +193,7 @@ class User extends CI_Controller
 
     public function reset_password($user_id=FALSE)
     {
-        $this->User_log_model->validate_access();
+        $this->User_log_model->validate_access_admin();
         $user = $this->User_model->get_by_id($user_id);
         if($user !== FALSE)
         {
@@ -204,7 +216,8 @@ class User extends CI_Controller
                 }
             }
 
-            $user['access_str'] = $this->User_model->_get_access_array()[$user['access']];
+            $user['access_str'] = $this->User_model->_get_access_colours_array()[$user['access']]['name'];
+            $user['access_col'] = $this->User_model->_get_access_colours_array()[$user['access']]['hex'];
             $data = array(
                 'user' => $user
             );

@@ -51,8 +51,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <ul class="dropdown-menu">
                         <li><a id="edit_record" href="<?=site_url('admin/user/edit_user/' . $user['user_id']);?>">
                                 <i class="fa fa-pencil-square-o fa-fw"></i> Edit User</a></li>
+                        <?php if( $this->User_log_model->validate_access_custom("A", $this->session->userdata('access')) ): ?>
                         <li><a id="reset_password" href="<?=site_url('admin/user/reset_password/' . $user['user_id']); ?>">
                                 <i class="fa fa-key fa-fw"></i> Reset Password</a></li>
+                        <?php endif; ?>
                     </ul>
                 </div>
             </h3>
@@ -91,7 +93,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="form-group">
                                     <label class="col-md-2 control-label" for="access">Access</label>
                                     <div class="col-md-10">
-                                        <p id="access" class="form-control-static"><?= $user['access_str']; ?></p>
+                                        <p id="access" class="form-control-static">
+                                            <span class="badge" style="background: <?=$user['access_col'];?>;"><?= $user['access_str']; ?></span></p>
                                     </div>
                                 </div>
 
