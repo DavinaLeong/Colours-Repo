@@ -1,0 +1,24 @@
+{
+  "name": "colour_repo",
+  "description": "Content storage for Colour Values",
+  "main": "../index.php",
+  "authors": [
+    "Davina Leong"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "colour",
+    "repo",
+    "color",
+    "storage"
+  ],
+  "homepage": "../index.php",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -63,6 +63,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                         <!-- Task Accordion start -->
                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <!-- System Management -->
+                            <div class="panel panel-danger">
+                                <div class="panel-heading" role="tab" id="heading_zero">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                           href="#collapse_zero" aria-expanded="true" aria-controls="collapse_zero">
+                                            <i class="fa fa-times fa-fw"></i> 0. Code Improvement
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse_zero" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading_zero">
+                                    <ul class="list-group">
+                                        <li class="list-group-item text-danger">
+                                            <i class="fa fa-times-circle fa-fw"></i> Refactor Resources Structure</li>
+                                        <li class="list-group-item text-danger"><i class="fa fa-times-circle fa-fw"></i> Use Bower</li>
+                                        <li class="list-group-item text-danger"><i class="fa fa-times-circle fa-fw"></i> Use Migrations</li>
+                                    </ul>
+                                </div>
+                            </div>
                             <!-- Site UI -->
                             <div class="panel panel-warning">
                                 <div class="panel-heading" role="tab" id="heading_one">
@@ -139,33 +158,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
                             <!-- Web Safe Colour Module -->
-                            <div class="panel panel-warning">
+                            <div class="panel panel-success">
                                 <div class="panel-heading" role="tab" id="heading_five">
                                     <h4 class="panel-title">
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                                            href="#collapse_five" aria-expanded="false" aria-controls="collapse_five">
-                                            <i class="fa fa-minus fa-fw"></i> 5. Web Safe Colour Module
+                                            <i class="fa fa-check fa-fw"></i> 5. Web Safe Colour Module
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapse_five" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading_five">
+                                <div id="collapse_five" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_five">
                                     <ul class="list-group">
                                         <li class="list-group-item text-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Browse Web Safe Colours</li>
                                         <li class="list-group-item text-success">
-                                            <i class="fa fa-check-circle fa-fw"></i> New Web Safe Colours (Values)</li>
-                                        <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> Implement Colourpicker (New)
-                                            <p><strong>Task Summary</strong></p>
-                                            <p>Implement Colourpicker and use RGB</p>
-                                            <p>Autofill RGB Ratio and Hex fields based on Colourpicker</p>
-                                        </li>
+                                            <i class="fa fa-check-circle fa-fw"></i> New Web Safe Colours</li>
                                         <li class="list-group-item text-success">
                                             <i class="fa fa-check-circle fa-fw"></i> View Web Safe Colours</li>
                                         <li class="list-group-item text-success">
-                                            <i class="fa fa-check-circle fa-fw"></i> Edit Web Safe Colours (Values)</li>
-                                        <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> Implement Colourpicker (Edit)</li>
+                                            <i class="fa fa-check-circle fa-fw"></i> Edit Web Safe Colours</li>
                                         <li class="list-group-item text-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Delete Web Safe Colours</li>
                                     </ul>
@@ -188,13 +199,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <li class="list-group-item text-danger">
                                             <i class="fa fa-times-circle fa-fw"></i> New Standard Colours</li>
                                         <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> Implement Colourpicker (New)</li>
-                                        <li class="list-group-item text-danger">
                                             <i class="fa fa-times-circle fa-fw"></i> View Standard Colours</li>
                                         <li class="list-group-item text-danger">
                                             <i class="fa fa-times-circle fa-fw"></i> Edit Standard Colours</li>
-                                        <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> Implement Colourpicker (Edit)</li>
                                         <li class="list-group-item text-danger">
                                             <i class="fa fa-times-circle fa-fw"></i> Delete Standard Colours</li>
                                     </ul>

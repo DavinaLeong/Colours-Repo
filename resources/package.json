@@ -1,0 +1,25 @@
+{
+  "name": "resources",
+  "version": "1.0.0",
+  "description": "",
+  "main": "../index.php",
+  "dependencies": {
+    "bower": "^1.7.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git clone https://DavinaLSY@bitbucket.org/DavinaLSY/colours_repo.git"
+  },
+  "keywords": [
+    "colour",
+    "repo",
+    "color",
+    "storage"
+  ],
+  "author": "Davina Leong",
+  "license": "ISC"
+}
