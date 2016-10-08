@@ -31,7 +31,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <form class="form-login" method="post" data-parsley-validate>
             <h2 class="form-login-heading">
-                <img src="<?=RESOURCES_FOLDER;?>colour_repo/img/webpage_icon.png" alt="colours repo icon" height="20px" /> Colours Repo
+                <img class="login-img" src="<?=RESOURCES_FOLDER;?>colour_repo/img/webpage_icon.png" alt="colours repo icon" width="64px" />
+                Colours Repo
             </h2>
             <div class="login-wrap">
                 <?php $this->load->view('admin/_snippets/validation_errors_box'); ?>
