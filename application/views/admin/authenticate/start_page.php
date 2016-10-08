@@ -64,20 +64,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <!-- Task Accordion start -->
                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                             <!-- System Management -->
-                            <div class="panel panel-danger">
+                            <div class="panel panel-warning">
                                 <div class="panel-heading" role="tab" id="heading_zero">
                                     <h4 class="panel-title">
                                         <a role="button" data-toggle="collapse" data-parent="#accordion"
                                            href="#collapse_zero" aria-expanded="true" aria-controls="collapse_zero">
-                                            <i class="fa fa-times fa-fw"></i> 0. Code Improvement
+                                            <i class="fa fa-minus fa-fw"></i> 0. Code Improvement
                                         </a>
                                     </h4>
                                 </div>
                                 <div id="collapse_zero" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading_zero">
                                     <ul class="list-group">
-                                        <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> Refactor Resources Structure</li>
-                                        <li class="list-group-item text-danger"><i class="fa fa-times-circle fa-fw"></i> Use Bower</li>
+                                        <li class="list-group-item text-success">
+                                            <i class="fa fa-check-circle fa-fw"></i> Refactor Resources Structure</li>
+                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Use Bower</li>
                                         <li class="list-group-item text-danger"><i class="fa fa-times-circle fa-fw"></i> Use Migrations</li>
                                     </ul>
                                 </div>
@@ -95,7 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div id="collapse_one" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_one">
                                     <ul class="list-group">
                                         <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Import DashGum</li>
-                                        <li class="list-group-item text-danger"><i class="fa fa-times-circle fa-fw"></i> Change Colour Scheme</li>
+                                        <li class="list-group-item text-danger"><i class="fa fa-times-circle fa-fw"></i> Switch to Mimimiun</li>
                                     </ul>
                                 </div>
                             </div>

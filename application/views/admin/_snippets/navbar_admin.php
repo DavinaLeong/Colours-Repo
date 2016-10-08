@@ -21,7 +21,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
     <!--logo start-->
     <a href="<?= site_url('admin/authenticate/start'); ?>" class="logo">
-        <img src="<?=RESOURCES_FOLDER;?>img/cr_img/webpage_icon.png" alt="Website Logo" height=20px" /> <b>Colour Repo</b></a>
+        <img src="<?=RESOURCES_FOLDER;?>colour_repo/img/webpage_icon.png" alt="Website Logo" height=20px" /> <b>Colour Repo</b></a>
     <!--logo end-->
     <div class="nav notify-row" id="top_menu">
     </div>
@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <ul class="sidebar-menu" id="nav-accordion">
 
             <div id="profile_anchor">
-                <p class="centered"><img src="<?=RESOURCES_FOLDER;?>img/cr_img/webpage_icon.png"
+                <p class="centered"><img src="<?=RESOURCES_FOLDER;?>colour_repo/img/webpage_icon.png"
                                          alt="Website Logo" height="60px" /></p>
                 <h5 class="centered"><?=$this->session->userdata('name');?></h5>
                 <h6 class="centered"><?=$this->session->userdata('username');?></h6>
