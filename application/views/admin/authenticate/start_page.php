@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                         <!-- Task Accordion start -->
                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                            <!-- System Management -->
+                            <!-- Code Improvment -->
                             <div class="panel panel-warning">
                                 <div class="panel-heading" role="tab" id="heading_zero">
                                     <h4 class="panel-title">
@@ -158,12 +158,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
                             <!-- Web Safe Colour Module -->
-                            <div class="panel panel-success">
+                            <div class="panel panel-warning">
                                 <div class="panel-heading" role="tab" id="heading_five">
                                     <h4 class="panel-title">
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                                            href="#collapse_five" aria-expanded="false" aria-controls="collapse_five">
-                                            <i class="fa fa-check fa-fw"></i> 5. Web Safe Colour Module
+                                            <i class="fa fa-minus fa-fw"></i> 5. Web Safe Colour Module
                                         </a>
                                     </h4>
                                 </div>
@@ -179,6 +179,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <i class="fa fa-check-circle fa-fw"></i> Edit Web Safe Colours</li>
                                         <li class="list-group-item text-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Delete Web Safe Colours</li>
+                                        <li class="list-group-item text-danger">
+                                            <i class="fa fa-times-circle fa-fw"></i> Export to CSS</li>
+                                        <li class="list-group-item text-danger">
+                                            <i class="fa fa-times-circle fa-fw"></i> Export to Unity C#</li>
                                     </ul>
                                 </div>
                             </div>

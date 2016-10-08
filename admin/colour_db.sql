@@ -168,12 +168,12 @@ INSERT INTO `ci_sessions` (`id`, `ip_address`, `timestamp`, `data`) VALUES
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(512) DEFAULT NULL,
-  `password_hash` varchar(512) DEFAULT NULL,
+  `username` varchar(512) NOT NULL,
+  `password_hash` varchar(512) NOT NULL,
   `name` varchar(512) DEFAULT NULL,
-  `access` varchar(512) DEFAULT NULL,
-  `status` varchar(30) DEFAULT NULL,
-  `last_updated` timestamp NULL DEFAULT NULL,
+  `access` varchar(512) NOT NULL,
+  `status` varchar(30) NOT NULL,
+  `last_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`user_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
@@ -188,13 +188,13 @@ INSERT INTO `user` (`user_id`, `username`, `password_hash`, `name`, `access`, `s
 DROP TABLE IF EXISTS `user_log`;
 CREATE TABLE IF NOT EXISTS `user_log` (
   `ulid` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) DEFAULT NULL,
-  `message` text,
-  `timestamp` timestamp NULL DEFAULT NULL,
+  `user_id` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`ulid`)
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 
--- Dumping data for table colours_db.user_log: 20 rows
+-- Dumping data for table colours_db.user_log: 34 rows
 /*!40000 ALTER TABLE `user_log` DISABLE KEYS */;
 INSERT INTO `user_log` (`ulid`, `user_id`, `message`, `timestamp`) VALUES
 	(1, 1, 'User logged in.', '2016-09-28 11:25:50'),
@@ -220,7 +220,17 @@ INSERT INTO `user_log` (`ulid`, `user_id`, `message`, `timestamp`) VALUES
 	(21, 1, 'New Web Safe Colour CREATED. | colour_id: 1', '2016-10-02 23:15:03'),
 	(22, 1, 'New Web Safe Colour CREATED. | colour_id: 2', '2016-10-02 23:19:09'),
 	(23, 1, 'New Web Safe Colour CREATED. | colour_id: 3', '2016-10-02 23:19:54'),
-	(24, 1, 'User is logged out.', '2016-10-02 23:20:13');
+	(24, 1, 'User is logged out.', '2016-10-02 23:20:13'),
+	(25, 1, 'User logged in.', '2016-10-06 22:06:45'),
+	(26, 1, 'User is logged out.', '2016-10-06 23:01:11'),
+	(27, 1, 'User logged in.', '2016-10-08 00:55:49'),
+	(28, 1, 'User is logged out.', '2016-10-08 01:25:15'),
+	(29, 1, 'User logged in.', '2016-10-08 09:51:23'),
+	(30, 1, 'User is logged out.', '2016-10-08 09:54:47'),
+	(31, 1, 'User logged in.', '2016-10-08 09:54:52'),
+	(32, 1, 'User logged in.', '2016-10-08 15:10:37'),
+	(33, 1, 'User is logged out.', '2016-10-08 15:46:37'),
+	(34, 1, 'User logged in.', '2016-10-08 16:41:34');
 /*!40000 ALTER TABLE `user_log` ENABLE KEYS */;
 
 
@@ -233,19 +243,19 @@ CREATE TABLE IF NOT EXISTS `web_safe_colour` (
   `red_255` int(10) unsigned DEFAULT NULL,
   `green_255` int(10) unsigned DEFAULT NULL,
   `blue_255` int(10) unsigned DEFAULT NULL,
-  `red_percentage` decimal(10,2) unsigned DEFAULT NULL,
-  `green_percentage` decimal(10,2) unsigned DEFAULT NULL,
-  `blue_percentage` decimal(10,2) unsigned DEFAULT NULL,
+  `red_ratio` decimal(10,3) unsigned DEFAULT NULL,
+  `green_ratio` decimal(10,3) unsigned DEFAULT NULL,
+  `blue_ratio` decimal(10,3) unsigned DEFAULT NULL,
   `hex` varchar(7) DEFAULT NULL,
   `colour_type` varchar(512) DEFAULT NULL,
-  `date_added` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `last_updated` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `last_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`colour_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
--- Dumping data for table colours_db.web_safe_colour: 0 rows
+-- Dumping data for table colours_db.web_safe_colour: 3 rows
 /*!40000 ALTER TABLE `web_safe_colour` DISABLE KEYS */;
-INSERT INTO `web_safe_colour` (`colour_id`, `colour_name`, `colour_selector`, `red_255`, `green_255`, `blue_255`, `red_percentage`, `green_percentage`, `blue_percentage`, `hex`, `colour_type`, `date_added`, `last_updated`) VALUES
+INSERT INTO `web_safe_colour` (`colour_id`, `colour_name`, `colour_selector`, `red_255`, `green_255`, `blue_255`, `red_ratio`, `green_ratio`, `blue_ratio`, `hex`, `colour_type`, `date_added`, `last_updated`) VALUES
 	(1, 'Black', 'Black', 0, 0, 0, 0.000, 0.000, 0.000, '#000000', 'Default', '2016-10-02 23:15:03', '2016-10-02 23:15:03'),
 	(2, 'White', 'White', 255, 255, 255, 1.000, 1.000, 1.000, '#FFFFFF', 'Default', '2016-10-02 23:19:09', '2016-10-02 23:19:09'),
 	(3, 'Red', 'Red', 255, 0, 0, 1.000, 0.000, 0.000, '#FF0000', 'Default', '2016-10-02 23:19:54', '2016-10-02 23:19:54');
