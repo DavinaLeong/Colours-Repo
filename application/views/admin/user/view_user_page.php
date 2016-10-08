@@ -49,9 +49,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         Action <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="<?=site_url('admin/user/edit_user/' . $user['user_id']);?>">
+                        <li><a id="edit_record" href="<?=site_url('admin/user/edit_user/' . $user['user_id']);?>">
                                 <i class="fa fa-pencil-square-o fa-fw"></i> Edit User</a></li>
-                        <li><a id="reset_password_btn" href="<?=site_url('admin/user/reset_password/' . $user['user_id']); ?>">
+                        <li><a id="reset_password" href="<?=site_url('admin/user/reset_password/' . $user['user_id']); ?>">
                                 <i class="fa fa-key fa-fw"></i> Reset Password</a></li>
                     </ul>
                 </div>
@@ -67,42 +67,47 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <form id="view_user_form" class="form-horizontal" method="post">
                             <input id="user_id" type="hidden" value="<?=$user['user_id'];?>" />
 
-                            <div class="form-group">
-                                <label class="col-md-2 control-label"
-                                       for="username">Username</label>
-                                <div class="col-md-10">
-                                    <p id="username" class="form-control-static"><?= $user['username']; ?></p>
+                            <fieldset>
+                                <legend>Username &amp; Name</legend>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label"
+                                           for="username">Username</label>
+                                    <div class="col-md-10">
+                                        <p id="username" class="form-control-static"><?= $user['username']; ?></p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label class="col-md-2 control-label"
-                                       for="name">Name</label>
-                                <div class="col-md-10">
-                                    <p id="name" class="form-control-static"><?= $user['name']; ?></p>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label"
+                                           for="name">Name</label>
+                                    <div class="col-md-10">
+                                        <p id="name" class="form-control-static"><?= $user['name']; ?></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <br/>
+                            </fieldset>
 
-                            <div class="form-group">
-                                <label class="col-md-2 control-label" for="access">Access</label>
-                                <div class="col-md-10">
-                                    <p id="access" class="form-control-static"><?= $user['access_str']; ?></p>
+                            <fieldset>
+                                <legend>Admin</legend>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="access">Access</label>
+                                    <div class="col-md-10">
+                                        <p id="access" class="form-control-static"><?= $user['access_str']; ?></p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label class="col-md-2 control-label">Status</label>
-                                <div class="col-md-10">
-                                    <p id="status" class="form-control-static">
-                                    <?php if($user['status'] == 'Active'): ?>
-                                        <span class="label label-success"><?= $user['status']; ?></span>
-                                    <?php else: ?>
-                                        <span class="label label-danger"><?= $user['status']; ?></span>
-                                    <?php endif; ?>
-                                    </p>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Status</label>
+                                    <div class="col-md-10">
+                                        <p id="status" class="form-control-static">
+                                            <?php if($user['status'] == 'Active'): ?>
+                                                <span class="label label-success"><?= $user['status']; ?></span>
+                                            <?php else: ?>
+                                                <span class="label label-danger"><?= $user['status']; ?></span>
+                                            <?php endif; ?>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
+                            </fieldset>
 
                             <div class="form-group">
                                 <label class="col-md-2 control-label">Last Updated</label>

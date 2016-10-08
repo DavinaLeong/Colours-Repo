@@ -45,7 +45,7 @@ class User extends CI_Controller
 
         if($this->form_validation->run())
         {
-            if($user_id = $this->User_model->insert($this->_prepare_new_user()))
+            if($user_id = $this->User_model->insert($this->_prepare_new_user_array()))
             {
                 $this->User_log_model->log_message('New User record CREATED. | user_id: ' . $user_id);
                 $this->session->set_userdata('New User record <mark>created</mark>/');
@@ -79,7 +79,7 @@ class User extends CI_Controller
         $this->form_validation->set_rules('status', 'Status', 'trim|required|in_list[Active]|max_length[512]');
     }
 
-    private function _prepare_new_user()
+    private function _prepare_new_user_array()
     {
         $user['username'] = $this->input->post('username');
         $user['name'] = $this->input->post('name');
@@ -90,18 +90,18 @@ class User extends CI_Controller
         return $user;
     }
 
-    public function edit_user($user_id)
+    public function edit_user($user_id=FALSE)
     {
         $this->User_log_model->validate_access();
         $this->load->library('form_validation');
 
-        $user = $this->User_model->get_by_user_id($user_id);
+        $user = $this->User_model->get_by_id($user_id);
         if($user !== FALSE)
         {
             $this->_set_rules_edit_user($user);
             if($this->form_validation->run())
             {
-                if($user = $this->User_model->update($this->_prepare_edit_user($user)))
+                if($user = $this->User_model->update($this->_prepare_edit_user_array($user)))
                 {
                     $this->User_log_model->log_message('User record UPDATED. | user_id: ' . $user_id);
                     $this->session->set_userdata('message', 'User record <mark>updated</mark>.');
@@ -130,7 +130,7 @@ class User extends CI_Controller
         }
     }
 
-    private function _set_rules_edit_user($user)
+    private function _set_rules_edit_user($user=FALSE)
     {
         if($user['username'] == $this->input->post('username'))
         {
@@ -150,7 +150,7 @@ class User extends CI_Controller
         $this->form_validation->set_rules('status', 'Status', 'trim|required|in_list[' . $status_str . ']|max_length[512]');
     }
 
-    private function _prepare_edit_user($user)
+    private function _prepare_edit_user_array($user)
     {
         $user['username'] = $this->input->post('username');
         $user['name'] = $this->input->post('name');
@@ -160,10 +160,10 @@ class User extends CI_Controller
         return $user;
     }
 
-    public function view_user($user_id)
+    public function view_user($user_id=FALSE)
     {
         $this->User_log_model->validate_access();
-        $user = $this->User_model->get_by_user_id($user_id);
+        $user = $this->User_model->get_by_id($user_id);
         if($user !== FALSE)
         {
             $user['access_str'] = $this->User_model->_get_access_array()[$user['access']];
@@ -179,10 +179,10 @@ class User extends CI_Controller
         }
     }
 
-    public function reset_password($user_id)
+    public function reset_password($user_id=FALSE)
     {
         $this->User_log_model->validate_access();
-        $user = $this->User_model->get_by_user_id($user_id);
+        $user = $this->User_model->get_by_id($user_id);
         if($user !== FALSE)
         {
             $this->load->library('form_validation');

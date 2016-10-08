@@ -55,32 +55,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <form id="edit_personal_profile_form" class="form-horizontal" method="post" data-parsley-validate>
                             <input id="user_id" type="hidden" value="<?=$this->session->userdata('user_id');?>" />
 
-                            <div class="form-group">
-                                <label class="col-md-2 control-label"
-                                       for="username">Username <span class="text-danger">*</span></label>
-                                <div class="col-md-10">
-                                    <input class="form-control" type="text" id="username" name="username"
-                                           placeholder="Username" required maxlength="512"
-                                           value="<?=set_value('username', $personal_profile['username']);?>" />
+                            <fieldset>
+                                <legend>Username &amp; Name</legend>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label"
+                                           for="username">Username <span class="text-danger">*</span></label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="text" id="username" name="username"
+                                               placeholder="Username" required maxlength="512" data-parsley-type="alphanum"
+                                               value="<?=set_value('username', $personal_profile['username']);?>" />
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label class="col-md-2 control-label"
-                                       for="name">Name <span class="text-danger">*</span></label>
-                                <div class="col-md-10">
-                                    <input class="form-control" type="text" id="name" name="name"
-                                           placeholder="Name" required maxlength="512"
-                                           value="<?=set_value('name', $personal_profile['name']);?>" />
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label"
+                                           for="name">Name <span class="text-danger">*</span></label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="text" id="name" name="name"
+                                               placeholder="Name" required maxlength="512"
+                                               value="<?=set_value('name', $personal_profile['name']);?>" />
+                                    </div>
                                 </div>
-                            </div>
-                            <br/>
 
-                            <div class="form-group">
-                                <div class="col-md-10 col-md-offset-2">
-                                    <a id="reset_password_btn" class="btn btn-default btn-default-border" href="<?=site_url('admin/personal_profile/change_password'); ?>"><i class="fa fa-key fa-fw"></i> Change Password</a>
+                                <div class="form-group">
+                                    <div class="col-md-10 col-md-offset-2">
+                                        <a id="reset_password_btn" class="btn btn-default btn-default-border" href="<?=site_url('admin/personal_profile/change_password'); ?>"><i class="fa fa-key fa-fw"></i> Change Password</a>
+                                    </div>
                                 </div>
-                            </div>
+                            </fieldset>
                             <br/>
 
                             <div class="form-group">

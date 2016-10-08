@@ -1,0 +1,17 @@
+Includes:
+    <link rel="stylesheet" type="text/css" href="<?=RESOURCES_FOLDER;?>css/parsley.css" />
+    <script src="<?=RESOURCES_FOLDER;?>js/bootstrap-colorpicker.min.js"></script>
+
+Sample:
+    <div class="form-group">
+        <label class="control-label col-md-2" for="colourpicker">Colourpicker Test</label>
+        <div class="col-md-10">
+            <input class="form-control" type="text" id="colourpicker" name="colourpicker" placeholder="#000000"
+                   maxlength="7" data-parsley-pattern="<?=REGEX_PARSLEY_DECIMAL;?>"
+                   value="<?=set_value('colourpicker');?>" />
+        </div>
+    </div>
+
+    <script>
+        $("#colourpicker").colorpicker();
+    </script>

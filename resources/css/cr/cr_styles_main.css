@@ -13,6 +13,60 @@
     cursor: pointer;
 }
 
+.cr-no-bullets {
+    list-style-type: none;
+}
+
+.cr-content-panel-header {
+    margin-top: 0;
+    padding-bottom: 5px;
+    border-bottom: thin dotted #999;
+}
+
+.cr-colour-bar {
+    min-height: 20px;
+    border: thin solid #ccc;
+    min-width: 50px;
+}
+
+.cr-colour-row > .cr-colour-col {
+    height: 50px;
+    text-align: center;
+    padding-top: 15px;
+    border: thin solid #ccc;
+}
+
+.cr-bold {
+    font-weight: bold;
+}
+
+.cr-italic {
+    font-style: italic;
+}
+
+.cr-underline {
+    text-decoration: underline;
+}
+
+.cr-underline-dotted {
+    text-decoration: dotted;
+}
+
+.cr-underline-dash {
+    text-decoration: dashed;
+}
+
+#cr-foreground-sample,
+#cr-background-sample {
+    width: 100%;
+    height: 40%;
+    text-align: center;
+    border: thin dotted #ccc;
+    color: #000;
+    background-: #fff;
+    padding-top: 18%;
+}
+
 .page-header {
     border-bottom: dotted thin #ccc;
 }

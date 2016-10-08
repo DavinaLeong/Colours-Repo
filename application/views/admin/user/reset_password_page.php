@@ -62,60 +62,67 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                             <input id="user_id" type="hidden" value="<?=$user['user_id'];?>" />
 
-                            <div class="form-group">
-                                <label class="col-md-2 control-label" for="username">Username</label>
-                                <div class="col-md-10">
-                                    <p id="username" class="form-control-static"><?= $user['username']; ?></p>
+                            <fieldset>
+                                <legend>Username &amp; Name</legend>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="username">Username</label>
+                                    <div class="col-md-10">
+                                        <p id="username" class="form-control-static"><?= $user['username']; ?></p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label class="col-md-2 control-label" for="name">Name</label>
-                                <div class="col-md-10">
-                                    <p id="name" class="form-control-static"><?= $user['name']; ?></p>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="name">Name</label>
+                                    <div class="col-md-10">
+                                        <p id="name" class="form-control-static"><?= $user['name']; ?></p>
+                                    </div>
                                 </div>
-                            </div>
-                            <br/>
+                            </fieldset>
 
-                            <div class="form-group">
-                                <label class="col-md-2 control-label"
-                                       for="new_password">New Password <span class="text-danger">*</span></label>
-                                <div class="col-md-10">
-                                    <input class="form-control" type="password" id="new_password" name="new_password"
-                                           required minlength="6" maxlength="512" />
+                            <fieldset>
+                                <legend>Password</legend>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label"
+                                           for="new_password">New Password <span class="text-danger">*</span></label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="password" id="new_password" name="new_password"
+                                               required minlength="6" maxlength="512" />
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label class="col-md-2 control-label" for="confirm_new_password">
-                                    Confirm New Password <span class="text-danger">*</span></label>
-                                <div class="col-md-10">
-                                    <input class="form-control" type="password" id="confirm_new_password"
-                                           name="confirm_new_password" required minlength="6" maxlength="512"
-                                           data-parsley-equalto="#new_password" />
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="confirm_new_password">
+                                        Confirm New Password <span class="text-danger">*</span></label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="password" id="confirm_new_password"
+                                               name="confirm_new_password" required minlength="6" maxlength="512"
+                                               data-parsley-equalto="#new_password" />
+                                    </div>
                                 </div>
-                            </div>
-                            <br/>
+                            </fieldset>
 
-                            <div class="form-group">
-                                <label class="col-md-2 control-label" for="access">Access</label>
-                                <div class="col-md-10">
-                                    <p id="access" class="form-control-static"><?= $user['access_str']; ?></p>
+                            <fieldset>
+                                <legend>Admin</legend>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label" for="access">Access</label>
+                                    <div class="col-md-10">
+                                        <p id="access" class="form-control-static"><?= $user['access_str']; ?></p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                                <label class="col-md-2 control-label">Status</label>
-                                <div class="col-md-10">
-                                    <p id="status" class="form-control-static">
-                                        <?php if($user['status'] == 'Active'): ?>
-                                            <span class="label label-success"><?= $user['status']; ?></span>
-                                        <?php else: ?>
-                                            <span class="label label-danger"><?= $user['status']; ?></span>
-                                        <?php endif; ?>
-                                    </p>
+                                <div class="form-group">
+                                    <label class="col-md-2 control-label">Status</label>
+                                    <div class="col-md-10">
+                                        <p id="status" class="form-control-static">
+                                            <?php if($user['status'] == 'Active'): ?>
+                                                <span class="label label-success"><?= $user['status']; ?></span>
+                                            <?php else: ?>
+                                                <span class="label label-danger"><?= $user['status']; ?></span>
+                                            <?php endif; ?>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
+                            </fieldset>
 
                             <div class="form-group">
                                 <label class="col-md-2 control-label">Last Updated</label>

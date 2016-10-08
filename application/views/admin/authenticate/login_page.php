@@ -18,6 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <?php $this->load->view('admin/_snippets/head_resources'); ?>
     <link href="<?=RESOURCES_FOLDER;?>css/cr/cr_styles_login.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="<?=RESOURCES_FOLDER;?>css/parsley.css" />
 </head>
 
 <body>
@@ -37,18 +38,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php $this->load->view('admin/_snippets/validation_errors_box'); ?>
                 <?php $this->load->view('admin/_snippets/message_box'); ?>
 
-                <div class="form-group">
-                    <input type="text" class="form-control" id="username" name="username"
-                           placeholder="Username" autofocus />
-                </div>
+                <form id="login_form" method="post" data-parsley-validate>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="username" name="username"
+                               placeholder="Username" required autofocus />
+                    </div>
 
-                <div class="form-group">
-                    <input type="password" class="form-control" id="password" name="password"
-                           placeholder="Password" />
-                </div>
-                <br/>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="password" name="password"
+                               placeholder="Password" required />
+                    </div>
+                    <br/>
 
-                <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
+                    <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
+                </form>
+
             </div>
 
         </form>
@@ -63,6 +67,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!--BACKSTRETCH-->
 <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
 <script type="text/javascript" src="<?=RESOURCES_FOLDER;?>js/jquery.backstretch.min.js"></script>
-
+<script src="<?=RESOURCES_FOLDER;?>js/parsley.min.js"></script>
 </body>
 </html>

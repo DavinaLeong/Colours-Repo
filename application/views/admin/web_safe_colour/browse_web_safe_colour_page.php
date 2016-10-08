@@ -2,9 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**********************************************************************************
 	- File Info -
-		File name		: browse_user_page.php
+		File name		: browse_web_safe_colour_page.php
 		Author(s)		: DAVINA Leong Shi Yun
-		Date Created	: 29th Sep 2016
+		Date Created	: 01 Oct 2016
 
 	- Contact Info -
 		Email	: leong.shi.yun@gmail.com
@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 ***********************************************************************************/
 /**
- * @var $users
+ * @var $web_safe_colours
  */
 ?><!DOCTYPE html>
 <html lang="en">
@@ -39,9 +39,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <li class="active">Users</li>
             </ol>
 
-            <h1 class="page-header"><i class="fa fa-users fa-fw"></i> User Module</h1>
-            <h3><i class="fa fa-angle-right fa-fw"></i> Browse Users</h3>
-            <p class="lead">Click on a row to view a User record.</p>
+            <h1 class="page-header"><i class="fa fa-globe fa-fw"></i> Web Safe Colour Module</h1>
+            <h3><i class="fa fa-angle-right fa-fw"></i> Web Safe Colours Users</h3>
+            <p class="lead">Click on a row to view a Web Safe Colour.</p>
 
             <div class="row mt">
                 <div class="col-lg-12">
@@ -52,38 +52,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <table id="table_users" class="table table-hover">
                             <thead>
                             <tr>
-                                <th>Username</th>
                                 <th>Name</th>
-                                <th>Access</th>
-                                <th>Status</th>
+                                <th>Selector</th>
+                                <th>Hex</th>
+                                <th style="width: 10%;">Colour</th>
                                 <th>Last Updated</th>
                             </tr>
                             </thead>
                             <tbody>
                             <?php
-                            if($users):
-                                foreach($users as $user): ?>
-                                <tr id="view_user_<?=$user['user_id'];?>" class="cr-clickable"
-                                    onclick="location.href = '<?=site_url("admin/user/view_user/" . $user["user_id"]); ?>'">
-                                    <td><?= $user['username']; ?></td>
-                                    <td><?= $user['name']; ?></td>
-                                    <td><?= $user['access_str']; ?></td>
-                                    <td>
-                                        <?php if($user['status'] == 'Active'): ?>
-                                            <span class="label label-success"><?= $user['status']; ?></span>
-                                        <?php else: ?>
-                                            <span class="label label-danger"><?= $user['status']; ?></span>
-                                        <?php endif; ?>
-                                    </td>
-                                    <td><?= $this->datetime_helper->format_dd_mm_yyyy_dash($user['last_updated']); ?></td>
+                            if($web_safe_colours):
+                                foreach($web_safe_colours as $colour): ?>
+                                <tr id="view_web_safe_colour_<?=$colour['colour_id'];?>" class="cr-clickable"
+                                    onclick="location.href = '<?=site_url("admin/web_safe_colour/view_web_safe_colour/" . $colour["colour_id"]); ?>'">
+                                    <td><?= $colour['colour_name']; ?></td>
+                                    <td><?= $colour['colour_selector']; ?></td>
+                                    <td><?= $colour['hex']; ?></td>
+                                    <td style="border: thin solid #ccc; width: 10%; background: <?=$colour['hex']; ?>;">&nbsp;</td>
+                                    <td><?= $this->datetime_helper->format_dd_mm_yyyy_dash($colour['last_updated']); ?></td>
                                 </tr>
                             <?php
                                 endforeach;
-                            else: ?>
+                            else:
+                            ?>
                                 <tr>
                                     <td class="text-center" colspan="5">
-                                        No User records found.
-                                        <a href="<?= site_url('admin/user/new_user'); ?>">Add a User</a>
+                                        No Web Safe Colour records found.<br/>
+                                        <a href="<?=site_url('admin/web_safe_colour/new_web_safe_colour'); ?>">Add a Web Safe Colour</a>
                                     </td>
                                 </tr>
                             <?php endif; ?>

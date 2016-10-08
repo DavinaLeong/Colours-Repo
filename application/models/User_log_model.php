@@ -22,7 +22,7 @@ class User_log_model extends CI_Model
 
     public function get_all()
     {
-        $query = $this->db->get("user_log");
+        $query = $this->db->get(TABLE_USER_LOG);
         return $query->result_array();
     }
 
@@ -34,9 +34,8 @@ class User_log_model extends CI_Model
             "message" => $message
         );
 
-        $now = new DateTime("now", new DateTimeZone(DATE_TIME_ZONE));
-        $this->db->set("timestamp", $now->format("c"));
-        $this->db->insert("user_log", $temp_array);
+        $this->db->set("timestamp", $this->datetime_helper->now("c"));
+        $this->db->insert(TABLE_USER_LOG, $temp_array);
         return $this->db->insert_id();
     }
 

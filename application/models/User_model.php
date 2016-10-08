@@ -16,32 +16,32 @@ class User_model extends CI_Model
 {
     public function get_all()
     {
-        $query = $this->db->get('user');
+        $query = $this->db->get(TABLE_USER);
         return $query->result_array();
     }
 
     public function get_by_username($username = FALSE)
     {
-        $query = $this->db->get_where('user', array('username' => $username));
+        $query = $this->db->get_where(TABLE_USER, array('username' => $username));
         return $query->row_array();
     }
 
-    public function get_by_user_id($user_id = FALSE)
+    public function get_by_id($user_id = FALSE)
     {
-        $query = $this->db->get_where('user', array('user_id' => $user_id));
+        $query = $this->db->get_where(TABLE_USER, array('user_id' => $user_id));
         return $query->row_array();
     }
 
     public function get_all_limit_offset($limit, $offset)
     {
         $this->db->order_by('user_id');
-        $query = $this->db->get('user', $limit, $offset);
+        $query = $this->db->get(TABLE_USER, $limit, $offset);
         return $query->result_array();
     }
 
     public function count_all()
     {
-        return $this->db->count_all('user');
+        return $this->db->count_all(TABLE_USER);
     }
 
     public function insert($user)
@@ -54,9 +54,8 @@ class User_model extends CI_Model
             'status' => $user['status']
         );
 
-        $now = new DateTime('now', new DateTimeZone(DATE_TIME_ZONE));
-        $this->db->set('last_updated', $now->format('c'));
-        $this->db->insert('user', $temp_array);
+        $this->db->set('last_updated', $this->datetime_helper->now('c'));
+        $this->db->insert(TABLE_USER, $temp_array);
         return $this->db->insert_id();
     }
 
@@ -70,9 +69,8 @@ class User_model extends CI_Model
             'status' => $user['status']
         );
 
-        $now = new DateTime('now', new DateTimeZone(DATE_TIME_ZONE));
-        $this->db->set('last_updated', $now->format('c'));
-        $this->db->update('user', $temp_array, array('user_id' => $user['user_id']));
+        $this->db->set('last_updated', $this->datetime_helper->now('c'));
+        $this->db->update(TABLE_USER, $temp_array, array('user_id' => $user['user_id']));
         return $this->db->affected_rows();
     }
 
@@ -80,7 +78,7 @@ class User_model extends CI_Model
     {
         if ($user_id !== FALSE)
         {
-            $this->db->delete('user', array('user_id' => $user_id));
+            $this->db->delete(TABLE_USER, array('user_id' => $user_id));
             return $this->db->affected_rows();
         }
         else
@@ -93,7 +91,7 @@ class User_model extends CI_Model
     {
         if ($username !== FALSE)
         {
-            $this->db->delete('user', array('username' => $username));
+            $this->db->delete(TABLE_USER, array('username' => $username));
             return $this->db->affected_rows();
         }
         else
@@ -124,7 +122,7 @@ class User_model extends CI_Model
     public function get_all_active_user_ids()
     {
         $this->db->select('user_id');
-        $this->db->from('user');
+        $this->db->from(TABLE_USER);
         $this->db->where('status = ', 'Active');
         $this->db->order_by('user_id');
         $query = $this->db->get();
