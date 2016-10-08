@@ -30,7 +30,7 @@ class Migrate extends CI_Controller
 		{
 			echo 'Migration successful.<br/>';
 			echo 'Version: ' . $this->Migration_model->get_version_from_db() . '<br/>';
-			echo '<p><a href="' . site_url('migrate/rest') . '">Reset</a> | <a href="' . site_url('admin/authenticate/login') . '">Login Page</a></p>';
+			echo '<p><a href="' . site_url('migrate/rest') . '">Reset</a> | <a href="' . site_url('admin/authenticate/start') . '">Start Page</a></p>';
 			echo '<hr/';
 			echo '<p style="text-align:center;">- end of script -</p>';
 		}
