@@ -80,42 +80,69 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </fieldset>
 
+                            <?php if( $this->User_log_model->validate_access_custom("A", $this->session->userdata('access')) ): ?>
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-2">
                                     <a id="reset_password_btn" class="btn btn-default btn-default-border" href="<?=site_url('admin/user/reset_password/' . $user['user_id']); ?>"><i class="fa fa-key fa-fw"></i> Reset Password</a>
                                 </div>
                             </div>
+                            <?php endif; ?>
 
-                            <fieldset>
-                                <legend>Admin</legend>
+                            <?php if( $this->User_log_model->validate_access_custom("A", $this->session->userdata('access')) ): ?>
+                                <fieldset>
+                                    <legend>Admin</legend>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" for="access">Access <span class="text-danger">*</span></label>
+                                        <div class="col-md-10">
+                                            <select class="form-control" id="access" name="access" required>
+                                                <option value="" id="access_none">&nbsp;</option>
+                                                <?php foreach($access_options as $key=>$option): ?>
+                                                    <option value="<?=$key;?>" id="access_<?=$key;?>"
+                                                        <?=set_select('access', $option, ($user['access'] == $key));?>
+                                                    ><?=$option;?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" for="status">Status <span class="text-danger">*</span></label>
+                                        <div class="col-md-10">
+                                            <select class="form-control" id="status" name="status" required>
+                                                <option value="" id="status_none">&nbsp;</option>
+                                                <?php foreach($status_options as $key=>$option): ?>
+                                                    <option value="<?=$option;?>" id="status_<?=$key;?>"
+                                                        <?=set_select('status', $option, ($user['status'] == $option));?>
+                                                    ><?=$option;?></option>
+                                                <?php endforeach; ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            <?php elseif ( $this->User_log_model->validate_access_custom("M", $this->session->userdata('access')) ): ?>
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label" for="access">Access <span class="text-danger">*</span></label>
+                                    <label class="col-md-2 control-label">Access</label>
                                     <div class="col-md-10">
-                                        <select class="form-control" id="access" name="access" required>
-                                            <option value="" id="access_none">&nbsp;</option>
-                                            <?php foreach($access_options as $key=>$option): ?>
-                                                <option value="<?=$key;?>" id="access_<?=$key;?>"
-                                                    <?=set_select('access', $option, ($user['access'] == $key));?>
-                                                ><?=$option;?></option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                        <p id="access" class="form-control-static">
+                                            <span class="badge" style="background: <?=$user['access_col'];?>;"><?=$user['access_str'];?></span></p>
+                                        <input id="access" name="access" type="hidden" value="<?=$user['access'];?>" />
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-2 control-label" for="status">Status <span class="text-danger">*</span></label>
+                                    <label class="col-md-2 control-label">Status</label>
                                     <div class="col-md-10">
-                                        <select class="form-control" id="status" name="status" required>
-                                            <option value="" id="status_none">&nbsp;</option>
-                                            <?php foreach($status_options as $key=>$option): ?>
-                                                <option value="<?=$option;?>" id="status_<?=$key;?>"
-                                                    <?=set_select('status', $option, ($user['status'] == $option));?>
-                                                ><?=$option;?></option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                        <p id="status" class="form-control-static">
+                                                <span class="label <?=$user['status'] == 'Active' ? 'label-success' : 'label-danger';?>">
+                                                    <?=$user['status'];?></span></p>
+                                        <input id="status" name="status" type="hidden" value="<?=$user['status'];?>" />
                                     </div>
                                 </div>
-                            </fieldset>
+                                </fieldset>
+                            <?php else: ?>
+                                <input id="access" name="access" type="hidden" value="<?=$user['access'];?>" />
+                                <input id="status" name="status" type="hidden" value="<?=$user['status'];?>" />
+                            <?php endif; ?>
 
                             <div class="form-group">
                                 <label class="col-md-2 control-label">Last Updated</label>

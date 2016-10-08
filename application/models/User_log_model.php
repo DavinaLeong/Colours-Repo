@@ -39,7 +39,7 @@ class User_log_model extends CI_Model
         return $this->db->insert_id();
     }
 
-    private function _validate_access($requiredAccess, $userAccess)
+    public function validate_access_custom($requiredAccess, $userAccess)
     {
         $valid = false;
 
@@ -56,7 +56,16 @@ class User_log_model extends CI_Model
 
     public function validate_access()
     {
-        if( ! $this->_validate_access("A", $this->session->userdata('access')))
+        if( ! $this->validate_access_custom("AMU", $this->session->userdata('access')))
+        {
+            $this->session->set_userdata('message', 'This user has invalid access rights.');
+            redirect('admin/authenticate/login');
+        }
+    }
+
+    public function validate_access_admin()
+    {
+        if( ! $this->validate_access_custom("A", $this->session->userdata('access')))
         {
             $this->session->set_userdata('message', 'This user has invalid access rights.');
             redirect('admin/authenticate/login');
