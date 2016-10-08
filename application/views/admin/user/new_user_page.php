@@ -21,7 +21,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php $this->load->view('admin/_snippets/meta_admin'); ?>
 
     <?php $this->load->view('admin/_snippets/head_resources'); ?>
-    <link rel="stylesheet" type="text/css" href="<?=RESOURCES_FOLDER;?>css/parsley.css" />
 </head>
 
 <body>
@@ -145,6 +144,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </section>
 
 <?php $this->load->view('admin/_snippets/body_resources'); ?>
-<script src="<?=RESOURCES_FOLDER;?>js/parsley.min.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>bower_components/parsleyjs/dist/parsley.min.js"></script>
 </body>
 </html>

@@ -20,7 +20,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php $this->load->view('admin/_snippets/meta_admin'); ?>
 
     <?php $this->load->view('admin/_snippets/head_resources'); ?>
-    <link rel="stylesheet" type="text/css" href="<?=RESOURCES_FOLDER;?>css/parsley.css" />
 </head>
 
 <body>
@@ -38,11 +37,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <ol class="breadcrumb">
                 <li><a href="<?=site_url(ADMIN_HOME_URL);?>">Home</a></li>
                 <li><a href="<?=site_url('admin/web_safe_colour/browse_web_safe_colour');?>">Web Safe Colours</a></li>
-                <li class="active">New Web Safe Colour (<em>Values</em>)</li>
+                <li class="active">New Web Safe Colour</li>
             </ol>
 
             <h1 class="page-header"><i class="fa fa-globe fa-fw"></i> Web Safe Colours Module</h1>
-            <h3><i class="fa fa-angle-right fa-fw"></i> New Web Safe Colour (<em>Values</em>)</h3>
+            <h3><i class="fa fa-angle-right fa-fw"></i> New Web Safe Colour</h3>
 
             <div class="row mt">
                 <div class="col-lg-12">
@@ -199,7 +198,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 Hexadecimal</label>
                                             <div class="col-md-10">
                                                 <input class="form-control" type="text" id="hex" name="hex"
-                                                       placeholder="#000000" required maxlength="7"
+                                                       placeholder="#000000" maxlength="7"
                                                        data-parsley-pattern="<?=REGEX_PARSLEY_COLOUR_HEX;?>"
                                                        value="<?=set_value('hex');?>" readonly />
                                                 <span class="help-block">(#000000)</span>
@@ -243,8 +242,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </section>
 
 <?php $this->load->view('admin/_snippets/body_resources'); ?>
-<script src="<?=RESOURCES_FOLDER;?>js/parsley.min.js"></script>
-<script src="<?=RESOURCES_FOLDER;?>js/numeral.min.js"></script>
-<script src="<?=RESOURCES_FOLDER;?>js/cr/cr_update_colour_values.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>colour_repo/js/cr_update_colour_values.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>bower_components/parsleyjs/dist/parsley.min.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>bower_components/numeral/min/numeral.min.js"></script>
 </body>
 </html>

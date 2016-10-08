@@ -14,19 +14,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><title>Colours Repo</title>
 
 <!-- favicon -->
-<link rel="icon" type="image/png" href="<?=RESOURCES_FOLDER;?>img/cr_img/webpage_icon.png">
+<link rel="icon" type="image/png" href="<?=RESOURCES_FOLDER;?>colour_repo/img/webpage_icon.png">
 
 <!-- Bootstrap core CSS -->
-<link href="<?=RESOURCES_FOLDER;?>css/bootstrap.css" type="text/css" rel="stylesheet">
+<link href="<?=RESOURCES_FOLDER;?>bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
 <!--external css-->
-<link href="<?=RESOURCES_FOLDER;?>font-awesome/css/font-awesome.css" type="text/css" rel="stylesheet" />
+<link href="<?=RESOURCES_FOLDER;?>bower_components/font-awesome/css/font-awesome.css" type="text/css" rel="stylesheet" />
 
 <!-- Custom styles for this template -->
-<link href="<?=RESOURCES_FOLDER;?>css/style.css" type="text/css" rel="stylesheet">
-<link href="<?=RESOURCES_FOLDER;?>css/style-responsive.css" type="text/css" rel="stylesheet">
+<link href="<?=RESOURCES_FOLDER;?>dashgum/css/style.css" type="text/css" rel="stylesheet">
+<link href="<?=RESOURCES_FOLDER;?>dashgum/css/style-responsive.css" type="text/css" rel="stylesheet">
 
 <!-- Custome Colour Repo styles -->
-<link href="<?=RESOURCES_FOLDER;?>css/cr/cr_styles_main.css" type="text/css" rel="stylesheet">
+<link href="<?=RESOURCES_FOLDER;?>colour_repo/css/cr_styles_main.css" type="text/css" rel="stylesheet">
+<link href="<?=RESOURCES_FOLDER;?>colour_repo/css/cr_styles_bootstrap.css" type="text/css" rel="stylesheet">
+<link href="<?=RESOURCES_FOLDER;?>colour_repo/css/cr_styles_parsley.css" type="text/css" rel="stylesheet">
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>

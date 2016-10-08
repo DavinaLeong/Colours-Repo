@@ -17,8 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php $this->load->view('admin/_snippets/meta_admin'); ?>
 
     <?php $this->load->view('admin/_snippets/head_resources'); ?>
-    <link href="<?=RESOURCES_FOLDER;?>css/cr/cr_styles_login.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="<?=RESOURCES_FOLDER;?>css/parsley.css" />
+    <link href="<?=RESOURCES_FOLDER;?>colour_repo/css/cr_styles_login.css" rel="stylesheet">
 </head>
 
 <body>
@@ -30,9 +29,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div id="login-page">
     <div class="container">
 
-        <form class="form-login" method="post">
+        <form class="form-login" method="post" data-parsley-validate>
             <h2 class="form-login-heading">
-                <img src="<?=RESOURCES_FOLDER;?>img/cr_img/webpage_icon.png" alt="colours repo icon" height="20px" /> Colours Repo
+                <img src="<?=RESOURCES_FOLDER;?>colour_repo/img/webpage_icon.png" alt="colours repo icon" height="20px" /> Colours Repo
             </h2>
             <div class="login-wrap">
                 <?php $this->load->view('admin/_snippets/validation_errors_box'); ?>
@@ -60,13 +59,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 </div>
 
-<!-- js placed at the end of the document so the pages load faster -->
-<script src="<?=RESOURCES_FOLDER;?>js/jquery.js"></script>
-<script src="<?=RESOURCES_FOLDER;?>js/bootstrap.min.js"></script>
-
+<?php $this->load->view('admin/_snippets/body_resources'); ?>
 <!--BACKSTRETCH-->
 <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
-<script type="text/javascript" src="<?=RESOURCES_FOLDER;?>js/jquery.backstretch.min.js"></script>
-<script src="<?=RESOURCES_FOLDER;?>js/parsley.min.js"></script>
+<script type="text/javascript" src="<?=RESOURCES_FOLDER;?>dashgum/js/jquery.backstretch.min.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>bower_components/parsleyjs/dist/parsley.min.js"></script>
 </body>
 </html>
