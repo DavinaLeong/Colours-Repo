@@ -28,7 +28,7 @@ class Web_safe_colour extends CI_Controller
 		$this->load->view('admin/web_safe_colour/browse_web_safe_colour_page', $data);
 	}
 
-	public function new_web_safe_colour_from_values()
+	public function new_web_safe_colour()
 	{
 		$this->User_log_model->validate_access();
 		$this->load->library('form_validation');
@@ -52,7 +52,7 @@ class Web_safe_colour extends CI_Controller
 		$data = array(
 			'colour_type_options' => $this->Web_safe_colour_model->_get_colour_types_array()
 		);
-		$this->load->view('admin/web_safe_colour/new_web_safe_colour_values_page', $data);
+		$this->load->view('admin/web_safe_colour/new_web_safe_colour_page', $data);
 	}
 
 	private function _set_rules_new_web_safe_colour()
@@ -125,7 +125,7 @@ class Web_safe_colour extends CI_Controller
         }
 	}
 
-	public function edit_web_safe_colour_from_values($colour_id=FALSE)
+	public function edit_web_safe_colour($colour_id=FALSE)
 	{
         $this->User_log_model->validate_access();
         $colour = $this->Web_safe_colour_model->get_by_id($colour_id);
@@ -156,7 +156,7 @@ class Web_safe_colour extends CI_Controller
                 'delete_url' => site_url('admin/web_safe_colour/delete_web_safe_colour/' . $colour['colour_id'])
             );
 
-            $this->load->view('admin/web_safe_colour/edit_web_safe_colour_values_page', $data);
+            $this->load->view('admin/web_safe_colour/edit_web_safe_colour_page', $data);
         }
         else
         {
