@@ -63,6 +63,7 @@
  * @property User_model $User_model
  * @property Migration_model $Migration_model
  * @property Personal_profile_model $Personal_profile_model
+ * @property Script_runner_model $Script_runner_model
  * @property Web_safe_colour_model $Web_safe_colour_model
  */
 class CI_Controller {};
@@ -120,6 +121,7 @@ class MY_Controller extends CI_Controller {};
  * @property User_model $User_model
  * @property Migration_model $Migration_model
  * @property Personal_profile_model $Personal_profile_model
+ * @property Script_runner_model $Script_runner_model
  * @property Web_safe_colour_model $Web_safe_colour_model
  */
 class CI_Model {};
@@ -169,6 +171,7 @@ class CI_Model {};
  * @property User_model $User_model
  * @property Migration_model $Migration_model
  * @property Personal_profile_model $Personal_profile_model
+ * @property Script_runner_model $Script_runner_model
  * @property Web_safe_colour_model $Web_safe_colour_model
  */
 class CI_Migration {};

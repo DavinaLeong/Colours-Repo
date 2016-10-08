@@ -1,16 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-/**********************************************************************************
-	- File Info -
-		File name		: Migration_model.php
-		Author(s)		: DAVINA Leong Shi Yun
-		Date Created	: 08 Oct 2016
-
-	- Contact Info -
-		Email	: leong.shi.yun@gmail.com
-		Mobile	: (+65) 9369 3752 [Singapore]
-
-***********************************************************************************/
 
 class Migration_model extends CI_Model
 {
@@ -25,5 +14,14 @@ class Migration_model extends CI_Model
     {
         $query = $this->db->get('migrations');
         return $query->row_array()['version'];
+    }
+
+    public function _get_versions_array()
+    {
+        // Add version numbers as new migration files are created
+        return array(
+            '20161008172100',   // 08 Oct 2016, 5:21PM
+            '20161008175800'    // 08 Oct 2016, 5:58PM
+        );
     }
 }

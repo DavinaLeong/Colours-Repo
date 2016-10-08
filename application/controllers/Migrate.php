@@ -22,7 +22,7 @@ class Migrate extends CI_Controller
 
 	public function index()
 	{
-		if($this->migration->current() === FALSE)
+		if($this->migration->version($this->Migration_model->_get_versions_array()[1]) === FALSE)
 		{
 			show_error('Migration Error:<br/>' . $this->migration->error_string());
 		}
@@ -30,7 +30,9 @@ class Migrate extends CI_Controller
 		{
 			echo 'Migration successful.<br/>';
 			echo 'Version: ' . $this->Migration_model->get_version_from_db() . '<br/>';
-			echo '<a href="' . site_url('migrate/rest') . '">Reset</a>';
+			echo '<p><a href="' . site_url('migrate/rest') . '">Reset</a> | <a href="' . site_url('admin/authenticate/login') . '">Login Page</a></p>';
+			echo '<hr/';
+			echo '<p style="text-align:center;">- end of script -</p>';
 		}
 	}
 
