@@ -78,9 +78,9 @@ class Migration_Default_web_colours extends CI_Model
               `red_255` int(10) unsigned DEFAULT NULL,
               `green_255` int(10) unsigned DEFAULT NULL,
               `blue_255` int(10) unsigned DEFAULT NULL,
-              `red_ratio` decimal(10,3) unsigned DEFAULT NULL,
-              `green_ratio` decimal(10,3) unsigned DEFAULT NULL,
-              `blue_ratio` decimal(10,3) unsigned DEFAULT NULL,
+              `red_ratio` decimal(10,2) unsigned DEFAULT NULL,
+              `green_ratio` decimal(10,2) unsigned DEFAULT NULL,
+              `blue_ratio` decimal(10,2) unsigned DEFAULT NULL,
               `hex` varchar(7) DEFAULT NULL,
               `colour_type` varchar(512) DEFAULT NULL,
               `date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -288,144 +288,5 @@ class Migration_Default_web_colours extends CI_Model
 			$this->Web_safe_colour_model->insert($colour);
 		}
 	}
-
-	private function _drop_tables()
-	{
-		$this->dbforge->drop_table('web_safe_colour');
-		$this->dbforge->drop_table('user_log');
-		$this->dbforge->drop_table('user');
-	}
-
-	#region Individual Tables
-	private function _create_user_table()
-	{
-		$this->dbforge->add_field(array(
-			'user_id' => array(
-				'type' => 'INT',
-				'constraint' => 5,
-				'unsigned' => TRUE,
-				'auto_increment' => TRUE
-			),
-			'username' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '512'
-			),
-			'password_hash' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '512'
-			),
-			'name' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '512',
-				'null' => TRUE
-			),
-			'access' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '512'
-			),
-			'status' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '512'
-			),
-			'last_updated' => array(
-				'type' => 'TIMESTAMP'
-			),
-		));
-		$this->dbforge->add_key('user_id', TRUE);
-		$this->dbforge->create_table('user', TRUE);
-	}
-
-	private function _create_user_log_table()
-	{
-		$this->dbforge->add_field(array(
-			'ulid' => array(
-				'type' => 'INT',
-				'constraint' => '5',
-				'unsigned' => TRUE,
-				'auto_increment' => TRUE
-			),
-			'user_log' => array(
-				'type' => 'INT',
-				'constraint' => '5',
-				'unsigned' => TRUE
-			),
-			'message' => array(
-				'type' => 'TEXT'
-			),
-			'timestamp' => array(
-				'type' => 'TIMESTAMP'
-			)
-		));
-		$this->dbforge->add_key('ulid', TRUE);
-		$this->dbforge->create_table('user_log', TRUE);
-	}
-
-	private function _create_web_safe_colour_table()
-	{
-		$this->dbforge->add_field(array(
-			'colour_id' => array(
-				'type' => 'INT',
-				'constraint' => '5',
-				'unsigned' => TRUE,
-				'auto_increment' => TRUE
-			),
-			'colour_name' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '512',
-				'null' => TRUE
-			),
-			'colour_selector' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '512'
-			),
-			'red_255' => array(
-				'type' => 'INT',
-				'constraint' => '3',
-				'unsigned' => TRUE
-			),
-			'green_255' => array(
-				'type' => 'INT',
-				'constraint' => '3',
-				'unsigned' => TRUE
-			),
-			'blue_255' => array(
-				'type' => 'INT',
-				'constraint' => '3',
-				'unsigned' => TRUE
-			),
-			'red_ratio' => array(
-				'type' => 'DECIMAL',
-				'constraint' => '10,3',
-				'unsigned' => TRUE
-			),
-			'green_ratio' => array(
-				'type' => 'DECIMAL',
-				'constraint' => '10,3',
-				'unsigned' => TRUE
-			),
-			'blue_ratio' => array(
-				'type' => 'DECIMAL',
-				'constraint' => '10,3',
-				'unsigned' => TRUE
-			),
-			'hex' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '7'
-			),
-			'colour_type' => array(
-				'type' => 'VARCHAR',
-				'constraint' => '512'
-			),
-			'date_added' => array(
-				'type' => 'DATETIME'
-			),
-			'last_updated' => array(
-				'type' => 'TIMESTAMP'
-			)
-		));
-		$this->dbforge->add_key('colour_id', TRUE);
-		$this->dbforge->create_table('web_safe_colour', TRUE);
-	}
-	#endregion
 	
 } // end Migration_Default_web_colours class
