@@ -27,6 +27,7 @@
     min-height: 20px;
     border: thin solid #ccc;
     min-width: 50px;
+    text-align: center;
 }
 
 .cr-colour-row > .cr-colour-col {

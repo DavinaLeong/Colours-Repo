@@ -83,19 +83,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
                             <!-- Site UI -->
-                            <div class="panel panel-warning">
+                            <div class="panel panel-success">
                                 <div class="panel-heading" role="tab" id="heading_one">
                                     <h4 class="panel-title">
                                         <a role="button" data-toggle="collapse" data-parent="#accordion"
                                          href="#collapse_one" aria-expanded="true" aria-controls="collapse_one">
-                                            <i class="fa fa-minus fa-fw"></i> 1. Site UI
+                                            <i class="fa fa-cheeck fa-fw"></i> 1. Site UI
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapse_one" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading_one">
+                                <div id="collapse_one" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_one">
                                     <ul class="list-group">
                                         <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Import DashGum</li>
-                                        <li class="list-group-item text-danger"><i class="fa fa-times-circle fa-fw"></i> Switch to Mimimiun</li>
+                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Implement DataTables</li>
                                     </ul>
                                 </div>
                             </div>
@@ -117,22 +117,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
                             <!-- User Module -->
-                            <div class="panel panel-success">
+                            <div class="panel panel-warning">
                                 <div class="panel-heading" role="tab" id="heading_three">
                                     <h4 class="panel-title">
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                                            href="#collapse_three" aria-expanded="false" aria-controls="collapse_three">
-                                            <i class="fa fa-check fa-fw"></i> 3. User Module
+                                            <i class="fa fa-minus fa-fw"></i> 3. User Module
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapse_three" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_three">
+                                <div id="collapse_three" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading_three">
                                     <ul class="list-group">
                                         <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Browse Users</li>
                                         <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> New User</li>
                                         <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> View User</li>
                                         <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Edit User</li>
                                         <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Reset Password</li>
+                                        <li class="list-group-item text-danger"><i class="fa fa-times-circle fa-fw"></i> Access Colours</li>
                                     </ul>
                                 </div>
                             </div>

@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><title>Colours Repo</title>
 
 <!-- favicon -->
-<link rel="icon" type="image/png" href="<?=RESOURCES_FOLDER;?>colour_repo/img/webpage_icon.png">
+<link href="<?=RESOURCES_FOLDER;?>colour_repo/img/webpage_icon.png" type="image/png" rel="icon">
 
 <!-- Bootstrap core CSS -->
 <link href="<?=RESOURCES_FOLDER;?>bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">

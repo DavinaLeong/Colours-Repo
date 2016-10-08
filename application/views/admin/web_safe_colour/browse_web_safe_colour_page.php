@@ -20,6 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php $this->load->view('admin/_snippets/meta_admin'); ?>
 
     <?php $this->load->view('admin/_snippets/head_resources'); ?>
+    <link href="<?=RESOURCES_FOLDER;?>datatables/dataTables.min.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body>
@@ -68,8 +69,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <td><?= $colour['colour_name']; ?></td>
                                     <td><?= $colour['colour_selector']; ?></td>
                                     <td><?= $colour['hex']; ?></td>
-                                    <td style="border: thin solid #ccc; width: 10%; background: <?=$colour['hex']; ?>;">&nbsp;</td>
-                                    <td><?= $this->datetime_helper->format_dd_mm_yyyy_dash($colour['last_updated']); ?></td>
+                                    <td data-sort="<?= $colour['hex']; ?>"
+                                        style="border: thin solid #ccc; width: 10%; background: <?=$colour['hex']; ?>;">&nbsp;</td>
+                                    <td data-sort="<?=$this->datetime_helper->format_internet_standard($colour['last_updated']);?>">
+                                        <?= $this->datetime_helper->format_dd_mm_yyyy_hh_ii_ss($colour['last_updated']); ?></td>
                                 </tr>
                             <?php
                                 endforeach;
@@ -96,5 +99,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </section>
 
 <?php $this->load->view('admin/_snippets/body_resources'); ?>
+<script src="<?=RESOURCES_FOLDER;?>datatables/dataTables.min.js"></script>
+<script>
+    $('#table_users').DataTable({
+        "order": [[0, 'asc']]
+    });
+</script>
 </body>
 </html>

@@ -13,3 +13,9 @@ html,
 body {
     background: url("../img/colourful_balloons.jpg") no-repeat center;
 }
+
+.login-img {
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+}

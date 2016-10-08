@@ -23,6 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php $this->load->view('admin/_snippets/meta_admin'); ?>
 
     <?php $this->load->view('admin/_snippets/head_resources'); ?>
+    <link href="<?=RESOURCES_FOLDER;?>datatables/dataTables.min.css" type="text/css" rel="stylesheet" />
     <style>
         .cr-red {
             color: #f00;
@@ -57,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </ol>
 
             <h1 class="page-header"><i class="fa fa-globe fa-fw"></i> Web Safe Colours Module</h1>
-            <h3><i class="fa fa-angle-right fa-fw"></i> Web Safe Colour ID: <?= $colour['colour_id']; ?>&nbsp;
+            <h3><i class="fa fa-angle-right fa-fw"></i> View Web Safe Colour&nbsp;
                 <div id="action-dropdown" class="btn-group">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
@@ -253,5 +254,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </section>
 
 <?php $this->load->view('admin/_snippets/body_resources'); ?>
+<script src="<?=RESOURCES_FOLDER;?>datatables/dataTables.min.js"></script>
+<script>
+    $('#table_foreground').DataTable({
+        "order": [[0, 'asc']]
+    });
+    $('#table_background').DataTable({
+        "order": [[0, 'asc']]
+    });
+</script>
 </body>
 </html>

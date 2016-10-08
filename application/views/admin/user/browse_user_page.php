@@ -20,6 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php $this->load->view('admin/_snippets/meta_admin'); ?>
 
     <?php $this->load->view('admin/_snippets/head_resources'); ?>
+    <link href="<?=RESOURCES_FOLDER;?>datatables/dataTables.min.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body>
@@ -75,7 +76,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <span class="label label-danger"><?= $user['status']; ?></span>
                                         <?php endif; ?>
                                     </td>
-                                    <td><?= $this->datetime_helper->format_dd_mm_yyyy_dash($user['last_updated']); ?></td>
+                                    <td data-sort="<?=$this->datetime_helper->format_internet_standard($user['last_updated']);?>">
+                                        <?= $this->datetime_helper->format_dd_mm_yyyy_hh_ii_ss($user['last_updated']); ?></td>
                                 </tr>
                             <?php
                                 endforeach;
@@ -101,5 +103,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </section>
 
 <?php $this->load->view('admin/_snippets/body_resources'); ?>
+<script src="<?=RESOURCES_FOLDER;?>datatables/dataTables.min.js"></script>
+<script>
+    $('#table_users').DataTable({
+        "order": [[4, 'desc']]
+    });
+</script>
 </body>
 </html>
