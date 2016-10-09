@@ -17,6 +17,7 @@ class Web_safe_colour extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Web_safe_colour_model');
+		$this->load->library('debug_helper');
 	}
 
 	public function browse_web_safe_colour()
@@ -243,6 +244,18 @@ class Web_safe_colour extends CI_Controller
             $this->session->set_userdata('message', 'Web Safe Colour not found.');
             redirect('admin/web_safe_colour/browse_web_safe_colour');
         }
+	}
+
+	public function export_to_css($colour_id)
+	{
+		$this->debug_helper->_error_page_not_implemented('export_to_css');
+		// TODO: Implement Export to CSS template
+	}
+
+	public function export_to_unity_csharp($colour_id)
+	{
+		$this->debug_helper->_error_page_not_implemented('export_to_unity_csharp');
+		// TODO: Implemented Export to Unity C# template
 	}
 	
 } // end Web_safe_colours controller class
