@@ -36,9 +36,15 @@ class Migrate extends CI_Controller
 		}
 	}
 
-	public function reset()
+	public function new_script($descriptive_name='New_migration')
 	{
-		$this->Migration_model->reset();
+		$this->load->model('User_log_model');
+		$this->load->library('datetime_helper');
+		$this->User_log_model->validate_access_admin();
+		$data = array(
+			'descriptive_name' => ucfirst($descriptive_name),
+		);
+		$this->load->view('admin/migrate/new_script_template', $data);
 	}
 	
 } // end Migrate controller class
