@@ -130,7 +130,9 @@ class Migration_Default_web_colours extends CI_Model
 		foreach($users as $user)
 		{
 			$this->User_model->insert($user);
+			echo "<div><small>User (" . $user['name'] . ", " . $user['access'] .  ") created.</small></div>";
 		}
+		echo "<hr />";
 	}
 
 	private function _generate_web_safe_colours()
@@ -286,7 +288,9 @@ class Migration_Default_web_colours extends CI_Model
 		foreach($default_colours as $colour)
 		{
 			$this->Web_safe_colour_model->insert($colour);
+			echo "<div><small>Colour (" . $colour['colour_name'] . ", " . $colour['colour_type'] . ") created.</small></div>";
 		}
+		echo "<hr />";
 	}
-	
+
 } // end Migration_Default_web_colours class

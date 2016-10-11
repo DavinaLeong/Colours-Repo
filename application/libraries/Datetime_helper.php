@@ -68,6 +68,12 @@ class Datetime_helper
         return $datetime->format('d-m-Y, H:i:s');
     }
 
+    public function format_dd_mmm_yyyy_hh_ii_ss($date_str)
+    {
+        $datetime = new DateTime($date_str, new DateTimeZone(DATE_TIME_ZONE));
+        return $datetime->format('d M Y, H:i:s');
+    }
+
     public function format_for_db($date_str)
     {
         $datetime = new DateTime($date_str, new DateTimeZone(DATE_TIME_ZONE));
