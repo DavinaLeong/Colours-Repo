@@ -72,6 +72,18 @@ class Migrate extends CI_Controller
         }
     }
 
+    public function run_latest()
+    {
+        if($this->migration->latest() === FALSE)
+        {
+            show_error('Migration Error:<br/>' . $this->migration->error_string());
+        }
+        else
+        {
+            $this->_run_success_message();
+        }
+    }
+
     public function run_version($version_no=0)
     {
         if($this->migration->version($this->Migration_model->_get_versions_array()[$version_no]) === FALSE)

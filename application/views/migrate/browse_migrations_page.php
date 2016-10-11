@@ -49,7 +49,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </button>
                     <ul class="dropdown-menu">
                         <li><a id="run_current" href="<?=site_url('migrate/run_current');?>">
-                                <i class="fa fa-play fa-fw"></i> Run Current</a></li>
+                                <i class="fa fa-play-circle fa-fw"></i> Run Current</a></li>
+                        <li><a id="run_current" href="<?=site_url('migrate/run_latest');?>">
+                                <i class="fa fa-play fa-fw"></i> Run Latest</a></li>
                     </ul>
                 </div>
             </h3>

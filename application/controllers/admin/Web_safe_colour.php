@@ -246,13 +246,13 @@ class Web_safe_colour extends CI_Controller
         }
 	}
 
-	public function export_to_css($colour_id)
+	public function export_to_css()
 	{
 		$this->debug_helper->_error_page_not_implemented('export_to_css');
 		// TODO: Implement Export to CSS template
 	}
 
-	public function export_to_unity_csharp($colour_id)
+	public function export_to_unity_csharp()
 	{
 		$this->debug_helper->_error_page_not_implemented('export_to_unity_csharp');
 		// TODO: Implemented Export to Unity C# template

@@ -37,11 +37,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <section class="wrapper site-min-height">
             <ol class="breadcrumb">
                 <li><a href="<?=site_url(ADMIN_HOME_URL);?>">Home</a></li>
-                <li class="active">Users</li>
+                <li class="active">Web Safe Colours</li>
             </ol>
 
             <h1 class="page-header"><i class="fa fa-globe fa-fw"></i> Web Safe Colour Module</h1>
-            <h3><i class="fa fa-angle-right fa-fw"></i> Web Safe Colours Users</h3>
+            <h3><i class="fa fa-angle-right fa-fw"></i> Web Safe Colours&nbsp;
+                <div id="action-dropdown" class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        Action <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a id="export_css" href="<?=site_url('admin/web_safe_colour/export_to_css'); ?>">
+                                <i class="fa fa-download fa-fw"></i> Export to CSS</a></li>
+                        <li><a id="export_unity_csharp" href="<?=site_url('admin/web_safe_colour/export_to_unity_csharp'); ?>">
+                                <i class="fa fa-download fa-fw"></i> Export to Unity C#</a></li>
+                    </ul>
+                </div>
+            </h3>
             <p class="lead">Click on a row to view a Web Safe Colour.</p>
 
             <div class="row mt">
