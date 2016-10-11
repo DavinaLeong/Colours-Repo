@@ -110,6 +110,34 @@ class Web_safe_colour_model extends CI_Model
         return $id_array;
     }
 
+    public function prepare_for_export()
+    {
+        $this->db->order_by('colour_type', 'asc');
+        $this->db->order_by('colour_name', 'asc');
+        $this->db->order_by('hex', 'asc');
+
+        $query = $this->db->get('web_safe_colour');
+        return $query->result_array();
+    }
+
+    public function prepare_for_export_default()
+    {
+        $this->db->order_by('colour_name', 'asc');
+        $this->db->order_by('hex', 'asc');
+
+        $query = $this->db->get_where('web_safe_colour', array('colour_type' => 'Default'));
+        return $query->result_array();
+    }
+
+    public function prepare_for_export_others()
+    {
+        $this->db->order_by('colour_name', 'asc');
+        $this->db->order_by('hex', 'asc');
+
+        $query = $this->db->get_where('web_safe_colour', array('colour_type' => 'Others'));
+        return $query->result_array();
+    }
+
     public function _get_colour_types_array()
     {
         return array(

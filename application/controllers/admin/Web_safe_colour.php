@@ -249,7 +249,12 @@ class Web_safe_colour extends CI_Controller
 	public function export_to_css()
 	{
 		$this->debug_helper->_error_page_not_implemented('export_to_css');
-		// TODO: Implement Export to CSS template
+        $this->User_log_model->validate_access();
+        $data = array(
+            'default_colours' => $this->Web_safe_colour_model->prepare_for_export_default(),
+            'other_colours' => $this->Web_safe_colour_model->prepare_for_export_others()
+        );
+        $this->load->view('admin/web_safe_colour/export_to_css_template', $data);
 	}
 
 	public function export_to_unity_csharp()

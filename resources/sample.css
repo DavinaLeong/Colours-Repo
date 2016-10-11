@@ -1,0 +1,42 @@
+/**********************************************************************************
+	- File Info -
+		File name		: export_to_css_template.php
+		Author(s)		: DAVINA Leong Shi Yun
+		Date Created	: 11 Oct 2016
+
+	- Contact Info -
+		Email	: leong.shi.yun@gmail.com
+		Mobile	: (+65) 9369 3752 [Singapore]
+
+***********************************************************************************/
+
+/*=====================*/
+/*   Default Colours   */
+/*=====================*/
+
+/*--- Foreground ---*/
+.wsc-colour-black {
+	color: #000000;
+}
+
+/*--- Background ---*/
+.wsc-background-black {
+	background-color: #000000;
+}
+
+
+/*===================*/
+/*   Other Colours   */
+/*===================*/
+
+/*--- Foreground ---*/
+.wsc-colour-alice-blue {
+	color: #F0F8FF;
+}
+
+/*--- Background ---*/
+.wsc-background-alice-blue {
+	background-color: #F0F8FF;
+}
+
+/*   - end of file -   */
