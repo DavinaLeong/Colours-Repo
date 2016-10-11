@@ -180,8 +180,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <i class="fa fa-check-circle fa-fw"></i> Edit Web Safe Colours</li>
                                         <li class="list-group-item text-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Delete Web Safe Colours</li>
-                                        <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> Export to CSS</li>
+                                        <li class="list-group-item text-success">
+                                            <i class="fa fa-check-circle fa-fw"></i> Export to CSS</li>
                                         <li class="list-group-item text-danger">
                                             <i class="fa fa-times-circle fa-fw"></i> Export to Unity C#</li>
                                     </ul>

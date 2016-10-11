@@ -39,47 +39,64 @@ echo $tab . $tab . "Mobile" . $tab . ": (+65) 9369 3752 [Singapore]" . $newline;
 echo $emptyline;
 echo "***********************************************************************************/" . $newline;
 #endregion
+echo $emptyline;
+echo $emptyline;
 
 #region Default Colours
 echo "/*=====================*/" . $newline;
 echo "/*   Default Colours   */" . $newline;
 echo "/*=====================*/" . $newline;
+echo $emptyline;
 #region Foreground
 echo "/*--- Foreground ---*/" . $newline;
 foreach($default_colours as $key=>$colour)
 {
-
+    echo ".wsc-colour-" . strtolower($colour['colour_selector']) ." {" . $newline;
+    echo $tab . "color: " . $colour['hex'] . ";" . $newline;
+    echo "}" . $newline;
 }
 #endregion
+echo $emptyline;
 
 #region Background
 echo "/*--- Background ---*/" . $newline;
 foreach($default_colours as $key=>$colour)
 {
-
+    echo ".wsc-background-" . strtolower($colour['colour_selector']) ." {" . $newline;
+    echo $tab . "background-color: " . $colour['hex'] . ";" . $newline;
+    echo "}" . $newline;
 }
 #endregion
 #endregion
+echo $emptyline;
+echo $emptyline;
 
 #region Other Colours
 echo "/*===================*/" . $newline;
 echo "/*   Other Colours   */" . $newline;
 echo "/*===================*/" . $newline;
+echo $emptyline;
 #region Foreground
 echo "/*--- Foreground ---*/" . $newline;
 foreach($other_colours as $key=>$colour)
 {
-
+    echo ".wsc-colour-" . strtolower($colour['colour_selector']) ." {" . $newline;
+    echo $tab . "color: " . $colour['hex'] . ";" . $newline;
+    echo "}" . $newline;
 }
 #endregion
+echo $emptyline;
 
 #region Background
 echo "/*--- Background ---*/" . $newline;
 foreach($other_colours as $key=>$colour)
 {
-    
+    echo ".wsc-background-" . strtolower($colour['colour_selector']) ." {" . $newline;
+    echo $tab . "background-color: " . $colour['hex'] . ";" . $newline;
+    echo "}" . $newline;
 }
 #endregion
 #endregion
+echo $emptyline;
 
 echo '/*   - end of file -   */';
