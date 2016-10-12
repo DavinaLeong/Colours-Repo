@@ -63,6 +63,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <?php $this->load->view('admin/_snippets/message_box'); ?>
 
                     <div class="content-panel">
+                        <h4 class="cr-content-panel-header"><i class="fa fa-angle-right fa-fw"></i> New Migration</h4>
+                        <form id="new_migration_form" class="form-inline" method="post">
+                            <div class="form-group">
+                                <label class="control-label" for="descriptive_name">Descriptive Name <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" id="descriptive_name" name="descriptive_name" placeholder="Descriptive_name"
+                                       required />
+                            </div>
+                            <div class="form-group">
+                                <button id="submit_btn" class="btn btn-info" type="button"><i class="fa fa-download fa-fw"></i> Download</button>
+                            </div>
+                        </form>
+                    </div>
+                    <br/>
+
+                    <div class="content-panel">
                         <table id="table_users" class="table table-hover">
                             <thead>
                             <tr>
@@ -113,11 +128,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </section>
 
 <?php $this->load->view('admin/_snippets/body_resources'); ?>
+<script src="<?=RESOURCES_FOLDER;?>bower_components/parsleyjs/dist/parsley.min.js"></script>
 <script src="<?=RESOURCES_FOLDER;?>datatables/dataTables.min.js"></script>
 <script>
-    $('#table_users').DataTable({
-        "order": [[3, 'desc']]
+    $(document).ready(function()
+    {
+        $('#table_users').DataTable({
+            "order": [[3, 'desc']]
+        });
     });
+
+    function update_btn_state
+    {
+        
+    }
 </script>
 </body>
 </html>

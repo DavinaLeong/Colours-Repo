@@ -256,11 +256,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php $this->load->view('admin/_snippets/body_resources'); ?>
 <script src="<?=RESOURCES_FOLDER;?>datatables/dataTables.min.js"></script>
 <script>
-    $('#table_foreground').DataTable({
-        "order": [[0, 'asc']]
-    });
-    $('#table_background').DataTable({
-        "order": [[0, 'asc']]
+    $(document).ready(function()
+    {
+        $('#table_foreground').DataTable({
+            "order": [[0, 'asc']]
+        });
+        $('#table_background').DataTable({
+            "order": [[0, 'asc']]
+        });
     });
 </script>
 </body>
