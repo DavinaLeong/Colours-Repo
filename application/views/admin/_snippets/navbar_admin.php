@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <ul class="sidebar-menu" id="nav-accordion">
 
             <div id="profile_anchor">
-                <p class="centered"><img src="<?=RESOURCES_FOLDER;?>colour_repo/img/webpage_icon.png"
+                <p class="centered"><img class="img-circle" src="<?=RESOURCES_FOLDER;?>colour_repo/img/default_avatar.png"
                                          alt="Website Logo" height="60px" /></p>
                 <h5 class="centered"><?=$this->session->userdata('name');?></h5>
                 <h6 class="centered"><?=$this->session->userdata('username');?></h6>

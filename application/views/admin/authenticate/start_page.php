@@ -138,16 +138,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
                             <!-- Personal Profile Module -->
-                            <div class="panel panel-success">
+                            <div class="panel panel-warning">
                                 <div class="panel-heading" role="tab" id="heading_four">
                                     <h4 class="panel-title">
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                                            href="#collapse_four" aria-expanded="false" aria-controls="collapse_four">
-                                            <i class="fa fa-check fa-fw"></i> 4. Personal Profile Module
+                                            <i class="fa fa-minus fa-fw"></i> 4. Personal Profile Module
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapse_four" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_four">
+                                <div id="collapse_four" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading_four">
                                     <ul class="list-group">
                                         <li class="list-group-item text-success">
                                             <i class="fa fa-check-circle fa-fw"></i> View Personal Profile</li>
@@ -155,6 +155,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <i class="fa fa-check-circle fa-fw"></i> Edit Personal Profile</li>
                                         <li class="list-group-item text-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Change Password</li>
+                                        <li class="list-group-item text-danger">
+                                            <i class="fa fa-times-circle fa-fw"></i> Profile Picture</li>
                                     </ul>
                                 </div>
                             </div>
@@ -168,7 +170,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapse_five" class="panel-collapse collapse in"
+                                <div id="collapse_five" class="panel-collapse collapse"
                                      role="tabpanel" aria-labelledby="heading_five">
                                     <ul class="list-group">
                                         <li class="list-group-item text-success">
