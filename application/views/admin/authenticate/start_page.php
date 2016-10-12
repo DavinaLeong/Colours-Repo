@@ -42,19 +42,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <?php $this->load->view('admin/_snippets/message_box'); ?>
 
                     <div class="content-panel">
-                        <h3 class="cr-content-panel-header"><i class="fa fa-angle-right fa-fw"></i> Status</h3>
-                        <div class="alert alert-warning">
-                            <h4 style="font-weight: bold;"><i class="fa fa-minus-circle fa-fw"></i> Beta</h4>
-                            <p>Components are ready; not all features fully implemented yet.</p>
-                        </div>
-                    </div>
-                    <br/>
-
-                    <div class="content-panel">
                         <h3 class="cr-content-panel-header"><i class="fa fa-angle-right fa-fw"></i> About this Repo</h3>
                         <p>Click on the links on the sidebar to the left to begin.</p>
                         <p><strong>Colour Repo</strong> serves as a database of commonly used colours like Web Safe colours,
                             'Paint' colours, etc.</p>
+                    </div>
+                    <br/>
+
+                    <div class="content-panel">
+                        <h3 class="cr-content-panel-header"><i class="fa fa-angle-right fa-fw"></i> Status</h3>
+                        <div class="alert alert-info">
+                            <h4 style="font-weight: bold;"><i class="fa fa-thumbs-o-up fa-fw"></i> Final</h4>
+                            <p>Core features finalized. Planned features to be implemented in the future.</p>
+                        </div>
                     </div>
                     <br/>
 
@@ -159,16 +159,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </div>
                             <!-- Web Safe Colour Module -->
-                            <div class="panel panel-warning">
+                            <div class="panel panel-success">
                                 <div class="panel-heading" role="tab" id="heading_five">
                                     <h4 class="panel-title">
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                                            href="#collapse_five" aria-expanded="false" aria-controls="collapse_five">
-                                            <i class="fa fa-minus fa-fw"></i> 5. Web Safe Colour Module
+                                            <i class="fa fa-check fa-fw"></i> 5. Web Safe Colour Module
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapse_five" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading_five">
+                                <div id="collapse_five" class="panel-collapse collapse in"
+                                     role="tabpanel" aria-labelledby="heading_five">
                                     <ul class="list-group">
                                         <li class="list-group-item text-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Browse Web Safe Colours</li>
@@ -181,19 +182,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <li class="list-group-item text-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Delete Web Safe Colours</li>
                                         <li class="list-group-item text-success">
+                                            <i class="fa fa-check-circle fa-fw"></i> View CSS Script</li>
+                                        <li class="list-group-item text-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Export to CSS</li>
-                                        <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> Export to Unity C#</li>
+                                        <li class="list-group-item text-success">
+                                            <i class="fa fa-check-circle fa-fw"></i> View Unity C# Script</li>
+                                        <li class="list-group-item text-success">
+                                            <i class="fa fa-check-circle fa-fw"></i> Export to Unity C#</li>
                                     </ul>
                                 </div>
                             </div>
                             <!-- Standard Colour Module -->
-                            <div class="panel panel-danger">
+                            <div class="panel panel-default">
                                 <div class="panel-heading" role="tab" id="heading_six">
                                     <h4 class="panel-title">
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                                            href="#collapse_six" aria-expanded="false" aria-controls="collapse_six">
-                                            <i class="fa fa-times fa-fw"></i> 6. Standard Colour Module
+                                            <i class="fa fa-times fa-fw"></i> 6. Standard Colour Module <span class="label label-default">Planned</span>
                                         </a>
                                     </h4>
                                 </div>

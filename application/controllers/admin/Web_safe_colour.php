@@ -246,20 +246,44 @@ class Web_safe_colour extends CI_Controller
         }
 	}
 
-	public function export_to_css()
+    public function view_css_script()
+    {
+        $this->User_log_model->validate_access();
+        $data = array(
+            'default_colours' => $this->Web_safe_colour_model->prepare_for_export_default(),
+            'other_colours' => $this->Web_safe_colour_model->prepare_for_export_others()
+        );
+        $this->load->view('admin/web_safe_colour/view_css_script_page', $data);
+    }
+
+	public function download_as_css()
 	{
         $this->User_log_model->validate_access();
         $data = array(
             'default_colours' => $this->Web_safe_colour_model->prepare_for_export_default(),
             'other_colours' => $this->Web_safe_colour_model->prepare_for_export_others()
         );
-        $this->load->view('admin/web_safe_colour/export_to_css_template', $data);
+        $this->load->view('admin/web_safe_colour/download/css_download_template', $data);
 	}
 
-	public function export_to_unity_csharp()
+    public function view_unity_csharp_script()
+    {
+        $this->User_log_model->validate_access();
+        $data = array(
+            'default_colours' => $this->Web_safe_colour_model->prepare_for_export_default(),
+            'other_colours' => $this->Web_safe_colour_model->prepare_for_export_others()
+        );
+        $this->load->view('admin/web_safe_colour/view_unity_csharp_script_page', $data);
+    }
+
+	public function download_as_unity_csharp()
 	{
-		$this->debug_helper->_error_page_not_implemented('export_to_unity_csharp');
-		// TODO: Implemented Export to Unity C# template
+        $this->User_log_model->validate_access();
+        $data = array(
+            'default_colours' => $this->Web_safe_colour_model->prepare_for_export_default(),
+            'other_colours' => $this->Web_safe_colour_model->prepare_for_export_others()
+        );
+        $this->load->view('admin/web_safe_colour/download/unity_csharp_download_template', $data);
 	}
 	
 } // end Web_safe_colours controller class

@@ -48,10 +48,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         Action <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a id="export_css" href="<?=site_url('admin/web_safe_colour/export_to_css'); ?>">
-                                <i class="fa fa-download fa-fw"></i> Export to CSS</a></li>
-                        <li><a id="export_unity_csharp" href="<?=site_url('admin/web_safe_colour/export_to_unity_csharp'); ?>">
-                                <i class="fa fa-download fa-fw"></i> Export to Unity C#</a></li>
+                        <li><a id="export_css" href="<?=site_url('admin/web_safe_colour/view_css_script'); ?>">
+                                <i class="fa fa-eye fa-fw"></i> View CSS Export Script</a></li>
+                        <li><a id="export_unity_csharp" href="<?=site_url('admin/web_safe_colour/view_unity_csharp_script'); ?>">
+                                <i class="fa fa-eye fa-fw"></i> View Unity C# Script</a></li>
                     </ul>
                 </div>
             </h3>

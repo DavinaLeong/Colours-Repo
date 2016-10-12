@@ -2,9 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**********************************************************************************
 	- File Info -
-		File name		: export_to_css_template.php
+		File name		: css_script.php
 		Author(s)		: DAVINA Leong Shi Yun
-		Date Created	: 11 Oct 2016
+		Date Created	: 12 Oct 2016
 
 	- Contact Info -
 		Email	: leong.shi.yun@gmail.com
@@ -16,12 +16,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @var $other_colours
  */
 
-$filename = 'web_safe_colours.css';
-header("Content-Type: application/php");
-header("Content-Disposition: attachment; filename=" . $filename);
-header("Pragma: no-cache");
-header("Expires: 0");
-
 $newline = "\n";
 $tab = "\t";
 $emptyline = $tab . $newline;
@@ -29,7 +23,7 @@ $emptyline = $tab . $newline;
 #region File Header
 echo "/**********************************************************************************" . $newline;
 echo $tab . "- File Info -" . $newline;
-echo $tab . $tab . "File name" . $tab . $tab . ": " . $filename . $newline;
+echo $tab . $tab . "File name" . $tab . $tab . ": web_safe_colours.css" . $newline;
 echo $tab . $tab . "Author(s)" . $tab . $tab . ": DAVINA Leong Shi Yun" . $newline;
 echo $tab . $tab . "Date Created" . $tab . ": " . $this->datetime_helper->today('d M Y') . $newline;
 echo $emptyline;
