@@ -17,6 +17,7 @@ class Web_safe_colour extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('Web_safe_colour_model');
+		$this->load->library('debug_helper');
 	}
 
 	public function browse_web_safe_colour()
@@ -243,6 +244,46 @@ class Web_safe_colour extends CI_Controller
             $this->session->set_userdata('message', 'Web Safe Colour not found.');
             redirect('admin/web_safe_colour/browse_web_safe_colour');
         }
+	}
+
+    public function view_css_script()
+    {
+        $this->User_log_model->validate_access();
+        $data = array(
+            'default_colours' => $this->Web_safe_colour_model->prepare_for_export_default(),
+            'other_colours' => $this->Web_safe_colour_model->prepare_for_export_others()
+        );
+        $this->load->view('admin/web_safe_colour/view_css_script_page', $data);
+    }
+
+	public function download_as_css()
+	{
+        $this->User_log_model->validate_access();
+        $data = array(
+            'default_colours' => $this->Web_safe_colour_model->prepare_for_export_default(),
+            'other_colours' => $this->Web_safe_colour_model->prepare_for_export_others()
+        );
+        $this->load->view('admin/web_safe_colour/download/css_download_template', $data);
+	}
+
+    public function view_unity_csharp_script()
+    {
+        $this->User_log_model->validate_access();
+        $data = array(
+            'default_colours' => $this->Web_safe_colour_model->prepare_for_export_default(),
+            'other_colours' => $this->Web_safe_colour_model->prepare_for_export_others()
+        );
+        $this->load->view('admin/web_safe_colour/view_unity_csharp_script_page', $data);
+    }
+
+	public function download_as_unity_csharp()
+	{
+        $this->User_log_model->validate_access();
+        $data = array(
+            'default_colours' => $this->Web_safe_colour_model->prepare_for_export_default(),
+            'other_colours' => $this->Web_safe_colour_model->prepare_for_export_others()
+        );
+        $this->load->view('admin/web_safe_colour/download/unity_csharp_download_template', $data);
 	}
 	
 } // end Web_safe_colours controller class

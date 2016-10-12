@@ -66,7 +66,7 @@ echo $tab . "{" . $newline;
 echo $tab . $tab . "\$this->load->model('User_model');" . $newline;
 echo $tab . $tab . "\$user = array(" . $newline;
 echo $tab . $tab . $tab . "'username' => 'admin'," . $newline;
-echo $tab . $tab . $tab . "'name' => 'Default Admin'" . $newline;
+echo $tab . $tab . $tab . "'name' => 'Default Admin'," . $newline;
 echo $tab . $tab . $tab . "'password_hash' => password_hash('password', PASSWORD_DEFAULT)," . $newline;
 echo $tab . $tab . $tab . "'access' => 'A'," . $newline;
 echo $tab . $tab . $tab . "'status' => 'Active'" . $newline;

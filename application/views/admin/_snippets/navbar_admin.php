@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <li class="sub-menu">
                 <a href="javascript:;" >
-                    <i class="fa fa-users"></i>
+                    <i class="fa fa-users fa-fw"></i>
                     <span>Users</span>
                 </a>
                 <ul class="sub">
@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <li class="sub-menu">
                 <a href="javascript:;" >
-                    <i class="fa fa-globe"></i>
+                    <i class="fa fa-globe fa-fw"></i>
                     <span>Web Safe Colours</span>
                 </a>
                 <ul class="sub">
@@ -83,6 +83,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             New Web Safe Colour</a></li>
                 </ul>
             </li>
+            <?php if( $this->User_log_model->validate_access_custom("A", $this->session->userdata('access')) ): ?>
+                <li class="sub-menu">
+                    <a href="javascript:;" >
+                        <i class="fa fa-database fa-fw"></i>
+                        <span>Migrations</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="<?= site_url('migrate/browse_migrations'); ?>">
+                                Browse Migrations</a></li>
+                    </ul>
+                </li>
+            <?php endif; ?>
 
         </ul>
         <!-- sidebar menu end-->

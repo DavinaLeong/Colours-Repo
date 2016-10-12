@@ -109,14 +109,29 @@ class Migration_Init_setup extends CI_Migration
     private function _generate_users()
     {
         $this->load->model('User_model');
-        $user = array(
-            'username' => 'admin',
-            'name' => 'Default Admin',
-            'password_hash' => password_hash('password', PASSWORD_DEFAULT),
-            'access' => 'A',
-            'status' => 'Active'
-        );
-        $this->User_model->insert($user);
+		$users = array(
+			'default_admin' => array(
+				'username' => 'admin',
+				'name' => 'Default Admin',
+				'password_hash' => password_hash('password', PASSWORD_DEFAULT),
+				'access' => 'A',
+				'status' => 'Active'
+			),
+			'davina_leong' => array(
+				'username' => 'davina_leong',
+				'name' => 'Davina Leong',
+				'password_hash' => password_hash('password', PASSWORD_DEFAULT),
+				'access' => 'A',
+				'status' => 'Active'
+			)
+		);
+
+        foreach($users as $user)
+		{
+			$this->User_model->insert($user);
+			echo "<div><small>User (" . $user['name'] . ", " . $user['access'] .  ") created.</small></div>";
+		}
+		echo "<hr />";
     }
 
 } // end Migration_Init_db class

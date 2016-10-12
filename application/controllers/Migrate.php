@@ -18,22 +18,12 @@ class Migrate extends CI_Controller
 		parent::__construct();
 		$this->load->library('migration');
 		$this->load->model('Migration_model');
+		$this->load->model('User_log_model');
 	}
 
 	public function index()
 	{
-		if($this->migration->version($this->Migration_model->_get_versions_array()[1]) === FALSE)
-		{
-			show_error('Migration Error:<br/>' . $this->migration->error_string());
-		}
-		else
-		{
-			echo 'Migration successful.<br/>';
-			echo 'Version: ' . $this->Migration_model->get_version_from_db() . '<br/>';
-			echo '<p><a href="' . site_url('migrate/rest') . '">Reset</a> | <a href="' . site_url('admin/authenticate/start') . '">Start Page</a></p>';
-			echo '<hr/';
-			echo '<p style="text-align:center;">- end of script -</p>';
-		}
+		redirect('migrate/browse_migrations');
 	}
 
 	public function new_script($descriptive_name='New_migration')
@@ -46,5 +36,71 @@ class Migrate extends CI_Controller
 		);
 		$this->load->view('admin/migrate/new_script_template', $data);
 	}
-	
+
+    public function browse_migrations()
+    {
+        $this->User_log_model->validate_access();
+        $this->load->library('datetime_helper');
+        $migrations = array();
+
+        foreach($this->Migration_model->_get_versions_array() as $key=>$version_no)
+        {
+            $migration = array();
+            $migration['order_no'] = $key;
+            $migration['version_no'] = $version_no;
+            $migration['timestamp'] = $this->datetime_helper->format_dd_mmm_yyyy_hh_ii_ss($version_no);
+            $migration['current_version'] = $version_no == $this->Migration_model->get_version_from_db() ? TRUE : FALSE;
+            $migrations[] = $migration;
+        }
+
+        $data = array(
+            'migrations' => $migrations
+        );
+
+        $this->load->view('migrate/browse_migrations_page', $data);
+    }
+
+    public function run_current()
+    {
+        if($this->migration->current() === FALSE)
+        {
+            show_error('Migration Error:<br/>' . $this->migration->error_string());
+        }
+        else
+        {
+            $this->_run_success_message();
+        }
+    }
+
+    public function run_latest()
+    {
+        if($this->migration->latest() === FALSE)
+        {
+            show_error('Migration Error:<br/>' . $this->migration->error_string());
+        }
+        else
+        {
+            $this->_run_success_message();
+        }
+    }
+
+    public function run_version($version_no=0)
+    {
+        if($this->migration->version($this->Migration_model->_get_versions_array()[$version_no]) === FALSE)
+        {
+            show_error('Migration Error:<br/>' . $this->migration->error_string());
+        }
+        else
+        {
+            $this->_run_success_message();
+        }
+    }
+
+    private function _run_success_message()
+    {
+        echo '<h3>Migration Successful</h3>';
+        echo 'Version: ' . $this->Migration_model->get_version_from_db() . '<br/>';
+        $this->load->view('migrate/result_view');
+    }
+
 } // end Migrate controller class

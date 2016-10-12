@@ -21,7 +21,8 @@ class Migration_model extends CI_Model
         // Add version numbers as new migration files are created
         return array(
             '20161008172100',   // 08 Oct 2016, 5:21PM
-            '20161008175800'    // 08 Oct 2016, 5:58PM
+            '20161008175800',   // 08 Oct 2016, 5:58PM
+            '20161010100706'    // 10 Oct 2016, 10:07AM
         );
     }
 }

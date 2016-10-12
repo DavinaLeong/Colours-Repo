@@ -21,7 +21,7 @@ class Debug_helper
     {
         show_error(
             '<p style="font-size: 1.5em;">Page <strong style="color: #c00;">' . $page_name . '</strong> doesn\'t exist</p>' .
-            '<p>Click <a href="' . site_url('admin/authenticate/start') . '">here</a> to return.</p>'
+            '<p>Click <a href="javascript:history.back()">here</a> to return.</p>'
         );
     }
 
