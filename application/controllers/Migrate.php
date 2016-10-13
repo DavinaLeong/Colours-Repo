@@ -34,7 +34,7 @@ class Migrate extends CI_Controller
 		$data = array(
 			'descriptive_name' => ucfirst($descriptive_name),
 		);
-		$this->load->view('admin/migrate/new_script_template', $data);
+		$this->load->view('migrate/new_script_template', $data);
 	}
 
     public function browse_migrations()

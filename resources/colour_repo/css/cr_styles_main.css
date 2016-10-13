@@ -67,3 +67,13 @@
     background: #fff;
     padding-top: 18%;
 }
+
+.cr-show-now {
+    color: #666;
+    font-style: italic;
+}
+
+#profile_anchor .cr-show-now {
+    color: #ccc;
+    font-style: normal;
+}
