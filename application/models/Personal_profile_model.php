@@ -18,7 +18,7 @@ class Personal_profile_model extends CI_Model
     {
         if($this->session->userdata('user_id'))
         {
-            $this->db->select('username, name, password_hash, image_url, image_width, image_height, image_filetype, last_updated');
+            $this->db->select('username, name, password_hash, image_filename, image_width, image_height, image_filetype, last_updated');
             $this->db->from('user');
             $this->db->where('user_id = ', $this->session->userdata('user_id'));
 
@@ -73,7 +73,7 @@ class Personal_profile_model extends CI_Model
         if($this->session->userdata('user_id'))
         {
             $temp_array = array(
-                'image_url' => $personal_profile['image_url'],
+                'image_filename' => $personal_profile['image_filename'],
                 'image_width' => $personal_profile['image_width'],
                 'image_height' => $personal_profile['image_height'],
                 'image_filetype' => $personal_profile['image_filetype'],

@@ -153,36 +153,52 @@ class Personal_profile extends CI_Controller
     public function upload_profile_picture()
     {
         $this->User_log_model->validate_access();
+        $relative_upload_path = './resources/uploads/';
 
         $personal_profile = $this->Personal_profile_model->get();
-        $upload_config['upload_path'] = UPLOAD_FOLDER;
+        $upload_config['upload_path'] = $relative_upload_path;
         $upload_config['allowed_types'] = 'gif|jpg|jpeg|png|bmp';
-        $upload_config['max_width'] = '512';
-        $upload_config['max_height'] = '512';
-        $upload_config['max_height'] = '512';
+        $upload_config['max_width'] = '256';
+        $upload_config['max_height'] = '256';
         $upload_config['max_size'] = '2048';
+        $upload_config['overwrite'] = TRUE;
+
+        $user_id = $this->session->userdata('user_id') < 10 ? '0' . $this->session->userdata('user_id') : $this->session->userdata('user_id');
+        $file_name = substr(md5(time()), 0, 5) . $user_id;
+        $upload_config['file_name'] = $file_name;
 
         $this->load->library('upload', $upload_config);
 
         if($this->upload->do_upload('profile_picture'))
         {
+            $message = '';
             $file_upload_data = $this->upload->data();
-            if($personal_profile['image_url'])
+            if($this->session->userdata('image_filename'))
             {
                 $this->load->helper('file');
-                delete_files(UPLOADS_FOLDER . $personal_profile['image_url']);
-                $this->User_log_model->log_message('Old Profile Picture delete.');
+                if(delete_files($relative_upload_path . $this->session->userdata('image_filename')))
+                {
+                    $this->User_log_model->log_message('Old Profile Picture DELETED.');
+                    $message .= '<p>Old Profile Pictured <mark>deleted</mark>.</p>';
+                }
+                else
+                {
+                    $this->User_log_model->log_message('Unable to DELETE old Profile Picture.');
+                    $message .= '<p><mark>Unable</mark> to delete old Profile Picture.</p>';
+                }
             }
 
-            $personal_profile['image_url'] = UPLOADS_FOLDER . $file_upload_data['file_name'];
+            $personal_profile['image_filename'] = $file_name . $file_upload_data['file_ext'];
             $personal_profile['image_width'] = $file_upload_data['image_width'];
             $personal_profile['image_height'] = $file_upload_data['image_height'];
             $personal_profile['image_type'] = $file_upload_data['image_type'];
 
+            $this->session->set_userdata('image_filename', $personal_profile['image_filename']);
             $this->Personal_profile_model->upload_profile_picture($personal_profile);
 
             $this->User_log_model->log_message('Profile Picture UPLOADED successfully');
-            $this->session->set_userdata('message', 'Personal Picture <mark>uploaded</mark> successfully.');
+            $message .= '<p>Personal Picture <mark>uploaded</mark> successfully.</p>';
+            $this->session->set_userdata('message', $message);
             $this->session->unset_userdata('upload_errors');
             redirect('admin/personal_profile/view_personal_profile');
         }

@@ -63,14 +63,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
 
             <div class="row mt">
-                <div class="col-lg-3">
+                <!-- Upload Profile Picture start -->
+                <div class="col-lg-4 col-md-12">
                     <div class="content-panel">
                         <h4 class="cr-content-panel-header"><i class="fa fa-angle-right fa-fw"></i> Profile Picture</h4>
 
                         <div id="panel_profile_picture" class="panel panel-default">
                             <div class="panel-body">
-                                <?php if($personal_profile['image_url']): ?>
-                                    <img class="img-circle cr-img-centered" src="<?=UPLOADS_FOLDER . $personal_profile['image_url'];?>"
+                                <?php if($personal_profile['image_filename']): ?>
+                                    <img class="img-circle cr-img-centered" src="<?=UPLOADS_FOLDER . $personal_profile['image_filename'];?>"
                                          alt="profile picture" />
                                 <?php else: ?>
                                     <p class="cr-no-image">no image</p>
@@ -78,9 +79,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </div>
                         </div>
                     </div>
+                    <br/>
                 </div>
+                <!-- Upload Profile Picture end -->
 
-                <div class="col-lg-9">
+                <!-- Details Panel start -->
+                <div class="col-lg-8 col-md-12">
                     <div id="details_panel" class="content-panel">
                         <h4 class="cr-content-panel-header"><i class="fa fa-angle-right fa-fw"></i> Details</h4>
 
@@ -115,6 +119,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                         </form>
                     </div>
+                    <!-- Details Panel end -->
                 </div>
             </div>
 

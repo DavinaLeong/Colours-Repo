@@ -55,7 +55,7 @@ class Migration_Profile_picture extends CI_Migration
               `username` varchar(512) NOT NULL,
               `password_hash` varchar(512) NOT NULL,
               `name` varchar(512) DEFAULT NULL,
-              `image_url` varchar(512) DEFAULT NULL,
+              `image_filename` varchar(512) DEFAULT NULL,
               `image_width` varchar(5) DEFAULT NULL,
               `image_height` varchar(5) DEFAULT NULL,
               `image_filetype` varchar(5) DEFAULT NULL,
