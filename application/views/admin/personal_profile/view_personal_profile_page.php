@@ -58,10 +58,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <div class="row mt">
                 <div class="col-lg-12">
-
                     <?php $this->load->view('admin/_snippets/message_box'); ?>
+                </div>
+            </div>
 
+            <div class="row mt">
+                <div class="col-lg-3">
                     <div class="content-panel">
+                        <h4 class="cr-content-panel-header"><i class="fa fa-angle-right fa-fw"></i> Profile Picture</h4>
+
+                        <div id="panel_profile_picture" class="panel panel-default">
+                            <div class="panel-body">
+                                <?php if($personal_profile['image_url']): ?>
+                                    <img class="img-circle cr-img-centered" src="<?=UPLOADS_FOLDER . $personal_profile['image_url'];?>"
+                                         alt="profile picture" />
+                                <?php else: ?>
+                                    <p class="cr-no-image">no image</p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-9">
+                    <div id="details_panel" class="content-panel">
+                        <h4 class="cr-content-panel-header"><i class="fa fa-angle-right fa-fw"></i> Details</h4>
 
                         <form id="view_personal_profile_form" class="form-horizontal" method="post">
                             <input id="user_id" type="hidden" value="<?=$this->session->userdata('user_id');?>" />
@@ -94,7 +115,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                         </form>
                     </div>
-
                 </div>
             </div>
 

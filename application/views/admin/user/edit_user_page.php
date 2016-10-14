@@ -83,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <?php if( $this->User_log_model->validate_access_custom("A", $this->session->userdata('access')) ): ?>
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-2">
-                                    <a id="reset_password_btn" class="btn btn-default btn-default-border" href="<?=site_url('admin/user/reset_password/' . $user['user_id']); ?>"><i class="fa fa-key fa-fw"></i> Reset Password</a>
+                                    <a id="reset_password_btn" class="btn btn-default cr-btn-default-border" href="<?=site_url('admin/user/reset_password/' . $user['user_id']); ?>"><i class="fa fa-key fa-fw"></i> Reset Password</a>
                                 </div>
                             </div>
                             <?php endif; ?>

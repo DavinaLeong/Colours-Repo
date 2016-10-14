@@ -47,6 +47,15 @@
     border: none;
 }
 
-.btn-default-border {
+.modal-header {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.modal-content {
+   border-radius: 4px;
+}
+
+.cr-btn-default-border {
     border: thin solid #ccc;
 }

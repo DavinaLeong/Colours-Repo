@@ -100,7 +100,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 foreach($migrations as $migration): ?>
                                 <tr id="run_migration<?=$migration['order_no'];?>" class="cr-clickable"
                                     onclick="window.open('<?=site_url("migrate/run_version/" . $migration["order_no"]); ?>', '_blank')">
-                                    <td><?= $migration['order_no']; ?></td>
+                                    <td><?= $migration['order_no'] + 1; ?></td>
                                     <td><?= $migration['version_no']; ?></td>
                                     <td>
                                         <?php if($migration['current_version']): ?>

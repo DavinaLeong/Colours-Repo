@@ -18,7 +18,7 @@ class Personal_profile_model extends CI_Model
     {
         if($this->session->userdata('user_id'))
         {
-            $this->db->select('username, name, password_hash, last_updated');
+            $this->db->select('username, name, password_hash, image_url, image_width, image_height, image_filetype, last_updated');
             $this->db->from('user');
             $this->db->where('user_id = ', $this->session->userdata('user_id'));
 
@@ -39,8 +39,8 @@ class Personal_profile_model extends CI_Model
                 'username' => $personal_profile['username'],
                 'name' => $personal_profile['name']
             );
-            $now = new DateTime('now', new DateTimeZone(DATE_TIME_ZONE));
-            $this->db->set('last_updated', $now->format('c'));
+            $this->load->library('datetime_helper');
+            $this->db->set('last_updated', $this->datetime_helper->now('c'));
             $this->db->update('user', $temp_array, array('user_id' => $this->session->userdata('user_id')));
             return $this->db->affected_rows();
         }
@@ -57,8 +57,29 @@ class Personal_profile_model extends CI_Model
             $temp_array = array(
                 'password_hash' => $personal_profile['password_hash'],
             );
-            $now = new DateTime('now', new DateTimeZone(DATE_TIME_ZONE));
-            $this->db->set('last_updated', $now->format('c'));
+            $this->load->library('datetime_helper');
+            $this->db->set('last_updated', $this->datetime_helper->now('c'));
+            $this->db->update('user', $temp_array, array('user_id' => $this->session->userdata('user_id')));
+            return $this->db->affected_rows();
+        }
+        else
+        {
+            return FALSE;
+        }
+    }
+
+    public function upload_profile_picture($personal_profile)
+    {
+        if($this->session->userdata('user_id'))
+        {
+            $temp_array = array(
+                'image_url' => $personal_profile['image_url'],
+                'image_width' => $personal_profile['image_width'],
+                'image_height' => $personal_profile['image_height'],
+                'image_filetype' => $personal_profile['image_filetype'],
+            );
+            $this->load->library('datetime_helper');
+            $this->db->set('last_updated', $this->datetime_helper->now('c'));
             $this->db->update('user', $temp_array, array('user_id' => $this->session->userdata('user_id')));
             return $this->db->affected_rows();
         }
