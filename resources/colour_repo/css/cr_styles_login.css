@@ -12,6 +12,7 @@
 html,
 body {
     background: url("../img/colourful_balloons.jpg") no-repeat center;
+    height: 100%;
 }
 
 .login-img {
