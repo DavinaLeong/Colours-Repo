@@ -150,21 +150,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <span aria-hidden="true">&times;</span></button>
                             <h4 class="modal-title" id="upload_image_modal_title"><i class="fa fa-picture-o fa-fw"></i> Upload Image</h4>
                         </div>
-                        <div class="modal-body">
-                            <form id="upload_image_form" class="form" method="post" enctype="multipart/form-data"
-                                  action="<?=site_url('admin/personal_profile/upload_profile_picture');?>">
+                        <form id="upload_image_form" method="post" enctype="multipart/form-data"
+                              action="<?=site_url('admin/personal_profile/upload_profile_picture');?>">
+                            <div class="modal-body">
                                 <div class="form-group">
                                     <input id="profile_picture" name="profile_picture" type="file" />
                                     <p class="help-block">Valid format: .jpg .gif .png .bmp</p>
                                 </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button id="upload_btn" type="submit" class="btn btn-primary">
-                                <i class="fa fa-upload fa-fw"></i> Upload</button>
-                            <button id="cancel_upload_btn" type="button" class="btn btn-default cr-btn-default-border"
-                                    data-dismiss="modal"><i class="fa fa-ban fa-fw"></i> Cancel</button>
-                        </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button id="upload_btn" type="submit" class="btn btn-primary">
+                                    <i class="fa fa-upload fa-fw"></i> Upload</button>
+                                <button id="cancel_upload_btn" type="button" class="btn btn-default cr-btn-default-border"
+                                        data-dismiss="modal"><i class="fa fa-ban fa-fw"></i> Cancel</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
