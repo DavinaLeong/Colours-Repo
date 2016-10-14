@@ -96,6 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <ul class="list-group">
                                         <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Import DashGum</li>
                                         <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Implement DataTables</li>
+                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Implement Javascript Clock</li>
                                     </ul>
                                 </div>
                             </div>
