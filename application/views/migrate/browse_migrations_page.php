@@ -64,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     <div class="content-panel">
                         <h4 class="cr-content-panel-header"><i class="fa fa-angle-right fa-fw"></i> New Migration</h4>
-                        <p class="cr-show-now">Hello</p>
+                        <p class="cr-clock">Hello</p>
                         <form id="new_migration_form" class="form-inline" method="post">
                             <div class="form-group">
                                 <label class="control-label" for="descriptive_name">
@@ -174,34 +174,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $descriptive_name.removeClass('parsley-success');
             $descriptive_name.val('');
         }
-    }
-
-    var $cr_show_now = $('.cr-show-now');
-    $(document).ready(function()
-    {
-        setInterval(show_now, 1000);
-    });
-
-    function show_now()
-    {
-        var day_names = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-        var month_names = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-        var now = new Date();
-        var day_str = day_names[now.getDay()];
-
-        var date_str = now.getDate().toString();
-        var month_str = month_names[now.getMonth()];
-        var year_str = now.getFullYear().toString();
-
-        var hours_str = now.getHours().toString();
-        var minutes_str = now.getMinutes().toString();
-        var seconds_str = now.getSeconds().toString();
-
-        var space_str = ' ';
-
-        var datetime_str = day_str + ', ' + date_str + space_str + month_str + space_str + year_str + space_str + hours_str + ':' + minutes_str + ':' + seconds_str;
-        $cr_show_now.val(datetime_str);
     }
 </script>
 </body>

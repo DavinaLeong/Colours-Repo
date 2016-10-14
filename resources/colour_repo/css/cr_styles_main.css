@@ -9,6 +9,16 @@
 		Mobile	: (+65) 9369 3752 [Singapore]
 
 ***********************************************************************************/
+#cr-nav-clock {
+    margin-top: 5px;
+    color: #999;
+}
+
+.cr-clock {
+    font-style: italic;
+    font-size: 8pt;
+}
+
 .cr-clickable:hover {
     cursor: pointer;
 }

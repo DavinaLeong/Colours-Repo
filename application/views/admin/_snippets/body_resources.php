@@ -21,3 +21,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <!--common script for all pages-->
 <script src="<?=RESOURCES_FOLDER;?>dashgum/js/common-scripts.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>colour_repo/js/cr-clock.js"></script>

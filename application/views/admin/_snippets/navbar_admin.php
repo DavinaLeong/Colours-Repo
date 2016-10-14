@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <h5 class="centered"><?=$this->session->userdata('name');?></h5>
                 <h6 class="centered"><?=$this->session->userdata('username');?></h6>
                 <div class="centered"><a id="view_profile" class="btn btn-theme03 btn-sm" href="<?=site_url('admin/personal_profile/view_personal_profile');?>"><i class="fa fa-user fa-fw"></i> View Profile</a></div>
-                <p class="cr-show-now centered">Hello</p>
+                <p id="cr-nav-clock" class="cr-clock centered">Hello</p>
             </div>
 
             <li class="mt">

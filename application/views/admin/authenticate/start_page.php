@@ -36,6 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </ol>
 
             <h1><i class="fa fa-dashboard fa-fw"></i> Welcome, <strong><?= $this->session->userdata('name'); ?></strong></h1>
+            <p class="cr-clock"></p>
             <div class="row mt">
                 <div class="col-lg-12">
                     <?php $this->load->view('admin/_snippets/message_box'); ?>
