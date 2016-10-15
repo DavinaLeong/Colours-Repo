@@ -91,6 +91,8 @@
 .cr-img-centered {
     display: block;
     margin: auto;
+    max-width: 256px;
+    max-height: 256px;
 }
 
 .cr-no-image {

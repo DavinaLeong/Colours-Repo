@@ -153,7 +153,7 @@ class Personal_profile extends CI_Controller
     public function upload_profile_picture()
     {
         $this->User_log_model->validate_access();
-        $relative_upload_path = './resources/uploads/';
+        $relative_upload_path = './uploads/';
 
         $personal_profile = $this->Personal_profile_model->get();
         $upload_config['upload_path'] = $relative_upload_path;
@@ -175,8 +175,7 @@ class Personal_profile extends CI_Controller
             $file_upload_data = $this->upload->data();
             if($this->session->userdata('image_filename'))
             {
-                $this->load->helper('file');
-                if(delete_files($relative_upload_path . $this->session->userdata('image_filename')))
+                if(unlink($relative_upload_path . $this->session->userdata('image_filename')))
                 {
                     $this->User_log_model->log_message('Old Profile Picture DELETED.');
                     $message .= '<p>Old Profile Pictured <mark>deleted</mark>.</p>';

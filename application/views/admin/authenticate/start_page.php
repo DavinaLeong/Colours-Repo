@@ -58,6 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <br/>
 
+                    <!-- Tasks Panel start -->
                     <div class="content-panel">
                         <h3 class="cr-content-panel-header"><i class="fa fa-angle-right fa-fw"></i> Tasks</h3>
 
@@ -75,10 +76,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                                 <div id="collapse_zero" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_zero">
                                     <ul class="list-group">
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Refactor Resources Structure</li>
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Use Bower</li>
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Use Migrations</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Use Bower</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Use Migrations</li>
                                     </ul>
                                 </div>
                             </div>
@@ -94,9 +95,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                                 <div id="collapse_one" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_one">
                                     <ul class="list-group">
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Import DashGum</li>
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Implement DataTables</li>
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Implement Javascript Clock</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Import DashGum</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Implement DataTables</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Implement Javascript Clock</li>
                                     </ul>
                                 </div>
                             </div>
@@ -112,8 +113,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                                 <div id="collapse_two" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_two">
                                     <ul class="list-group">
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Page UI</li>
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Login Functionality</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Page UI</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Login Functionality</li>
                                     </ul>
                                 </div>
                             </div>
@@ -129,35 +130,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                                 <div id="collapse_three" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_three">
                                     <ul class="list-group">
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Browse Users</li>
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> New User</li>
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> View User</li>
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Edit User</li>
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Reset Password</li>
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Access Colours</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Browse Users</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> New User</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> View User</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Edit User</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Reset Password</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Access Colours</li>
+                                        <li class="list-group-item-success">
+                                            <i class="fa fa-check-circle fa-fw"></i> Show Profile Picture on View User</li>
                                     </ul>
                                 </div>
                             </div>
                             <!-- Personal Profile Module -->
-                            <div class="panel panel-warning">
+                            <div class="panel panel-success">
                                 <div class="panel-heading" role="tab" id="heading_four">
                                     <h4 class="panel-title">
                                         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
                                            href="#collapse_four" aria-expanded="false" aria-controls="collapse_four">
-                                            <i class="fa fa-minus fa-fw"></i> 4. Personal Profile Module
+                                            <i class="fa fa-check fa-fw"></i> 4. Personal Profile Module
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapse_four" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading_four">
+                                <div id="collapse_four" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_four">
                                     <ul class="list-group">
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> View Personal Profile</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Edit Personal Profile</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Change Password</li>
-                                        <li class="list-group-item text-danger">
-                                            <i class="fa fa-times-circle fa-fw"></i> Profile Picture</li>
+                                        <li class="list-group-item-success">
+                                            <i class="fa fa-check-circle fa-fw"></i> Profile Picture</li>
                                     </ul>
                                 </div>
                             </div>
@@ -174,23 +177,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div id="collapse_five" class="panel-collapse collapse"
                                      role="tabpanel" aria-labelledby="heading_five">
                                     <ul class="list-group">
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Browse Web Safe Colours</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> New Web Safe Colours</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> View Web Safe Colours</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Edit Web Safe Colours</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Delete Web Safe Colours</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> View CSS Script</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Export to CSS</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> View Unity C# Script</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Export to Unity C#</li>
                                     </ul>
                                 </div>
@@ -205,24 +208,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapse_six" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_six">
+                                <div id="collapse_six" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading_six">
                                     <ul class="list-group">
-                                        <li class="list-group-item text-danger">
+                                        <li class="list-group-item">
+                                            Colour Modes:
+                                            <ul>
+                                                <li>RGB</li>
+                                                <li>RGB Ratio</li>
+                                                <li>HSB</li>
+                                                <li>Hex</li>
+                                            </ul>
+                                        </li>
+                                        <li class="list-group-item-danger">
                                             <i class="fa fa-times-circle fa-fw"></i> Browse Standard Colours</li>
-                                        <li class="list-group-item text-danger">
+                                        <li class="list-group-item-danger">
                                             <i class="fa fa-times-circle fa-fw"></i> New Standard Colours</li>
-                                        <li class="list-group-item text-danger">
+                                        <li class="list-group-item-danger">
                                             <i class="fa fa-times-circle fa-fw"></i> View Standard Colours</li>
-                                        <li class="list-group-item text-danger">
+                                        <li class="list-group-item-danger">
                                             <i class="fa fa-times-circle fa-fw"></i> Edit Standard Colours</li>
-                                        <li class="list-group-item text-danger">
+                                        <li class="list-group-item-danger">
                                             <i class="fa fa-times-circle fa-fw"></i> Delete Standard Colours</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <!-- Task Accordion end -->
                     </div>
+                    <!-- Task Panel end -->
                 </div>
             </div>
 

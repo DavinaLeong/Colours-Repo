@@ -61,11 +61,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <div class="row mt">
                 <div class="col-lg-12">
-
                     <?php $this->load->view('admin/_snippets/message_box'); ?>
+                </div>
+            </div>
 
-                    <div class="content-panel">
+            <div class="row mt">
+                <!-- Profile Picture start -->
+                <div class="col-lg-4 col-md-12">
+                    <div id="panel_profile_picture" class="content-panel">
+                        <h4 class="cr-content-panel-header"><i class="fa fa-angle-right fa-fw"></i> Profile Picture</h4>
 
+                        <div id="panel_profile_picture" class="panel panel-default">
+                            <div class="panel-body">
+                                <?php if($user['image_filename']): ?>
+                                    <img class="img-circle cr-img-centered" src="<?=UPLOADS_FOLDER . $user['image_filename'];?>"
+                                         alt="profile picture" />
+                                <?php else: ?>
+                                    <p class="cr-no-image">no image</p>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                </div>
+                <!-- Profile Picture end -->
+
+                <!-- User's Details start -->
+                <div class="col-lg-8 col-md-12">
+                    <div id="panel_details" class="content-panel">
                         <form id="view_user_form" class="form-horizontal" method="post">
                             <input id="user_id" type="hidden" value="<?=$user['user_id'];?>" />
 
@@ -123,8 +146,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                         </form>
                     </div>
-
                 </div>
+                <!-- User's Details end -->
             </div>
 
         </section><! --/wrapper -->
