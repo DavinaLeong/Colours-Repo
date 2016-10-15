@@ -9,6 +9,16 @@
 		Mobile	: (+65) 9369 3752 [Singapore]
 
 ***********************************************************************************/
+#cr-nav-clock {
+    margin-top: 5px;
+    color: #999;
+}
+
+.cr-clock {
+    font-style: italic;
+    font-size: 8pt;
+}
+
 .cr-clickable:hover {
     cursor: pointer;
 }
@@ -66,4 +76,48 @@
     color: #000;
     background: #fff;
     padding-top: 18%;
+}
+
+.cr-show-now {
+    color: #666;
+    font-style: italic;
+}
+
+#profile_anchor .cr-show-now {
+    color: #ccc;
+    font-style: normal;
+}
+
+.cr-img-centered {
+    display: block;
+    margin: auto;
+    max-width: 256px;
+    max-height: 256px;
+}
+
+.cr-no-image {
+    width: 256px;
+    height: 256px;
+    background: #eee;
+    border: thin solid #ccc;
+    color: #999;
+    font-style: italic;
+    text-align: center;
+    padding-top: 120px;
+    margin: auto;
+
+    /* not selectable */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#upload_modal_btn {
+    width: 256px;
+    display: block;
+    margin: auto;
+    margin-top: 20px;
 }

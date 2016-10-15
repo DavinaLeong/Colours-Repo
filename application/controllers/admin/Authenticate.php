@@ -30,6 +30,9 @@ class Authenticate extends CI_Controller
         {
             $this->User_log_model->log_message('User is logged out.');
             $this->session->unset_userdata('user_id');
+            $this->session->unset_userdata('username');
+            $this->session->unset_userdata('name');
+            $this->session->unset_userdata('image_filename');
             $this->session->unset_userdata('access');
             $this->session->set_userdata('message', 'You have been logged out.');
         }
@@ -49,6 +52,7 @@ class Authenticate extends CI_Controller
                         $this->session->set_userdata('user_id', $user['user_id']);
                         $this->session->set_userdata('username', $user['username']);
                         $this->session->set_userdata('name', $user['name']);
+                        $this->session->set_userdata('image_filename', $user['image_filename']);
                         $this->session->set_userdata('access', $user['access']);
 
                         $this->User_log_model->log_message('User logged in.');

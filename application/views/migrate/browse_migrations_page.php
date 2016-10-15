@@ -63,6 +63,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <?php $this->load->view('admin/_snippets/message_box'); ?>
 
                     <div class="content-panel">
+                        <h4 class="cr-content-panel-header"><i class="fa fa-angle-right fa-fw"></i> New Migration</h4>
+                        <p class="cr-clock">Hello</p>
+                        <form id="new_migration_form" class="form-inline" method="post">
+                            <div class="form-group">
+                                <label class="control-label" for="descriptive_name">
+                                    Descriptive Name <span class="text-danger">*</span></label>
+                                <input class="form-control" type="text" id="descriptive_name" name="descriptive_name"
+                                       placeholder="Descriptive_name" required oninput="update_btn_state()"
+                                       pattern="<?=REGEX_PARSLEY_MIGRATIONS_FILENAME;?>" data-parsley-errors-container="#error_container"
+                                       data-parsley-error-message="Must begin with a Capital Letter; not a number or small letter.<br/>Replace spaces with underscores (_)." />
+                            </div>
+                            <div class="form-group">
+                                <button id="submit_btn" class="btn btn-info" type="button" onclick="submit_form()">
+                                    <i class="fa fa-check fa-fw"></i> Submit</button>
+                            </div>
+                            <br/>
+                            <p id="error_container"></p>
+                        </form>
+                    </div>
+                    <br/>
+
+                    <div class="content-panel">
                         <table id="table_users" class="table table-hover">
                             <thead>
                             <tr>
@@ -78,7 +100,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 foreach($migrations as $migration): ?>
                                 <tr id="run_migration<?=$migration['order_no'];?>" class="cr-clickable"
                                     onclick="window.open('<?=site_url("migrate/run_version/" . $migration["order_no"]); ?>', '_blank')">
-                                    <td><?= $migration['order_no']; ?></td>
+                                    <td><?= $migration['order_no'] + 1; ?></td>
                                     <td><?= $migration['version_no']; ?></td>
                                     <td>
                                         <?php if($migration['current_version']): ?>
@@ -113,11 +135,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </section>
 
 <?php $this->load->view('admin/_snippets/body_resources'); ?>
+<script src="<?=RESOURCES_FOLDER;?>bower_components/parsleyjs/dist/parsley.min.js"></script>
 <script src="<?=RESOURCES_FOLDER;?>datatables/dataTables.min.js"></script>
 <script>
-    $('#table_users').DataTable({
-        "order": [[3, 'desc']]
+    var $descriptive_name = null;
+    var $submit_btn = null;
+
+    $(document).ready(function()
+    {
+        $('#table_users').DataTable({
+            "order": [[3, 'desc']]
+        });
+
+        $descriptive_name = $('#descriptive_name');
+        $submit_btn = $('#submit_btn');
+
+        update_btn_state();
     });
+
+    function update_btn_state()
+    {
+        if($descriptive_name.val() == '')
+        {
+            $submit_btn.prop('disabled', true);
+        }
+        else
+        {
+            $submit_btn.prop('disabled', false);
+        }
+    }
+
+    function submit_form()
+    {
+        if($('#new_migration_form').parsley().validate())
+        {
+            console.log($descriptive_name.val());
+            window.open('<?=site_url('migrate/new_script');?>' + '/' + $descriptive_name.val(), '_blank');
+            $descriptive_name.removeClass('parsley-success');
+            $descriptive_name.val('');
+        }
+    }
 </script>
 </body>
 </html>

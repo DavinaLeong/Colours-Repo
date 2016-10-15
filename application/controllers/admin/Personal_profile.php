@@ -149,5 +149,65 @@ class Personal_profile extends CI_Controller
         $this->form_validation->set_rules('confirm_new_password', 'Confirm New Password',
             'trim|required|min_length[6]|max_length[512]|matches[new_password]');
     }
+
+    public function upload_profile_picture()
+    {
+        $this->User_log_model->validate_access();
+        $relative_upload_path = './uploads/';
+
+        $personal_profile = $this->Personal_profile_model->get();
+        $upload_config['upload_path'] = $relative_upload_path;
+        $upload_config['allowed_types'] = 'gif|jpg|jpeg|png|bmp';
+        $upload_config['max_width'] = '256';
+        $upload_config['max_height'] = '256';
+        $upload_config['max_size'] = '2048';
+        $upload_config['overwrite'] = TRUE;
+
+        $user_id = $this->session->userdata('user_id') < 10 ? '0' . $this->session->userdata('user_id') : $this->session->userdata('user_id');
+        $file_name = substr(md5(time()), 0, 5) . $user_id;
+        $upload_config['file_name'] = $file_name;
+
+        $this->load->library('upload', $upload_config);
+
+        if($this->upload->do_upload('profile_picture'))
+        {
+            $message = '';
+            $file_upload_data = $this->upload->data();
+            if($this->session->userdata('image_filename'))
+            {
+                if(unlink($relative_upload_path . $this->session->userdata('image_filename')))
+                {
+                    $this->User_log_model->log_message('Old Profile Picture DELETED.');
+                    $message .= '<p>Old Profile Pictured <mark>deleted</mark>.</p>';
+                }
+                else
+                {
+                    $this->User_log_model->log_message('Unable to DELETE old Profile Picture.');
+                    $message .= '<p><mark>Unable</mark> to delete old Profile Picture.</p>';
+                }
+            }
+
+            $personal_profile['image_filename'] = $file_name . $file_upload_data['file_ext'];
+            $personal_profile['image_width'] = $file_upload_data['image_width'];
+            $personal_profile['image_height'] = $file_upload_data['image_height'];
+            $personal_profile['image_type'] = $file_upload_data['image_type'];
+
+            $this->session->set_userdata('image_filename', $personal_profile['image_filename']);
+            $this->Personal_profile_model->upload_profile_picture($personal_profile);
+
+            $this->User_log_model->log_message('Profile Picture UPLOADED successfully');
+            $message .= '<p>Personal Picture <mark>uploaded</mark> successfully.</p>';
+            $this->session->set_userdata('message', $message);
+            $this->session->unset_userdata('upload_errors');
+            redirect('admin/personal_profile/view_personal_profile');
+        }
+        else
+        {
+            $this->User_log_model->log_message('Unable to UPLOAD Profile Picture.');
+            $this->session->set_userdata('message', '<mark>Unable</mark> to upload Profile Picture.');
+            $this->session->set_userdata('upload_errors', $this->upload->display_errors());
+            redirect('admin/personal_profile/edit_personal_profile');
+        }
+    }
 	
 } // end Personal_profile controller class

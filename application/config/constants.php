@@ -91,6 +91,7 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 */
 
 define('RESOURCES_FOLDER', 'http://localhost/colours_repo/resources/');
+define('UPLOADS_FOLDER', 'http://localhost/colours_repo/uploads/');
 define('DATE_TIME_ZONE', 'Asia/Singapore');
 define('SYSTEM_DATE_FORMAT', 'd-m-Y');
 
@@ -100,6 +101,8 @@ define('REGEX_DECIMAL', '/^\d+\.?\d+$/');
 define('REGEX_PARSLEY_DECIMAL', '^\d+\.?\d+$');
 define('REGEX_COLOUR_HEX', '/^[#]{1}[0-9a-fA-F]{6}$/');
 define('REGEX_PARSLEY_COLOUR_HEX', '^[#]{1}[0-9a-fA-F]{6}$');
+
+define('REGEX_PARSLEY_MIGRATIONS_FILENAME', '^[A-Z]{1}[_a-zA-Z0-9]+');
 
 define('ADMIN_LOGIN_URL', 'admin/authenticate/login');
 define('ADMIN_HOME_URL', 'admin/authenticate/start');

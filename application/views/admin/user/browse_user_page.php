@@ -67,7 +67,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <tr id="view_user_<?=$user['user_id'];?>" class="cr-clickable"
                                     onclick="location.href = '<?=site_url("admin/user/view_user/" . $user["user_id"]); ?>'">
                                     <td><?= $user['username']; ?></td>
-                                    <td><?= $user['name']; ?></td>
+                                    <td class="text-center">
+                                        <?php if($user['image_filename']): ?>
+                                            <img class="img-circle cr-img-centered" src="<?=UPLOADS_FOLDER . $user['image_filename'];?>"
+                                                 alt="profile picture" width="32px" height="32px" />
+                                        <?php endif; ?>
+                                        <?= $user['name']; ?></td>
+                                    <td>
+                                    </td>
                                     <td><span class="badge" style="background: <?=$user['access_col'];?>;"><?= $user['access_str']; ?></span></td>
                                     <td>
                                         <?php if($user['status'] == 'Active'): ?>

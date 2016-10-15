@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <a id="modal_delete_btn" type="button" class="btn btn-danger" href="<?= $delete_url; ?>">
                     <i class="fa fa-trash-o fa-fw"></i> Delete
                 </a>
-                <button id="modal_cancel_btn" type="button" class="btn btn-default btn-default-border" data-dismiss="modal">
+                <button id="modal_cancel_btn" type="button" class="btn btn-default cr-btn-default-border" data-dismiss="modal">
                     <i class="fa fa-ban fa-fw"></i> Cancel
                 </button>
             </div>

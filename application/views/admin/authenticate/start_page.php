@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </ol>
 
             <h1><i class="fa fa-dashboard fa-fw"></i> Welcome, <strong><?= $this->session->userdata('name'); ?></strong></h1>
-            <p><small>Today: <?= $this->datetime_helper->now('r'); ?></small></p>
+            <p class="cr-clock"></p>
             <div class="row mt">
                 <div class="col-lg-12">
                     <?php $this->load->view('admin/_snippets/message_box'); ?>
@@ -58,6 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </div>
                     <br/>
 
+                    <!-- Tasks Panel start -->
                     <div class="content-panel">
                         <h3 class="cr-content-panel-header"><i class="fa fa-angle-right fa-fw"></i> Tasks</h3>
 
@@ -75,10 +76,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                                 <div id="collapse_zero" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_zero">
                                     <ul class="list-group">
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Refactor Resources Structure</li>
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Use Bower</li>
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Use Migrations</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Use Bower</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Use Migrations</li>
                                     </ul>
                                 </div>
                             </div>
@@ -94,8 +95,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                                 <div id="collapse_one" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_one">
                                     <ul class="list-group">
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Import DashGum</li>
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Implement DataTables</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Import DashGum</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Implement DataTables</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Implement Javascript Clock</li>
                                     </ul>
                                 </div>
                             </div>
@@ -111,8 +113,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                                 <div id="collapse_two" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_two">
                                     <ul class="list-group">
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Page UI</li>
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Login Functionality</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Page UI</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Login Functionality</li>
                                     </ul>
                                 </div>
                             </div>
@@ -128,12 +130,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                                 <div id="collapse_three" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_three">
                                     <ul class="list-group">
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Browse Users</li>
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> New User</li>
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> View User</li>
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Edit User</li>
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Reset Password</li>
-                                        <li class="list-group-item text-success"><i class="fa fa-check-circle fa-fw"></i> Access Colours</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Browse Users</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> New User</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> View User</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Edit User</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Reset Password</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Access Colours</li>
+                                        <li class="list-group-item-success">
+                                            <i class="fa fa-check-circle fa-fw"></i> Show Profile Picture on View User</li>
                                     </ul>
                                 </div>
                             </div>
@@ -149,12 +153,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                                 <div id="collapse_four" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_four">
                                     <ul class="list-group">
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> View Personal Profile</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Edit Personal Profile</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Change Password</li>
+                                        <li class="list-group-item-success">
+                                            <i class="fa fa-check-circle fa-fw"></i> Profile Picture</li>
                                     </ul>
                                 </div>
                             </div>
@@ -168,26 +174,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapse_five" class="panel-collapse collapse in"
+                                <div id="collapse_five" class="panel-collapse collapse"
                                      role="tabpanel" aria-labelledby="heading_five">
                                     <ul class="list-group">
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Browse Web Safe Colours</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> New Web Safe Colours</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> View Web Safe Colours</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Edit Web Safe Colours</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Delete Web Safe Colours</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> View CSS Script</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Export to CSS</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> View Unity C# Script</li>
-                                        <li class="list-group-item text-success">
+                                        <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Export to Unity C#</li>
                                     </ul>
                                 </div>
@@ -202,24 +208,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         </a>
                                     </h4>
                                 </div>
-                                <div id="collapse_six" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_six">
+                                <div id="collapse_six" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading_six">
                                     <ul class="list-group">
-                                        <li class="list-group-item text-danger">
+                                        <li class="list-group-item">
+                                            Colour Modes:
+                                            <ul>
+                                                <li>RGB</li>
+                                                <li>RGB Ratio</li>
+                                                <li>HSB</li>
+                                                <li>Hex</li>
+                                            </ul>
+                                        </li>
+                                        <li class="list-group-item-danger">
                                             <i class="fa fa-times-circle fa-fw"></i> Browse Standard Colours</li>
-                                        <li class="list-group-item text-danger">
+                                        <li class="list-group-item-danger">
                                             <i class="fa fa-times-circle fa-fw"></i> New Standard Colours</li>
-                                        <li class="list-group-item text-danger">
+                                        <li class="list-group-item-danger">
                                             <i class="fa fa-times-circle fa-fw"></i> View Standard Colours</li>
-                                        <li class="list-group-item text-danger">
+                                        <li class="list-group-item-danger">
                                             <i class="fa fa-times-circle fa-fw"></i> Edit Standard Colours</li>
-                                        <li class="list-group-item text-danger">
+                                        <li class="list-group-item-danger">
                                             <i class="fa fa-times-circle fa-fw"></i> Delete Standard Colours</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <!-- Task Accordion end -->
                     </div>
+                    <!-- Task Panel end -->
                 </div>
             </div>
 
