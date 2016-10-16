@@ -90,7 +90,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <tr>
                                 <th>#</th>
                                 <th>Version No</th>
-                                <th>Current Version</th>
                                 <th>Date Created</th>
                             </tr>
                             </thead>
@@ -101,14 +100,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <tr id="run_migration<?=$migration['order_no'];?>" class="cr-clickable"
                                     onclick="window.open('<?=site_url("migrate/run_version/" . $migration["order_no"]); ?>', '_blank')">
                                     <td><?= $migration['order_no'] + 1; ?></td>
-                                    <td><?= $migration['version_no']; ?></td>
-                                    <td>
+                                    <td><?= $migration['version_no']; ?>&nbsp;
                                         <?php if($migration['current_version']): ?>
-                                            <span class="label label-primary">Yes</span>
-                                        <?php else: ?>
-                                            <span class="label label-default">No</span>
-                                        <?php endif; ?>
-                                    </td>
+                                            <span class="label label-primary">CURRENT</span>
+                                        <?php endif; ?></td>
                                     <td data-sort="<?=$this->datetime_helper->format_internet_standard($migration['timestamp']);?>">
                                         <?= $this->datetime_helper->format_dd_mm_yyyy_hh_ii_ss($migration['timestamp']); ?></td>
                                 </tr>
@@ -144,7 +139,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $(document).ready(function()
     {
         $('#table_users').DataTable({
-            "order": [[3, 'desc']]
+            "order": [[2, 'desc']]
         });
 
         $descriptive_name = $('#descriptive_name');
