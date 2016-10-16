@@ -42,7 +42,7 @@ class Script_runner_model extends CI_Model
 
         $output=array(
             'output_str' => $output_str,
-            'success' => $this->db->trans_status() ? "Success" : "Failure"
+            'success' => $this->db->trans_status() ? "<p style=\"color: #080;\">SUCCESS</p>" : "<p style=\"color: #c00;\">FAILURE</p>"
         );
 
         return $output;
