@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     &nbsp;<div id="action-dropdown" class="btn-group">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
-                            Action <span class="caret"></span>
+                            <i class="fa fa-gavel fa-fw"></i> Action <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
                             <li><a id="export_css" href="<?=site_url('admin/web_safe_colour/view_css_script'); ?>">

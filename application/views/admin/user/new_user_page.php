@@ -62,7 +62,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                            for="username">Username <span class="text-danger">*</span></label>
                                     <div class="col-md-10">
                                         <input class="form-control" type="text" id="username" name="username" placeholder="Username"
-                                               required maxlength="512" data-parsley-type="alphanum" value="<?=set_value('username');?>" />
+                                               required maxlength="512" pattern="<?=REGEX_PARSLEY_USERNAME;?>" value="<?=set_value('username');?>" />
+                                        <p class="help-block">Only letters, numbers, dashes and underscores allowed.</p>
                                     </div>
                                 </div>
 
@@ -84,6 +85,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="col-md-10">
                                         <input class="form-control" type="password" id="password" name="password"
                                                required minlength="6" maxlength="512" />
+                                        <p class="help-block">Only letters and numbers allowed.</p>
                                     </div>
                                 </div>
 
@@ -103,7 +105,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <label class="col-md-2 control-label" for="access">Access <span class="text-danger">*</span></label>
                                     <div class="col-md-10">
                                         <select class="form-control" id="access" name="access" required>
-                                            <option value="" id="access_none">&nbsp;</option>
                                             <?php foreach($access_options as $key=>$option): ?>
                                                 <option value="<?=$key;?>" id="access_<?=$key;?>"
                                                     <?=set_select('access', $option);?>><?=$option;?></option>

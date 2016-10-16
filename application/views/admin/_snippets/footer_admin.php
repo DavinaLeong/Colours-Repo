@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <footer class="site-footer">
     <div class="text-center">
         <?= $this->datetime_helper->today('Y'); ?> &#8226; Colour Repo
-        <a href="blank.html#" class="go-top">
+        <a href="./#container" class="go-top">
             <i class="fa fa-angle-up"></i>
         </a>
     </div>

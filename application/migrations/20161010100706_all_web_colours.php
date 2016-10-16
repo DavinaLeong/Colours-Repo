@@ -19,20 +19,26 @@ class Migration_All_web_colours extends CI_Migration
 	// Public Functions ----------------------------------------------------------------
 	public function up()
 	{
-        echo '<p>Create Tables</p><hr/><code>';
+        //echo '<p>Create Tables</p><hr/><code>';
+        //$this->load->model('Script_runner_model');
+        //echo $this->Script_runner_model->run_script($this->_create_tables_script())['output_str'];
+        //echo '</code><hr/>';
         $this->load->model('Script_runner_model');
-        echo $this->Script_runner_model->run_script($this->_create_tables_script())['output_str'];
-        echo '</code><hr/>';
+        $this->Script_runner_model->run_script($this->_create_tables_script());
+        echo '<p>Tables Created</p><hr/>';
         $this->_generate_users();
         $this->_generate_web_safe_colours();
 	}
 	
 	public function down()
 	{
-        echo '<p>Drop Tables</p><hr/><code>';
+        //echo '<p>Drop Tables</p><hr/><code>';
+        //$this->load->model('Script_runner_model');
+        //echo $this->Script_runner_model->run_script($this->_drop_tables_script())['output_str'];
+        //echo '</code><hr/>';
         $this->load->model('Script_runner_model');
-        echo $this->Script_runner_model->run_script($this->_drop_tables_script())['output_str'];
-        echo '</code><hr/>';
+        $this->Script_runner_model->run_script($this->_drop_tables_script());
+        echo '<p>Tables Dropped</p><hr/>';
 	}
 	
 	// Private Functions ---------------------------------------------------------------
@@ -115,13 +121,10 @@ class Migration_All_web_colours extends CI_Migration
                 'username' => 'admin',
                 'name' => 'Default Admin',
                 'password_hash' => password_hash('password', PASSWORD_DEFAULT),
-                'access' => 'A',
-                'status' => 'Active'
-            ),
-            'davina_leong' => array(
-                'username' => 'davina_leong',
-                'name' => 'Davina Leong',
-                'password_hash' => password_hash('password', PASSWORD_DEFAULT),
+                'image_filename' => NULL,
+                'image_width' => NULL,
+                'image_height' => NULL,
+                'image_filetype' => NULL,
                 'access' => 'A',
                 'status' => 'Active'
             )

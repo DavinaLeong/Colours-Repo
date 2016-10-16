@@ -146,7 +146,7 @@ class User_model extends CI_Model
     {
         return array(
             'A' => 'Administrator',
-            'M' => 'Manager',
+            //'M' => 'Manager',
             'U' => 'User'
         );
     }
@@ -158,10 +158,10 @@ class User_model extends CI_Model
                 'name' => 'Administrator',
                 'hex' => '#8ABBB2'
             ),
-            'M' => array(
-                'name' => 'Manager',
-                'hex' => '#B88ABB'
-            ),
+            //'M' => array(
+            //    'name' => 'Manager',
+            //    'hex' => '#B88ABB'
+            //),
             'U' => array(
                 'name' => 'User',
                 'hex' => '#BB988A'

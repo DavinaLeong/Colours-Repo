@@ -18,11 +18,11 @@ $(document).ready(function()
 
 function show_now()
 {
-    var day_names = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    var day_names = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     var month_names = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     var now = new Date();
-    var day_str = day_names[now.getDay() - 1];
+    var day_str = day_names[now.getDay()];
 
     var date_str = leading_zeros(now.getDate());
     var month_str = month_names[now.getMonth()];

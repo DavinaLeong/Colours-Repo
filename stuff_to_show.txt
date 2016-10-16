@@ -1,0 +1,32 @@
+1) Personal Profile
+2) CRU User - John Doe
+3) CRUD Web Colour
+4) Migrations
+5) Data Table
+6) Parsley JS
+7) Numeral JS
+
+
+
+
+
+1) User Module
+	- Demonstrate Create User
+	- Demonstrate Update User
+	- Demonstrate Resetting of User's password
+2) Personal Profile Module
+	- Demonstrate Update Profile
+	- Demonstrate Changing of Password
+	- Demonstrate Changing of Profile Picture
+		. Highlight usage of File Upload library
+3) Web Safe Colours Module
+	- Demonstrate CRUD Colour
+	- Demonstrate downloading of Colours into CSS / Unity C# scripts
+	- Highlight updating of other fields as colour values are entered
+4) Migrations Module
+	- Demonstrate user-friendly Migrations interface
+	- Demonstrate generation of new Migrations script
+5) Highlight Additional Features
+	- Parsley JS
+	- Numeral JS
+	- DataTables

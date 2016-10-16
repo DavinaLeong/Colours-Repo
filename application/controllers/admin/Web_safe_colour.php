@@ -20,6 +20,11 @@ class Web_safe_colour extends CI_Controller
 		$this->load->library('debug_helper');
 	}
 
+    public function index()
+    {
+        redirect('admin/web_safe_colour/browse_web_safe_colour');
+    }
+
 	public function browse_web_safe_colour()
 	{
 		$this->User_log_model->validate_access();

@@ -65,8 +65,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                            for="username">Username <span class="text-danger">*</span></label>
                                     <div class="col-md-10">
                                         <input class="form-control" type="text" id="username" name="username" placeholder="Username"
-                                               required maxlength="512" data-parsley-type="alphanum"
+                                               required maxlength="512" pattern="<?=REGEX_PARSLEY_USERNAME;?>"
                                                value="<?=set_value('username', $user['username']);?>" />
+                                        <p class="help-block">Only letters, numbers, dashes and underscores allowed.</p>
                                     </div>
                                 </div>
 

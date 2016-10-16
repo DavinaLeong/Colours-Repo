@@ -47,8 +47,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="row mt">
                 <div class="col-lg-12">
                     <?php $this->load->view('admin/_snippets/validation_errors_box'); ?>
-                    <?php if($this->session->userdata('message')):?>
-                        <div id="message_box" class="alert alert-info" role="alert">
+                    <?php if($this->session->userdata('upload_errors')):?>
+                        <div id="upload_errors_box" class="alert alert-info" role="alert">
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
                             </button>
                             <?= $this->session->userdata('upload_errors') ?>
@@ -96,8 +96,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                        for="username">Username <span class="text-danger">*</span></label>
                                 <div class="col-md-10">
                                     <input class="form-control" type="text" id="username" name="username"
-                                           placeholder="Username" required maxlength="512" data-parsley-type="alphanum"
+                                           placeholder="Username" required maxlength="512" pattern="<?=REGEX_PARSLEY_USERNAME;?>"
                                            value="<?=set_value('username', $personal_profile['username']);?>" />
+                                    <p class="help-block">Only letters, numbers, dashes and underscores allowed.</p>
                                 </div>
                             </div>
 

@@ -48,10 +48,13 @@ class Personal_profile extends CI_Controller
 
             if($this->form_validation->run())
             {
-                if($personal_profile = $this->Personal_profile_model->update($this->_prepare_edit_personal_profile($personal_profile)))
+                if($this->Personal_profile_model->update($this->_prepare_edit_personal_profile($personal_profile)))
                 {
                     $this->User_log_model->log_message('Personal Profile UPDATED.');
                     $this->session->set_userdata('message', 'Personal Profile <mark>updated</mark>.');
+
+                    $this->session->set_userdata('username', $this->input->post('username'));
+                    $this->session->set_userdata('name', $this->input->post('name'));
                     redirect('admin/personal_profile/view_personal_profile');
                 }
                 else
@@ -78,12 +81,12 @@ class Personal_profile extends CI_Controller
         if($personal_profile['username'] == $this->input->post('username'))
         {
             $this->form_validation->set_rules('username', 'Username',
-                'trim|required|alpha_numeric|max_length[512]');
+                'trim|required|alpha_dash|max_length[512]');
         }
         else
         {
             $this->form_validation->set_rules('username', 'Username',
-                'trim|required|alpha_numeric|is_unique[user.username]|max_length[512]');
+                'trim|required|alpha_dash|is_unique[user.username]|max_length[512]');
         }
         $this->form_validation->set_rules('name', 'Name', 'trim|required|max_length[512]');
     }
@@ -109,7 +112,7 @@ class Personal_profile extends CI_Controller
             {
                 if(password_verify($this->input->post('old_password'), $personal_profile['password_hash']))
                 {
-                    $personal_profile['password_hash'] = password_hash($this->input->post('new_password'), PASSWORD_DEFAULT);
+                    $personal_profile['password_hash'] = password_hash(trim($this->input->post('new_password')), PASSWORD_DEFAULT);
                     if($personal_profile = $this->Personal_profile_model->update_password($personal_profile))
                     {
                         $this->User_log_model->log_message('Password UPDATED.');
@@ -199,15 +202,15 @@ class Personal_profile extends CI_Controller
             $message .= '<p>Personal Picture <mark>uploaded</mark> successfully.</p>';
             $this->session->set_userdata('message', $message);
             $this->session->unset_userdata('upload_errors');
-            redirect('admin/personal_profile/view_personal_profile');
         }
         else
         {
             $this->User_log_model->log_message('Unable to UPLOAD Profile Picture.');
             $this->session->set_userdata('message', '<mark>Unable</mark> to upload Profile Picture.');
             $this->session->set_userdata('upload_errors', $this->upload->display_errors());
-            redirect('admin/personal_profile/edit_personal_profile');
+
         }
+        redirect('admin/personal_profile/edit_personal_profile');
     }
 	
 } // end Personal_profile controller class

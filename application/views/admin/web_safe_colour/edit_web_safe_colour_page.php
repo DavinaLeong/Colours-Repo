@@ -74,6 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                placeholder="Name" required minlength="3" maxlength="512"
                                                data-parsley-type="alphanum"
                                                value="<?=set_value('colour_selector', $colour['colour_selector']);?>" />
+                                        <p class="help-block">Only letters and numbers allowed.</p>
                                     </div>
                                 </div>
 

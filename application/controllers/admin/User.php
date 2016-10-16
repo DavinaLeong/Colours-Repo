@@ -77,7 +77,7 @@ class User extends CI_Controller
     private function _set_rules_new_user()
     {
         $this->form_validation->set_rules('username', 'Username',
-            'trim|required|alpha_numeric|is_unique[user.username]|max_length[512]');
+            'trim|required|alpha_dash|is_unique[user.username]|max_length[512]');
         $this->form_validation->set_rules('name', 'Name', 'trim|required|min_length[6]|max_length[512]');
         $this->form_validation->set_rules('password', 'Password',
             'trim|required|min_length[6]|max_length[512]');
@@ -93,7 +93,7 @@ class User extends CI_Controller
     {
         $user['username'] = $this->input->post('username');
         $user['name'] = $this->input->post('name');
-        $user['password_hash'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+        $user['password_hash'] = password_hash(trim($this->input->post('password')), PASSWORD_DEFAULT);
         $user['access'] = $this->input->post('access');
         $user['status'] = $this->input->post('status');
 
@@ -115,6 +115,12 @@ class User extends CI_Controller
                 {
                     $this->User_log_model->log_message('User record UPDATED. | user_id: ' . $user_id);
                     $this->session->set_userdata('message', 'User record <mark>updated</mark>.');
+
+                    if($user_id == $this->session->userdata('user_id'))
+                    {
+                        $this->session->set_userdata('username', $this->input->post('username'));
+                        $this->session->set_userdata('name', $this->input->post('name'));
+                    }
                     redirect('admin/user/view_user/' . $user_id);
                 }
                 else
@@ -146,12 +152,12 @@ class User extends CI_Controller
         if($user['username'] == $this->input->post('username'))
         {
             $this->form_validation->set_rules('username', 'Username',
-                'trim|required|alpha_numeric|max_length[512]');
+                'trim|required|alpha_dash|max_length[512]');
         }
         else
         {
             $this->form_validation->set_rules('username', 'Username',
-                'trim|required|alpha_numeric|is_unique[user.username]|max_length[512]');
+                'trim|required|alpha_dash|is_unique[user.username]|max_length[512]');
         }
         $this->form_validation->set_rules('name', 'Name', 'trim|required|max_length[512]');
 
@@ -202,7 +208,7 @@ class User extends CI_Controller
 
             if($this->form_validation->run())
             {
-                $user['password_hash'] = password_hash($this->input->post('password'), PASSWORD_DEFAULT);
+                $user['password_hash'] = password_hash(trim($this->input->post('password')), PASSWORD_DEFAULT);
                 if($user = $this->User_model->update($user))
                 {
                     $this->User_log_model->log_message('User\'s password UPDATED. | user_id: ' . $user_id);

@@ -84,6 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="col-md-10">
                                         <input class="form-control" type="password" id="new_password" name="new_password"
                                                required minlength="6" maxlength="512" />
+                                        <p class="help-block">Only letters and numbers allowed.</p>
                                     </div>
                                 </div>
 
