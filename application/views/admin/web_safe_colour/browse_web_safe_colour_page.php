@@ -41,19 +41,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </ol>
 
             <h1 class="page-header"><i class="fa fa-globe fa-fw"></i> Web Safe Colour Module</h1>
-            <h3><i class="fa fa-angle-right fa-fw"></i> Web Safe Colours&nbsp;
-                <div id="action-dropdown" class="btn-group">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                        Action <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a id="export_css" href="<?=site_url('admin/web_safe_colour/view_css_script'); ?>">
-                                <i class="fa fa-eye fa-fw"></i> View CSS Export Script</a></li>
-                        <li><a id="export_unity_csharp" href="<?=site_url('admin/web_safe_colour/view_unity_csharp_script'); ?>">
-                                <i class="fa fa-eye fa-fw"></i> View Unity C# Script</a></li>
-                    </ul>
-                </div>
+            <h3><i class="fa fa-angle-right fa-fw"></i> Web Safe Colours
+                <?php if($web_safe_colours && count($web_safe_colours) > 0): ?>
+                    &nbsp;<div id="action-dropdown" class="btn-group">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                            Action <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a id="export_css" href="<?=site_url('admin/web_safe_colour/view_css_script'); ?>">
+                                    <i class="fa fa-eye fa-fw"></i> View CSS Export Script</a></li>
+                            <li><a id="export_unity_csharp" href="<?=site_url('admin/web_safe_colour/view_unity_csharp_script'); ?>">
+                                    <i class="fa fa-eye fa-fw"></i> View Unity C# Script</a></li>
+                        </ul>
+                    </div>
+                <?php endif; ?>
             </h3>
             <p class="lead">Click on a row to view a Web Safe Colour.</p>
 
