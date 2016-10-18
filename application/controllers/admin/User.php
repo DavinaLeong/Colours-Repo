@@ -58,7 +58,7 @@ class User extends CI_Controller
             if($user_id = $this->User_model->insert($this->_prepare_new_user_array()))
             {
                 $this->User_log_model->log_message('New User record CREATED. | user_id: ' . $user_id);
-                $this->session->set_userdata('New User record <mark>created</mark>/');
+                $this->session->set_userdata('message', 'New User record <mark>created</mark>/');
                 redirect('admin/user/view_user/' . $user_id);
             }
             else
