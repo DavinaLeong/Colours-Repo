@@ -14,8 +14,10 @@ var gulp = require('gulp');
 const NODE_PATH = './node_modules/';
 const VENDOR_PATH = './vendor/';
 
+// Copy packages to vendor folder
 gulp.task('copy', function()
 {
+	console.log('--- task: copy STARTED ---');
     // --- Twitter Bootstrap start ---
     gulp.src([
         NODE_PATH + 'bootstrap/dist/css/bootstrap.min.css',
@@ -27,6 +29,7 @@ gulp.task('copy', function()
     gulp.src([
         NODE_PATH + 'bootstrap/dist/js/bootstrap.min.js'
     ]).pipe(gulp.dest(VENDOR_PATH + 'bootstrap/js'));
+    console.log('Finished copying Bootstrap files.');
     // --- Twitter Bootstrap end ---
 
 
@@ -39,6 +42,7 @@ gulp.task('copy', function()
     gulp.src([
         NODE_PATH + 'font-awesome/fonts/**'
     ]).pipe(gulp.dest(VENDOR_PATH + 'font-awesome/fonts'));
+    console.log('Finished copying Font-Awesome files.');
     // --- Font-Awesome end ---
 
 
@@ -47,6 +51,7 @@ gulp.task('copy', function()
         NODE_PATH + 'jquery/dist/jquery.min.js',
         NODE_PATH + 'jquery/dist/jquery.min.map'
     ]).pipe(gulp.dest(VENDOR_PATH + 'jquery'));
+    console.log('Finished copying jQuery files.');
     // --- jQuery end ---
 
 
@@ -54,6 +59,7 @@ gulp.task('copy', function()
     gulp.src([
         NODE_PATH + 'numeral/min/numeral.min.js'
     ]).pipe(gulp.dest(VENDOR_PATH + 'numeral'));
+    console.log('Finished copying Numeral files.');
     // --- Numeral end ---
 
 
@@ -62,5 +68,12 @@ gulp.task('copy', function()
         NODE_PATH + 'parsleyjs/dist/parsley.min.js',
         NODE_PATH + 'parsleyjs/dist/parsley.min.js.map'
     ]).pipe(gulp.dest(VENDOR_PATH + 'parsleyjs'));
+    console.log('Finished copying ParsleyJs files.');
     // --- ParsleyJS end ---
+	console.log('--- task: copy ENDED ---');
+});
+
+gulp.task('minify-css', function()
+{
+
 });
