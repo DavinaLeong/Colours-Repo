@@ -4,9 +4,18 @@
   "description": "",
   "main": "../index.php",
   "dependencies": {
-    "bower": "^1.7.9"
+    "bootstrap": "^3.3.7",
+    "bower": "^1.7.9",
+    "font-awesome": "^4.6.3",
+    "jquery": "^2.2.4",
+    "numeral": "^1.5.3",
+    "parsleyjs": "^2.5.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.13",
+    "gulp-uglify": "^2.0.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

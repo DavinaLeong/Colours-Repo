@@ -1,6 +1,6 @@
 /**********************************************************************************
 	- File Info -
-		File name		: cr_update_colour_values.jpg
+		File name		: cr_update_colour_values.js
 		Author(s)		: DAVINA Leong Shi Yun
 		Date Created	: 07 Oct 2016
 

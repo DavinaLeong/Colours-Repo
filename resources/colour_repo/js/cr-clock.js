@@ -1,6 +1,6 @@
 /**********************************************************************************
 	- File Info -
-		File name		: cr-clock.jpg
+		File name		: cr-clock.js
 		Author(s)		: DAVINA Leong Shi Yun
 		Date Created	: 14 Oct 2016
 
