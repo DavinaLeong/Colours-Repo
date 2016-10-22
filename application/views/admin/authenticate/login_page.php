@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php $this->load->view('admin/_snippets/meta_admin'); ?>
 
     <?php $this->load->view('admin/_snippets/head_resources'); ?>
-    <link href="<?=RESOURCES_FOLDER;?>colour_repo/css/cr_styles_login.css" rel="stylesheet">
+    <link href="<?=RESOURCES_FOLDER;?>colour_repo/source/css/cr_styles_login.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -63,7 +63,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php $this->load->view('admin/_snippets/body_resources'); ?>
 <!--BACKSTRETCH-->
 <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
-<script type="text/javascript" src="<?=RESOURCES_FOLDER;?>dashgum/js/jquery.backstretch.min.js"></script>
-<script src="<?=RESOURCES_FOLDER;?>bower_components/parsleyjs/dist/parsley.min.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>dashgum/js/jquery.backstretch.min.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>vendor/parsleyjs/parsley.min.js"></script>
 </body>
 </html>

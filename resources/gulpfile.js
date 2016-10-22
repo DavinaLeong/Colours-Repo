@@ -10,14 +10,20 @@
 
 ***********************************************************************************/
 var gulp = require('gulp');
+var clean_css = require('gulp-clean-css');
+var concat = require('gulp-concat');
+var sourcemaps = require('gulp-sourcemaps');
+var uglify = require('gulp-uglify');
+var plumber = require('gulp-plumber');
 
 const NODE_PATH = './node_modules/';
 const VENDOR_PATH = './vendor/';
+const COLOUR_REPO_PATH = './colour_repo/';
 
 // Copy packages to vendor folder
-gulp.task('copy', function()
+gulp.task('copy_vendor', function()
 {
-	console.log('--- task: copy STARTED ---');
+	console.log('--- task: copy_vendor STARTED ---');
     // --- Twitter Bootstrap start ---
     gulp.src([
         NODE_PATH + 'bootstrap/dist/css/bootstrap.min.css',
@@ -70,10 +76,45 @@ gulp.task('copy', function()
     ]).pipe(gulp.dest(VENDOR_PATH + 'parsleyjs'));
     console.log('Finished copying ParsleyJs files.');
     // --- ParsleyJS end ---
-	console.log('--- task: copy ENDED ---');
+	console.log('--- task: copy_vendor ENDED ---');
 });
 
-gulp.task('minify-css', function()
+gulp.task('styles', function()
 {
 
+});
+
+gulp.task('scripts', function(cb)
+{
+    console.log('--- task: scripts STARTED ---');
+    // --- Clock start ---
+    gulp.src(COLOUR_REPO_PATH + 'source/js')
+        .pipe(plumber({errorHandler:function(err) {
+            console.log(err);
+        }}))
+        .pipe(uglify())
+        .pipe({suffix: '.min'})
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(COLOUR_REPO_PATH + 'dist/js'));
+    console.log('Uglified "cr-clock.js."');
+    // -- Clock end ---
+    console.log('--- task: scripts ENDED ---');
+});
+
+gulp.task('dev-scripts', function(cb)
+{
+    console.log('--- task: scripts STARTED ---');
+    // --- Clock start ---
+    gulp.src(COLOUR_REPO_PATH + 'source/js')
+        .pipe(sourcemaps.int())
+        .pipe(plumber({errorHandler:function(err) {
+            console.log(err);
+        }}))
+        .pipe(uglify())
+        .pipe({suffix: '.min'})
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(COLOUR_REPO_PATH + 'dist/js'));
+    console.log('Uglified "cr-clock.js."');
+    // -- Clock end ---
+    console.log('--- task: scripts ENDED ---');
 });
