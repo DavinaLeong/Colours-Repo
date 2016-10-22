@@ -82,7 +82,26 @@ gulp.task('copy_vendor', function()
 
 gulp.task('styles', function()
 {
+    console.log('--- task: styles STARTED ---');
+    // --- All Styles but Debug start ---
+    gulp.src([
+            COLOUR_REPO_PATH + 'src/css/**.css',
+            '!' + COLOUR_REPO_PATH + 'src/css/cr_styles_debug.css'
+        ])
+        .pipe(clean_css({compatibility: 'ie8'}))
+        .pipe(concat('cr-styles.min.css'))
+        .pipe(gulp.dest(COLOUR_REPO_PATH + 'dist/css'));
+    console.log('Minified and Concatenated ALL Styles but "cr-styles-debug.css" ~');
+    // --- All Styles but Debug end ---
 
+    // --- Debug start ---
+    gulp.src(COLOUR_REPO_PATH + 'src/css/cr_styles_debug.css')
+        .pipe(clean_css({compatibility: 'ie8'}))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(gulp.dest(COLOUR_REPO_PATH + 'dist/css'));
+    console.log('Minified "cr-styles-debug.css" ~');
+    // --- Debug end ---
+    console.log('--- task: styles ENDED ---');
 });
 
 gulp.task('scripts', function(cb)
