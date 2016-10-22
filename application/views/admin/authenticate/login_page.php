@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php $this->load->view('admin/_snippets/meta_admin'); ?>
 
     <?php $this->load->view('admin/_snippets/head_resources'); ?>
-    <link href="<?=RESOURCES_FOLDER;?>colour_repo/source/css/cr_styles_login.css" rel="stylesheet" type="text/css">
+    <link href="<?=RESOURCES_FOLDER;?>colour_repo/dist/css/cr_styles_login.min.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
