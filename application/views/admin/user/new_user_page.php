@@ -145,6 +145,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </section>
 
 <?php $this->load->view('admin/_snippets/body_resources'); ?>
-<script src="<?=RESOURCES_FOLDER;?>bower_components/parsleyjs/dist/parsley.min.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>vendor/parsleyjs/parsley.min.js"></script>
 </body>
 </html>
