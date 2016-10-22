@@ -11,14 +11,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		Mobile	: (+65) 9369 3752 [Singapore]
 
 ***********************************************************************************/
-?><script src="<?=RESOURCES_FOLDER;?>bower_components/jquery/dist/jquery.min.js"></script>
-<script src="<?=RESOURCES_FOLDER;?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="<?=RESOURCES_FOLDER;?>dashgum/js/jquery-ui-1.9.2.custom.min.js"></script>
-<script src="<?=RESOURCES_FOLDER;?>dashgum/js/jquery.ui.touch-punch.min.js"></script>
-<script class="include" type="text/javascript" src="<?=RESOURCES_FOLDER;?>dashgum/js/jquery.dcjqaccordion.2.7.js"></script>
-<script src="<?=RESOURCES_FOLDER;?>dashgum/js/jquery.scrollTo.min.js"></script>
-<script src="<?=RESOURCES_FOLDER;?>dashgum/js/jquery.nicescroll.js" type="text/javascript"></script>
+?><script src="<?=RESOURCES_FOLDER;?>vendor/jquery/jquery.min.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>vendor/dashgum/js/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>vendor/dashgum/js/jquery.ui.touch-punch.min.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>vendor/dashgum/js/jquery.dcjqaccordion.2.7.js" type="text/javascript" class="include"></script>
+<script src="<?=RESOURCES_FOLDER;?>vendor/dashgum/js/jquery.scrollTo.min.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>vendor/dashgum/js/jquery.nicescroll.js" type="text/javascript"></script>
 
 <!--common script for all pages-->
-<script src="<?=RESOURCES_FOLDER;?>dashgum/js/common-scripts.js"></script>
-<script src="<?=RESOURCES_FOLDER;?>colour_repo/js/cr-clock.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>vendor/dashgum/js/common-scripts.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>colour_repo/dist/js/cr_clock.min.js"></script>
