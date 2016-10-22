@@ -16,6 +16,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 var plumber = require('gulp-plumber');
 var rename = require('gulp-rename');
+var del = require('del');
 
 const NODE_PATH = './node_modules/';
 const VENDOR_PATH = './vendor/';
@@ -121,20 +122,14 @@ gulp.task('scripts', function(cb)
     console.log('--- task: scripts ENDED ---');
 });
 
-gulp.task('dev-scripts', function(cb)
+gulp.task('delete', function()
 {
-    console.log('--- task: scripts STARTED ---');
-    // --- Clock start ---
-    gulp.src(COLOUR_REPO_PATH + 'src/js/**')
-        .pipe(sourcemaps.int())
-        .pipe(plumber({errorHandler:function(err) {
-            console.log(err);
-        }}))
-        .pipe(uglify())
-        .pipe(sourcemaps.write())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(COLOUR_REPO_PATH + 'dist/js'));
-    console.log('Uglified "cr-clock.js."');
-    // -- Clock end ---
-    console.log('--- task: scripts ENDED ---');
+    console.log('--- task: delete STARTED ---');
+
+    del.sync([
+        COLOUR_REPO_PATH + 'dist/**',
+        '!' + COLOUR_REPO_PATH + 'dist'
+    ]);
+
+    console.log('--- task: delete ENDED ---');
 });
