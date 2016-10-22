@@ -270,7 +270,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </section>
 
 <?php $this->load->view('admin/_snippets/body_resources'); ?>
-<script src="<?=RESOURCES_FOLDER;?>colour_repo/source/js/cr_update_colour_values.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>colour_repo/dist/js/cr_update_colour_values.min.js"></script>
 <script src="<?=RESOURCES_FOLDER;?>vendor/parsleyjs/parsley.min.js"></script>
 <script src="<?=RESOURCES_FOLDER;?>vendor/numeral/numeral.min.js"></script>
 </body>

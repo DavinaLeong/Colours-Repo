@@ -15,6 +15,7 @@ var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify');
 var plumber = require('gulp-plumber');
+var rename = require('gulp-rename');
 
 const NODE_PATH = './node_modules/';
 const VENDOR_PATH = './vendor/';
@@ -88,13 +89,13 @@ gulp.task('scripts', function(cb)
 {
     console.log('--- task: scripts STARTED ---');
     // --- Clock start ---
-    gulp.src(COLOUR_REPO_PATH + 'source/js')
+    gulp.src(COLOUR_REPO_PATH + 'src/js/**.js')
         .pipe(plumber({errorHandler:function(err) {
             console.log(err);
         }}))
         .pipe(uglify())
-        .pipe({suffix: '.min'})
         .pipe(sourcemaps.write())
+        .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(COLOUR_REPO_PATH + 'dist/js'));
     console.log('Uglified "cr-clock.js."');
     // -- Clock end ---
@@ -105,14 +106,14 @@ gulp.task('dev-scripts', function(cb)
 {
     console.log('--- task: scripts STARTED ---');
     // --- Clock start ---
-    gulp.src(COLOUR_REPO_PATH + 'source/js')
+    gulp.src(COLOUR_REPO_PATH + 'src/js/**')
         .pipe(sourcemaps.int())
         .pipe(plumber({errorHandler:function(err) {
             console.log(err);
         }}))
         .pipe(uglify())
-        .pipe({suffix: '.min'})
         .pipe(sourcemaps.write())
+        .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(COLOUR_REPO_PATH + 'dist/js'));
     console.log('Uglified "cr-clock.js."');
     // -- Clock end ---
