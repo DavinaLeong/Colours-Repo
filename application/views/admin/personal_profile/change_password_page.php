@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         Old Password <span class="text-danger">*</span></label>
                                     <div class="col-md-10">
                                         <input class="form-control" type="password" id="old_password" name="old_password"
-                                               required minlength="6" maxlength="512" />
+                                               required minlength="6" maxlength="512" data-parsley-type="alphanum" />
                                         <p class="help-block">Only letters and numbers allowed.</p>
                                     </div>
                                 </div>
@@ -92,7 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                            for="new_password">New Password <span class="text-danger">*</span></label>
                                     <div class="col-md-10">
                                         <input class="form-control" type="password" id="new_password" name="new_password"
-                                               required minlength="6" maxlength="512" />
+                                               required minlength="6" maxlength="512" data-parsley-type="alphanum" />
                                     </div>
                                 </div>
 
@@ -102,7 +102,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <div class="col-md-10">
                                         <input class="form-control" type="password" id="confirm_new_password"
                                                name="confirm_new_password" required minlength="6" maxlength="512"
-                                               data-parsley-equalto="#new_password" />
+                                               data-parsley-type="alphanum" data-parsley-equalto="#new_password" />
                                     </div>
                                 </div>
                             </fieldset>

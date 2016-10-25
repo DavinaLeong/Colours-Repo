@@ -1,0 +1,26 @@
+/**********************************************************************************
+	- File Info -
+		File name		: cr_styles_signup.css
+		Author(s)		: DAVINA Leong Shi Yun
+		Date Created	: 25 Oct 2016
+
+	- Contact Info -
+		Email	: leong.shi.yun@gmail.com
+		Mobile	: (+65) 9369 3752 [Singapore]
+
+***********************************************************************************/
+html,
+body {
+    background: url("../../img/rainbow_hills.jpg") no-repeat center;
+    height: 100%;
+}
+
+.content-panel {
+    background: #f5ffe8;
+}
+
+.jumbotron {
+    border-radius: 4px;
+    background: #68dff0;
+    color: #006;
+}
