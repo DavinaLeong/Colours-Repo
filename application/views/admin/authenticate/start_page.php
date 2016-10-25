@@ -36,6 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </ol>
 
             <h1><i class="fa fa-dashboard fa-fw"></i> Welcome, <strong><?= $this->session->userdata('name'); ?></strong></h1>
+            <p><em>Version: 1.01</em></p>
             <p class="cr-clock"></p>
             <div class="row mt">
                 <div class="col-lg-12">
@@ -46,6 +47,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <p>Click on the links on the sidebar to the left to begin.</p>
                         <p><strong>Colour Repo</strong> serves as a database of commonly used colours like Web Safe colours,
                             'Paint' colours, etc.</p>
+
+                        <div class="alert alert-info">
+                            <h4 style="font-weight: bold;"><i class="fa fa-star fa-fw"></i> New Feature Implemented!</h4>
+                            <ul>
+                                <li>Code Highlighting for View CSS Script and View Unity C# Script.</li>
+                            </ul>
+                        </div>
                     </div>
                     <br/>
 
@@ -195,6 +203,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <i class="fa fa-check-circle fa-fw"></i> View Unity C# Script</li>
                                         <li class="list-group-item-success">
                                             <i class="fa fa-check-circle fa-fw"></i> Export to Unity C#</li>
+                                        <li class="list-group-item-success">
+                                            <i class="fa fa-check-circle fa-fw"></i> Code Highlighting</li>
                                     </ul>
                                 </div>
                             </div>
