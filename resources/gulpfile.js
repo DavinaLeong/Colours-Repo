@@ -94,6 +94,14 @@ gulp.task("copy_vendor", function()
     ]).pipe(gulp.dest(VENDOR_PATH + "parsleyjs"));
     console.log("Copied ParsleyJs files.");
     // --- ParsleyJS end ---
+
+
+    // --- PrismJS end ---
+    gulp.src([
+        NODE_PATH + "prismjs/**"
+    ]).pipe(gulp.dest(VENDOR_PATH + "prismjs"));
+    console.log("Copied PrismJS files.");
+    // --- PrismJS end ---
 	console.log("--- task: copy_vendor ENDED ---");
 });
 

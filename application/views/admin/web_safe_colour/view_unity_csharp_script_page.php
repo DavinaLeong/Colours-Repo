@@ -21,13 +21,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php $this->load->view('admin/_snippets/meta_admin'); ?>
 
     <?php $this->load->view('admin/_snippets/head_resources'); ?>
-    <style type="text/css">
+    <link href="<?=RESOURCES_FOLDER;?>vendor/prismjs/themes/prism-coy.css" rel="stylesheet" type="text/css" />
+    <link href="<?=RESOURCES_FOLDER;?>vendor/prismjs/plugins/line-numbers/prism-line-numbers.css" rel="stylesheet" type="text/css" />
+    <style>
+        pre, code {
+            border-radius: 0;
+            border: none;
+        }
+
         pre {
-            min-height: 50px;
-            max-height: 800px;
-            overflow-y: auto;
-            font-family: "Consolas", "Courier New", "Courier", monospace;
-            font-size: 10pt;
+            max-height: 650px;
+            overflow: auto;
         }
     </style>
 </head>
@@ -71,13 +75,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     <div class="content-panel">
                         <h4 class="cr-content-panel-header">
-                            <i class="fa fa-angle-right fa-fw"></i> Preview Script&nbsp;
+                            <i class="fa fa-angle-right fa-fw"></i> Preview Script (<em>1068 lines</em>)&nbsp;
                             <a id="download_script" class="btn btn-info btn-sm"
                                href="<?=site_url('admin/web_safe_colour/download_as_unity_csharp');?>"
                                target="_blank"><i class="fa fa-download fa-fw"></i> Download</a>
                         </h4>
 
-                        <pre><?php $this->load->view('admin/web_safe_colour/download/unity_csharp_script');?></pre>
+                        <pre><code class="language-csharp line-numbers"><?php $this->load->view('admin/web_safe_colour/download/unity_csharp_script');?></code></pre>
                     </div>
 
                 </div>
@@ -91,5 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </section>
 
 <?php $this->load->view('admin/_snippets/body_resources'); ?>
+<script src="<?=RESOURCES_FOLDER;?>vendor/prismjs/prism.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>vendor/prismjs/plugins/line-numbers/prism-line-numbers.min.js"></script>
 </body>
 </html>
