@@ -131,6 +131,7 @@ gulp.task("styles", function()
     gulp.src([
             COLOUR_REPO_PATH + "src/css/**.css",
             "!" + COLOUR_REPO_PATH + "src/css/cr_styles_login.css",
+            "!" + COLOUR_REPO_PATH + "src/css/cr_styles_signup.css",
             "!" + COLOUR_REPO_PATH + "src/css/cr_styles_debug.css"
         ])
         .pipe(clean_css({compatibility: "ie8"}))
@@ -138,6 +139,14 @@ gulp.task("styles", function()
         .pipe(gulp.dest(COLOUR_REPO_PATH + "dist/css"));
     console.log("Minified and Concatenated Styles ~");
     // --- All Styles but Debug end ---
+
+    // --- Signup start ---
+    gulp.src(COLOUR_REPO_PATH + "src/css/cr_styles_signup.css")
+        .pipe(clean_css({compatibility: "ie8"}))
+        .pipe(rename({suffix: ".min"}))
+        .pipe(gulp.dest(COLOUR_REPO_PATH + "dist/css"));
+    console.log("Minified 'cr_styles_signup.css' ~");
+    // --- Signup end ---
 
     // --- Login start ---
     gulp.src(COLOUR_REPO_PATH + "src/css/cr_styles_login.css")

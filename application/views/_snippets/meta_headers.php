@@ -2,9 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**********************************************************************************
 	- File Info -
-		File name		: meta_admin.php
+		File name		: meta_headers.php
 		Author(s)		: DAVINA Leong Shi Yun
-		Date Created	: 23rd Sep 2016
+		Date Created	: 26 Oct 2016
 
 	- Contact Info -
 		Email	: leong.shi.yun@gmail.com
@@ -14,5 +14,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Colours Repo - Admin Panel">
+<meta name="description" content="Colours Repo">
 <meta name="author" content="Davina Leong">

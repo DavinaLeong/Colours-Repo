@@ -26,7 +26,6 @@ class User_log_model extends CI_Model
         return $query->result_array();
     }
 
-
     public function log_message($message)
     {
         $temp_array = array(
