@@ -18,12 +18,13 @@ class Migration_model extends CI_Model
 
     public function _get_versions_array()
     {
+        $versions_array = array();
+        foreach($this->migration->find_migrations() as $key=>$file)
+        {
+            $versions_array[] = $key;
+        }
+
         // Add version numbers as new migration files are created
-        return array(
-            '20161008172100',   // 08 Oct 2016, 5:21PM
-            '20161008175800',   // 08 Oct 2016, 5:58PM
-            '20161010100706',   // 10 Oct 2016, 10:07AM
-            '20161013104712'    // 13 Oct 2016, 10:47AM
-        );
+        return $versions_array;
     }
 }
