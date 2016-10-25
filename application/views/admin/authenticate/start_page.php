@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </ol>
 
             <h1><i class="fa fa-dashboard fa-fw"></i> Welcome, <strong><?= $this->session->userdata('name'); ?></strong></h1>
-            <p><em>Version: 1.01</em></p>
+            <p><em>Version: 1.02</em></p>
             <p class="cr-clock"></p>
             <div class="row mt">
                 <div class="col-lg-12">
@@ -49,9 +49,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             'Paint' colours, etc.</p>
 
                         <div class="alert alert-info">
-                            <h4 style="font-weight: bold;"><i class="fa fa-star fa-fw"></i> New Feature Implemented!</h4>
+                            <h4 style="font-weight: bold;"><i class="fa fa-star fa-fw"></i> Improvements</h4>
                             <ul>
-                                <li>Code Highlighting for View CSS Script and View Unity C# Script.</li>
+                                <li>Generate Migration version numbers instead of hard-coding them.</li>
                             </ul>
                         </div>
                     </div>
