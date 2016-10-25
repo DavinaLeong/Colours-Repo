@@ -49,10 +49,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             'Paint' colours, etc.</p>
 
                         <div class="alert alert-info">
-                            <h4 style="font-weight: bold;"><i class="fa fa-star fa-fw"></i> Improvements</h4>
-                            <ul>
-                                <li>Generate Migration version numbers instead of hard-coding them.</li>
-                            </ul>
+                            <h4 style="font-weight: bold;"><i class="fa fa-star fa-fw"></i> New Function!</h4>
+                            <p>Sign-Up Module Added</p>
                         </div>
                     </div>
                     <br/>
@@ -239,6 +237,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             <i class="fa fa-times-circle fa-fw"></i> Edit Standard Colours</li>
                                         <li class="list-group-item-danger">
                                             <i class="fa fa-times-circle fa-fw"></i> Delete Standard Colours</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Sign Up Module -->
+                            <div class="panel panel-success">
+                                <div class="panel-heading" role="tab" id="heading_seven">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                           href="#collapse_seven" aria-expanded="true" aria-controls="collapse_seven">
+                                            <i class="fa fa-check fa-fw"></i> 7. Sign-Up Module
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse_seven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_seven">
+                                    <ul class="list-group">
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Sign-Up Page</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Success Page</li>
+                                        <li class="list-group-item-success"><i class="fa fa-check-circle fa-fw"></i> Erro Page</li>
                                     </ul>
                                 </div>
                             </div>

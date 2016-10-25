@@ -21,7 +21,6 @@ class Signup extends CI_Controller
 	public function index()
 	{
 		$this->load->model('User_model');
-		$this->load->model('User_log_model');
 		$this->load->library('form_validation');
 
 		$this->_set_rules_signup();
@@ -29,7 +28,6 @@ class Signup extends CI_Controller
 		{
 			if($user_id = $this->User_model->insert($this->prepare_signup_user()))
 			{
-				$this->User_log_model->log_message('New User signup. | user_id: ' . $user_id);
 				redirect('signup/success');
 			}
 			else
@@ -54,6 +52,7 @@ class Signup extends CI_Controller
 
 	private function prepare_signup_user()
 	{
+		$user = array();
 		$user['username'] = $this->input->post('username');
 		$user['name'] = $this->input->post('name');
 		$user['password_hash'] = password_hash(trim($this->input->post('password')), PASSWORD_DEFAULT);

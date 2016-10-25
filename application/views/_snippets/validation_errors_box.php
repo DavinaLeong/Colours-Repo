@@ -2,17 +2,20 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 /**********************************************************************************
 	- File Info -
-		File name		: meta_admin.php
+		File name		: validation_errors_box.php
 		Author(s)		: DAVINA Leong Shi Yun
-		Date Created	: 23rd Sep 2016
+		Date Created	: 25 Oct 2016
 
 	- Contact Info -
 		Email	: leong.shi.yun@gmail.com
 		Mobile	: (+65) 9369 3752 [Singapore]
 
 ***********************************************************************************/
-?><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Colours Repo - Admin Panel">
-<meta name="author" content="Davina Leong">
+?>
+<?php if(validation_errors()):?>
+    <div id="validation_error_box" class="alert alert-info" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+        </button>
+        <?=validation_errors();?>
+    </div>
+<?php endif;?>

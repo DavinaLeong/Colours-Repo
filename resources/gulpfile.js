@@ -131,6 +131,7 @@ gulp.task("styles", function()
     gulp.src([
             COLOUR_REPO_PATH + "src/css/**.css",
             "!" + COLOUR_REPO_PATH + "src/css/cr_styles_login.css",
+            "!" + COLOUR_REPO_PATH + "src/css/cr_styles_signup.css",
             "!" + COLOUR_REPO_PATH + "src/css/cr_styles_debug.css"
         ])
         .pipe(clean_css({compatibility: "ie8"}))

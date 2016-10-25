@@ -15,26 +15,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php $this->load->view('admin/_snippets/meta_admin'); ?>
+    <?php $this->load->view('_snippets/meta_headers'); ?>
 
-    <?php $this->load->view('admin/_snippets/head_resources'); ?>
-    <link href="<?=RESOURCES_FOLDER;?>colour_repo/dist/css/cr_styles_signup.min.css" type="text/css" rel="stylesheet">
+    <?php $this->load->view('_snippets/head_resources'); ?>
 </head>
 <body>
 <div style="height: 30px;">&nbsp;</div>
 <div class="container">
 
     <div class="content-panel">
-        <div class="jumbotron text-center">
-            <h1><img src="<?=RESOURCES_FOLDER;?>colour_repo/img/webpage_icon.png" alt="Website Logo" height=64px" />&nbsp;&nbsp;Colour Repo</h1>
-        </div>
+        <?php $this->load->view('_snippets/site_header'); ?>
 
-        <h3 class="cr-content-panel-header"><i class="fa fa-user-plus fa-fw"></i> Sign Up</h3>
+        <h2 class="cr-content-panel-header"><i class="fa fa-user-plus fa-fw"></i> Sign Up</h2>
 
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <?php $this->load->view('admin/_snippets/validation_errors_box'); ?>
-                <?php $this->load->view('admin/_snippets/message_box'); ?>
 
                 <form id="signup_form" class="form-horizontal" method="post" data-parsley-validate>
 
@@ -73,9 +69,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
 
                         <div class="form-group">
-                            <label class="col-md-2 control-label" for="confrim_password">Confirm Password <span class="text-danger">*</span></label>
+                            <label class="col-md-2 control-label" for="confirm_password">Confirm Password <span class="text-danger">*</span></label>
                             <div class="col-md-10">
-                                <input class="form-control" id="confrim_password" name="confrim_password" type="password"
+                                <input class="form-control" id="confirm_password" name="confirm_password" type="password"
                                        required minlength="6" maxlength="512" data-parsley-type="alphanum" data-parsley-equalto="#password" />
                             </div>
                         </div>
@@ -94,11 +90,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </form>
             </div>
         </div>
+
+        <?php $this->load->view('_snippets/footer'); ?>
     </div>
 
 </div>
 <div style="height: 30px;">&nbsp;</div>
-<?php $this->load->view('admin/_snippets/body_resources'); ?>
+<?php $this->load->view('_snippets/body_resources'); ?>
 <script src="<?=RESOURCES_FOLDER;?>vendor/parsleyjs/parsley.min.js"></script>
 </body>
 </html>
