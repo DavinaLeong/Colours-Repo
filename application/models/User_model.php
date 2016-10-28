@@ -142,6 +142,11 @@ class User_model extends CI_Model
         }
     }
 
+    public function _get_field_names()
+    {
+        return $this->db->list_fields('user');
+    }
+
     public function _get_access_array()
     {
         return array(

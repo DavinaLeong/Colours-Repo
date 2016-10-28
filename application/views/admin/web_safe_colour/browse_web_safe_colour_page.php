@@ -53,6 +53,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                     <i class="fa fa-eye fa-fw"></i> View CSS Export Script</a></li>
                             <li><a id="export_unity_csharp" href="<?=site_url('admin/web_safe_colour/view_unity_csharp_script'); ?>">
                                     <i class="fa fa-eye fa-fw"></i> View Unity C# Script</a></li>
+                            <?php if( $this->User_log_model->validate_access_custom("A", $this->session->userdata('access')) ): ?>
+                                <li><a href="<?=site_url('admin/array_view/web_safe_colour');?>" target="_blank"><i class="fa fa-list fa-fw"></i> Export Data as Array</a></li>
+                            <?php endif; ?>
                         </ul>
                     </div>
                 <?php endif; ?>
