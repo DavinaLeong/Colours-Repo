@@ -138,6 +138,11 @@ class Web_safe_colour_model extends CI_Model
         return $query->result_array();
     }
 
+    public function _get_field_names()
+    {
+        return $this->db->list_fields('web_safe_colour');
+    }
+
     public function _get_colour_types_array()
     {
         return array(

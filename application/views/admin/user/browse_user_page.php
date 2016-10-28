@@ -41,7 +41,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </ol>
 
             <h1 class="page-header"><i class="fa fa-users fa-fw"></i> User Module</h1>
-            <h3><i class="fa fa-angle-right fa-fw"></i> Browse Users</h3>
+            <h3><i class="fa fa-angle-right fa-fw"></i> Browse Users
+            <?php if( $this->User_log_model->validate_access_custom("A", $this->session->userdata('access')) ): ?>
+                &nbsp;<div id="action-dropdown" class="btn-group">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-gavel fa-fw"></i> Action <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="<?=site_url('admin/array_view/user');?>" target="_blank"><i class="fa fa-list fa-fw"></i> Export Data as Array</a></li>
+                    </ul>
+                </div>
+            <?php endif; ?>
+            </h3>
             <p class="lead">Click on a row to view a User record.</p>
 
             <div class="row mt">
