@@ -20,7 +20,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <?php $this->load->view('admin/_snippets/meta_admin'); ?>
 
     <?php $this->load->view('admin/_snippets/head_resources'); ?>
-    <link href="<?=RESOURCES_FOLDER;?>datatables/dataTables.min.css" type="text/css" rel="stylesheet" />
+    <link href="<?=RESOURCES_FOLDER;?>vendor/datatables/datatables.min.css" type="text/css" rel="stylesheet" />
 </head>
 
 <body>
@@ -130,8 +130,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </section>
 
 <?php $this->load->view('admin/_snippets/body_resources'); ?>
-<script src="<?=RESOURCES_FOLDER;?>bower_components/parsleyjs/dist/parsley.min.js"></script>
-<script src="<?=RESOURCES_FOLDER;?>datatables/dataTables.min.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>vendor/parsleyjs/parsley.min.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>vendor/datatables/datatables.min.js"></script>
 <script>
     var $descriptive_name = null;
     var $submit_btn = null;
