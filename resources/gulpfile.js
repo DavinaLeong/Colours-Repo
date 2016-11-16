@@ -33,28 +33,14 @@ const SRC_REACT = "./colour_repo/src/jsx/**/*.{jsx}";
 // === Main Tasks start ===
 gulp.task("default", ["watch"]);
 
-//gulp.task("update", ["delete", "css", "js", "jsx"]);
-
-gulp.task("watch", ["watch_css", "watch_js", "watch_jsx"]);
-
-gulp.task("watch_css", function()
+gulp.task("watch", ["css", "js", "jsx"], function()
 {
-    return gulp.watch(COLOUR_REPO_PATH + "src/css/**/*.{css}", ["css"]);
-});
-
-gulp.task("watch_js", function()
-{
-    return gulp.watch(COLOUR_REPO_PATH + "src/js/**/*.{js}", ["js"]);
-});
-
-gulp.task("watch_jsx", function()
-{
-    return gulp.watch(COLOUR_REPO_PATH + "src/jsx/**/*.{jsx}", ["jsx"]);
+    gulp.watch("colour_repo/src/css/**/*.css", ["css"]);
+    gulp.watch("colour_repo/src/js/**/*.js", ["js"]);
+    gulp.watch("colour_repo/src/jsx/**/*.jsx", ["jsx"]);
 });
 
 gulp.task("dev_default", ["dev_watch"]);
-
-//gulp.task("dev_update", ["delete", "css", "js", "dev_jsx"]);
 
 gulp.task("dev_watch", ["css", "js", "dev_jsx"], function()
 {
