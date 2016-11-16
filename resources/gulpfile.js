@@ -17,6 +17,8 @@ var uglify = require("gulp-uglify");
 var plumber = require("gulp-plumber");
 var rename = require("gulp-rename");
 var del = require("del");
+var react = require("react");
+var react_dom = require("react-dom");
 
 const NODE_PATH = "./node_modules/";
 const VENDOR_PATH = "./vendor/";
@@ -102,6 +104,13 @@ gulp.task("copy_vendor", function()
     ]).pipe(gulp.dest(VENDOR_PATH + "prismjs"));
     console.log("Copied PrismJS files.");
     // --- PrismJS end ---
+
+    // --- React start ---
+    gulp.src([
+        NODE_PATH + "react/**"
+    ]).pipe(gulp.dest(VENDOR_PATH + "react"));
+    console.log("Copied React files");
+    // --- React end ---
 	console.log("--- task: copy_vendor ENDED ---");
 });
 
@@ -110,11 +119,12 @@ gulp.task("delete_vendor", function()
     console.log("--- task: delete_vendor STARTED ---");
 
     del.sync([
-        VENDOR_PATH + "/bootstrap/**",
-        VENDOR_PATH + "/font-awesome/**",
-        VENDOR_PATH + "/jquery/**",
-        VENDOR_PATH + "/numeral/**",
-        VENDOR_PATH + "/parsleyjs/**"
+        VENDOR_PATH + "bootstrap/**",
+        VENDOR_PATH + "font-awesome/**",
+        VENDOR_PATH + "jquery/**",
+        VENDOR_PATH + "numeral/**",
+        VENDOR_PATH + "parsleyjs/**",
+        VENDOR_PATH + "react/**"
     ]);
 
     console.log("--- task: delete_vendor ENDED ---");

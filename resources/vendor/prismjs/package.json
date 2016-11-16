@@ -1,11 +1,11 @@
 {
   "_args": [
     [
-      "prismjs@1.5.1",
+      "prismjs",
       "C:\\wamp64\\www\\colours_repo\\resources"
     ]
   ],
-  "_from": "prismjs@1.5.1",
+  "_from": "prismjs@latest",
   "_id": "prismjs@1.5.1",
   "_inCache": true,
   "_installable": true,
@@ -23,11 +23,11 @@
   "_phantomChildren": {},
   "_requested": {
     "name": "prismjs",
-    "raw": "prismjs@1.5.1",
-    "rawSpec": "1.5.1",
+    "raw": "prismjs",
+    "rawSpec": "",
     "scope": null,
-    "spec": "1.5.1",
-    "type": "version"
+    "spec": "latest",
+    "type": "tag"
   },
   "_requiredBy": [
     "/"
@@ -35,7 +35,7 @@
   "_resolved": "https://registry.npmjs.org/prismjs/-/prismjs-1.5.1.tgz",
   "_shasum": "224990100ff6c2a7588d086be1a5ac62e83690f7",
   "_shrinkwrap": null,
-  "_spec": "prismjs@1.5.1",
+  "_spec": "prismjs",
   "_where": "C:\\wamp64\\www\\colours_repo\\resources",
   "author": {
     "name": "Lea Verou"
