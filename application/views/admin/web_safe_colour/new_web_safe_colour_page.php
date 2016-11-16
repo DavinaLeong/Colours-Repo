@@ -220,6 +220,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                             </fieldset>
                             <br/>
+                            <div id="RgbColourFields"></div>
 
                             <div class="form-group">
                                 <div class="col-md-10 col-md-offset-2">
@@ -246,5 +247,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <script src="<?=RESOURCES_FOLDER;?>colour_repo/dist/js/cr_update_colour_values.min.js"></script>
 <script src="<?=RESOURCES_FOLDER;?>vendor/parsleyjs/parsley.min.js"></script>
 <script src="<?=RESOURCES_FOLDER;?>vendor/numeral/numeral.min.js"></script>
+
+<!-- React start -->
+<script src="<?=RESOURCES_FOLDER;?>vendor/react/react-with-addons.min.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>vendor/react/react-dom.min.js"></script>
+<script src="<?=RESOURCES_FOLDER;?>colour_repo/dist/jsx/RgbColourFields.js"></script>
+<script>
+    var element = React.createElement(RgbColourFields, {
+        REGEX_PARSLEY_COLOUR_HEX: "<?=REGEX_PARSLEY_COLOUR_HEX;?>"
+    });
+    ReactDOM.render(
+        element,
+        document.getElementById('RgbColourFields')
+    );
+</script>
+<!-- React end -->
 </body>
 </html>
