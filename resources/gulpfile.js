@@ -215,7 +215,7 @@ gulp.task("jsx", function()
         .pipe(rename({
             suffix: ".min",
             extname: ".js"}))
-        .pipe(gulp.dest(COLOUR_REPO_PATH + "dist/react/"));
+        .pipe(gulp.dest(COLOUR_REPO_PATH + "dist/jsx/"));
     console.log("--- task: jsx ENDED ---");
 });
 
