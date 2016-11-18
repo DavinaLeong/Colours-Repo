@@ -23,42 +23,32 @@ var react_dom = require("react-dom");
 
 const NODE_PATH = "./node_modules/";
 const VENDOR_PATH = "./vendor/";
-
 const COLOUR_REPO_PATH = "./colour_repo/";
-const SRC_CSS = "./colour_repo/src/css/**/*.{css}";
-const SRC_JS = "./colour_repo/src/js/**/*.{js}";
-const SRC_REACT = "./colour_repo/src/jsx/**/*.{jsx}";
-
 
 // === Main Tasks start ===
-gulp.task("default", ["watch"]);
+gulp.task("default", ["clean", "css", "js", "jsx"]);
 
-gulp.task("watch", ["css", "js", "jsx"], function()
+gulp.task("watch", ["default"], function()
 {
-    gulp.watch("colour_repo/src/css/**/*.css", ["css"]);
-    gulp.watch("colour_repo/src/js/**/*.js", ["js"]);
-    gulp.watch("colour_repo/src/jsx/**/*.jsx", ["jsx"]);
+    gulp.watch(COLOUR_REPO_PATH + "src/css/**/*.css", ["css"]);
+    gulp.watch(COLOUR_REPO_PATH + "src/js/**/*.js", ["js"]);
+    gulp.watch(COLOUR_REPO_PATH + "src/jsx/**/*.jsx", ["jsx"]);
 });
 
-gulp.task("dev_default", ["dev_watch"]);
+gulp.task("dev-default", ["clean", "css", "js", "dev-jsx"]);
 
-gulp.task("dev_watch", ["css", "js", "dev_jsx"], function()
+gulp.task("dev-watch", ["dev-default"], function()
 {
-    gulp.watch("colour_repo/src/css/**/*.css", ["css"]);
-    gulp.watch("colour_repo/src/js/**/*.js", ["js"]);
-    gulp.watch("colour_repo/src/jsx/**/*.jsx", ["dev_jsx"]);
-});
-
-gulp.task("dev_watch_jsx", function()
-{
-    return gulp.watch(COLOUR_REPO_PATH + "src/jsx/**/*.{jsx}", ["dev_jsx"]);
+    gulp.watch(COLOUR_REPO_PATH + "src/css/**/*.css", ["css"]);
+    gulp.watch(COLOUR_REPO_PATH + "src/js/**/*.js", ["js"]);
+    gulp.watch(COLOUR_REPO_PATH + "src/jsx/**/*.jsx", ["dev-jsx"]);
 });
 // === Main Tasks end ===
 
 // === Manage Vendor Resources start ===
-gulp.task("copy_vendor", function()
+gulp.task("copy-vendor", function()
 {
-	console.log("--- task: copy_vendor STARTED ---");
+	console.log("--- task: copy-vendor STARTED ---");
     // --- Twitter Bootstrap start ---
     gulp.src([
         NODE_PATH + "bootstrap/dist/css/bootstrap.min.css",
@@ -122,31 +112,32 @@ gulp.task("copy_vendor", function()
 
     // --- React start ---
     gulp.src([
-        NODE_PATH + "react/dist/**.min.js",
-        NODE_PATH + "react-dom/dist/**.min.js"
+        NODE_PATH + "react/dist/**.js",
+        NODE_PATH + "react-dom/dist/**.js"
     ]).pipe(gulp.dest(VENDOR_PATH + "react"));
     console.log("Copied React files");
     // --- React end ---
-	console.log("--- task: copy_vendor ENDED ---");
+	console.log("--- task: copy-vendor ENDED ---");
 });
 
-gulp.task("delete_vendor", function()
+gulp.task("clean-vendor", function()
 {
     console.log("--- task: delete_vendor STARTED ---");
 
     del.sync([
         VENDOR_PATH + "bootstrap/**",
-        VENDOR_PATH + "font-awesome/**",
-        VENDOR_PATH + "jquery/**",
-        VENDOR_PATH + "numeral/**",
-        VENDOR_PATH + "parsleyjs/**",
-        VENDOR_PATH + "react/**"
+        VENDOR_PATH + "font-awesome/!**",
+        VENDOR_PATH + "jquery/!**",
+        VENDOR_PATH + "numeral/!**",
+        VENDOR_PATH + "parsleyjs/!**",
+        VENDOR_PATH + "prismjs/!**",
+        VENDOR_PATH + "react/!**"
     ]);
 
     console.log("--- task: delete_vendor ENDED ---");
 });
 
-gulp.task("update_vendor", ["delete_vendor", "copy_vendor"]);
+gulp.task("update-vendor", ["clean-vendor", "copy-vendor"]);
 // === Manage Vendor Resources end ===
 
 // === Colour Repo Resources end ===
@@ -212,7 +203,7 @@ gulp.task("js", function(cb)
 gulp.task("jsx", function()
 {
     console.log("--- task: jsx STARTED ---");
-    gulp.src(COLOUR_REPO_PATH + "src/react/**.jsx")
+    gulp.src(COLOUR_REPO_PATH + "src/jsx/**.jsx")
         .pipe(plumber({errorHandler:function(err) {
             console.log(err);
         }}))
@@ -221,14 +212,17 @@ gulp.task("jsx", function()
             "plugins":["syntax-object-rest-spread"]
         }))
         .pipe(uglify())
+        .pipe(rename({
+            suffix: ".min",
+            extname: ".js"}))
         .pipe(gulp.dest(COLOUR_REPO_PATH + "dist/react/"));
     console.log("--- task: jsx ENDED ---");
 });
 
-gulp.task("dev_jsx", function()
+gulp.task("dev-jsx", function()
 {
-    console.log("--- task: dev_jsx STARTED ---");
-    gulp.src(COLOUR_REPO_PATH + "src/react/**.jsx")
+    console.log("--- task: dev-jsx STARTED ---");
+    gulp.src(COLOUR_REPO_PATH + "src/jsx/**.jsx")
         .pipe(sourcemaps.init())
         .pipe(plumber({errorHandler:function(err) {
             console.log(err);
@@ -239,11 +233,14 @@ gulp.task("dev_jsx", function()
         }))
         .pipe(uglify())
         .pipe(sourcemaps.write())
+        .pipe(rename({
+            suffix: ".min",
+            extname: ".js"}))
         .pipe(gulp.dest(COLOUR_REPO_PATH + "dist/jsx/"));
-    console.log("--- task: dev_jsx ENDED ---");
+    console.log("--- task: dev-jsx ENDED ---");
 });
 
-gulp.task("delete", function()
+gulp.task("clean", function()
 {
     console.log("--- task: delete STARTED ---");
 
