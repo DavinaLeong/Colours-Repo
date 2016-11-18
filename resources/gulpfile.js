@@ -16,32 +16,39 @@ var sourcemaps = require("gulp-sourcemaps");
 var uglify = require("gulp-uglify");
 var plumber = require("gulp-plumber");
 var rename = require("gulp-rename");
+var babel = require("gulp-babel");
 var del = require("del");
+var react = require("react");
+var react_dom = require("react-dom");
 
 const NODE_PATH = "./node_modules/";
 const VENDOR_PATH = "./vendor/";
 const COLOUR_REPO_PATH = "./colour_repo/";
 
 // === Main Tasks start ===
-gulp.task("default", ["update_vendor", "update", "watch"]);
+gulp.task("default", ["clean", "css", "js", "jsx"]);
 
-gulp.task("watch", ["watch_styles", "watch_scripts"]);
-
-gulp.task("watch_styles", function()
+gulp.task("watch", ["default"], function()
 {
-    return gulp.watch(COLOUR_REPO_PATH + "src/css", ["styles"]);
+    gulp.watch(COLOUR_REPO_PATH + "src/css/**/*.css", ["css"]);
+    gulp.watch(COLOUR_REPO_PATH + "src/js/**/*.js", ["js"]);
+    gulp.watch(COLOUR_REPO_PATH + "src/jsx/**/*.jsx", ["jsx"]);
 });
 
-gulp.task("watch_scripts", function()
+gulp.task("dev-default", ["clean", "css", "js", "dev-jsx"]);
+
+gulp.task("dev-watch", ["dev-default"], function()
 {
-    return gulp.watch(COLOUR_REPO_PATH + "src/js", ["scripts"]);
+    gulp.watch(COLOUR_REPO_PATH + "src/css/**/*.css", ["css"]);
+    gulp.watch(COLOUR_REPO_PATH + "src/js/**/*.js", ["js"]);
+    gulp.watch(COLOUR_REPO_PATH + "src/jsx/**/*.jsx", ["dev-jsx"]);
 });
 // === Main Tasks end ===
 
 // === Manage Vendor Resources start ===
-gulp.task("copy_vendor", function()
+gulp.task("copy-vendor", function()
 {
-	console.log("--- task: copy_vendor STARTED ---");
+	console.log("--- task: copy-vendor STARTED ---");
     // --- Twitter Bootstrap start ---
     gulp.src([
         NODE_PATH + "bootstrap/dist/css/bootstrap.min.css",
@@ -102,32 +109,42 @@ gulp.task("copy_vendor", function()
     ]).pipe(gulp.dest(VENDOR_PATH + "prismjs"));
     console.log("Copied PrismJS files.");
     // --- PrismJS end ---
-	console.log("--- task: copy_vendor ENDED ---");
+
+    // --- React start ---
+    gulp.src([
+        NODE_PATH + "react/dist/**.js",
+        NODE_PATH + "react-dom/dist/**.js"
+    ]).pipe(gulp.dest(VENDOR_PATH + "react"));
+    console.log("Copied React files");
+    // --- React end ---
+	console.log("--- task: copy-vendor ENDED ---");
 });
 
-gulp.task("delete_vendor", function()
+gulp.task("clean-vendor", function()
 {
     console.log("--- task: delete_vendor STARTED ---");
 
     del.sync([
-        VENDOR_PATH + "/bootstrap/**",
-        VENDOR_PATH + "/font-awesome/**",
-        VENDOR_PATH + "/jquery/**",
-        VENDOR_PATH + "/numeral/**",
-        VENDOR_PATH + "/parsleyjs/**"
+        VENDOR_PATH + "bootstrap/**",
+        VENDOR_PATH + "font-awesome/!**",
+        VENDOR_PATH + "jquery/!**",
+        VENDOR_PATH + "numeral/!**",
+        VENDOR_PATH + "parsleyjs/!**",
+        VENDOR_PATH + "prismjs/!**",
+        VENDOR_PATH + "react/!**"
     ]);
 
     console.log("--- task: delete_vendor ENDED ---");
 });
 
-gulp.task("update_vendor", ["delete_vendor", "copy_vendor"]);
+gulp.task("update-vendor", ["clean-vendor", "copy-vendor"]);
 // === Manage Vendor Resources end ===
 
 // === Colour Repo Resources end ===
-gulp.task("styles", function()
+gulp.task("css", function()
 {
-    console.log("--- task: styles STARTED ---");
-    // --- All Styles but Debug start ---
+    console.log("--- task: css STARTED ---");
+    // --- All css but Debug, Login and Sign Up start ---
     gulp.src([
             COLOUR_REPO_PATH + "src/css/**.css",
             "!" + COLOUR_REPO_PATH + "src/css/cr_styles_login.css",
@@ -137,8 +154,8 @@ gulp.task("styles", function()
         .pipe(clean_css({compatibility: "ie8"}))
         .pipe(concat("cr_styles.min.css"))
         .pipe(gulp.dest(COLOUR_REPO_PATH + "dist/css"));
-    console.log("Minified and Concatenated Styles ~");
-    // --- All Styles but Debug end ---
+    console.log("Minified and Concatenated css ~");
+    // --- All css but Debug, Login and Sign Up end ---
 
     // --- Signup start ---
     gulp.src(COLOUR_REPO_PATH + "src/css/cr_styles_signup.css")
@@ -163,12 +180,12 @@ gulp.task("styles", function()
         .pipe(gulp.dest(COLOUR_REPO_PATH + "dist/css"));
     console.log("Minified 'cr_styles_debug.css' ~");
     // --- Debug end ---
-    console.log("--- task: styles ENDED ---");
+    console.log("--- task: css ENDED ---");
 });
 
-gulp.task("scripts", function(cb)
+gulp.task("js", function(cb)
 {
-    console.log("--- task: scripts STARTED ---");
+    console.log("--- task: js STARTED ---");
     // --- Clock start ---
     gulp.src(COLOUR_REPO_PATH + "src/js/**.js")
         .pipe(plumber({errorHandler:function(err) {
@@ -180,10 +197,50 @@ gulp.task("scripts", function(cb)
         .pipe(gulp.dest(COLOUR_REPO_PATH + "dist/js"));
     console.log("Uglified 'cr-clock.js.'");
     // -- Clock end ---
-    console.log("--- task: scripts ENDED ---");
+    console.log("--- task: js ENDED ---");
 });
 
-gulp.task("delete", function()
+gulp.task("jsx", function()
+{
+    console.log("--- task: jsx STARTED ---");
+    gulp.src(COLOUR_REPO_PATH + "src/jsx/**.jsx")
+        .pipe(plumber({errorHandler:function(err) {
+            console.log(err);
+        }}))
+        .pipe(babel({
+            "presets":["es2015", "react"],
+            "plugins":["syntax-object-rest-spread"]
+        }))
+        .pipe(uglify())
+        .pipe(rename({
+            suffix: ".min",
+            extname: ".js"}))
+        .pipe(gulp.dest(COLOUR_REPO_PATH + "dist/jsx/"));
+    console.log("--- task: jsx ENDED ---");
+});
+
+gulp.task("dev-jsx", function()
+{
+    console.log("--- task: dev-jsx STARTED ---");
+    gulp.src(COLOUR_REPO_PATH + "src/jsx/**.jsx")
+        .pipe(sourcemaps.init())
+        .pipe(plumber({errorHandler:function(err) {
+            console.log(err);
+        }}))
+        .pipe(babel({
+            "presets":["es2015", "react"],
+            "plugins":["syntax-object-rest-spread"]
+        }))
+        .pipe(uglify())
+        .pipe(sourcemaps.write())
+        .pipe(rename({
+            suffix: ".min",
+            extname: ".js"}))
+        .pipe(gulp.dest(COLOUR_REPO_PATH + "dist/jsx/"));
+    console.log("--- task: dev-jsx ENDED ---");
+});
+
+gulp.task("clean", function()
 {
     console.log("--- task: delete STARTED ---");
 
@@ -194,6 +251,4 @@ gulp.task("delete", function()
 
     console.log("--- task: delete ENDED ---");
 });
-
-gulp.task("update", ["delete", "styles", "scripts"]);
 // === Colour Repo Resources end ===

@@ -49,8 +49,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             'Paint' colours, etc.</p>
 
                         <div class="alert alert-info">
-                            <h4 style="font-weight: bold;"><i class="fa fa-star fa-fw"></i> New Function!</h4>
-                            <p>Sign-Up Module Added</p>
+                            <h4 style="font-weight: bold;"><i class="fa fa-star fa-fw"></i> Feature Improvements!</h4>
+                            <p>Converted Values section of New and Edit Web Colour to React JS components.</p>
                         </div>
                     </div>
                     <br/>

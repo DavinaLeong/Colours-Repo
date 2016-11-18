@@ -122,7 +122,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $(document).ready(function()
     {
         $('#table_users').DataTable({
-            "order": [[0, 'asc']]
+            "order": [[0, 'asc']],
+            "pageLength": 25
         });
     });
 </script>
