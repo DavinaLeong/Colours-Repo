@@ -1,17 +1,34 @@
 var RgbColourFields = React.createClass({
     getInitialState: function()
     {
-        return {
-            red_255: null,
-            green_255: null,
-            blue_255: null,
+        if(this.props.colour)
+        {
+            return {
+                red_255: this.props.colour.red_255,
+                green_255: this.props.colour.green_255,
+                blue_255: this.props.colour.blue_255,
 
-            red_ratio: null,
-            green_ratio: null,
-            blue_ratio: null,
+                red_ratio: this.props.colour.red_ratio,
+                green_ratio: this.props.colour.green_ratio,
+                blue_ratio: this.props.colour.blue_ratio,
 
-            hex: null
-        };
+                hex: this.props.colour.hex
+            };
+        }
+        else
+        {
+            return {
+                red_255: null,
+                green_255: null,
+                blue_255: null,
+
+                red_ratio: null,
+                green_ratio: null,
+                blue_ratio: null,
+
+                hex: null
+            };
+        }
     },
     getRatio: function(value)
     {
