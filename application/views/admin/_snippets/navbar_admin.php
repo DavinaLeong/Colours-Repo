@@ -89,6 +89,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             New Web Safe Colour</a></li>
                 </ul>
             </li>
+
+            <li class="sub-menu">
+                <a href="javascript:;" >
+                    <i class="fa fa-paint-brush fa-fw"></i>
+                    <span>Standard Colours</span>
+                </a>
+                <ul class="sub">
+                    <li><a href="<?= site_url('admin/standard_colour/browse_standard_colour'); ?>">
+                            Browse Standard Colours</a></li>
+                    <li><a href="<?= site_url('admin/standard_colour/new_standard_colour'); ?>">
+                            New Standard Colour</a></li>
+                </ul>
+            </li>
             <?php if( $this->User_log_model->validate_access_custom("A", $this->session->userdata('access')) ): ?>
                 <li class="sub-menu">
                     <a href="javascript:;" >

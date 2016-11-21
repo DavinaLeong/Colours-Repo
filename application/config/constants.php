@@ -71,7 +71,7 @@ defined('FOPEN_READ_WRITE_CREATE_STRICT')       OR define('FOPEN_READ_WRITE_CREA
 |       http://www.gsp.com/cgi-bin/man.cgi?section=3&topic=sysexits
 |    Bash scripting:
 |       http://tldp.org/LDP/abs/html/exitcodes.html
-|
+|RastepDassworm6
 */
 defined('EXIT_SUCCESS')        OR define('EXIT_SUCCESS', 0); // no errors
 defined('EXIT_ERROR')          OR define('EXIT_ERROR', 1); // generic error
