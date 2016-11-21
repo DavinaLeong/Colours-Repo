@@ -19,24 +19,20 @@ class Migration_Init_setup extends CI_Migration
     // Public Functions ----------------------------------------------------------------
     public function up()
     {
-        //echo '<p>Create Tables</p><hr/><code>';
-        //$this->load->model('Script_runner_model');
-        //echo $this->Script_runner_model->run_script($this->_create_tables_script())['output_str'];
-        //echo '</code><hr/>';
+        echo '<p>Create Tables</p><hr/><code>';
         $this->load->model('Script_runner_model');
-        $this->Script_runner_model->run_script($this->_create_tables_script());
+        echo $this->Script_runner_model->run_script($this->_create_tables_script())['output_str'];
+        echo '</code><hr/>';
         echo '<p>Tables Created</p><hr/>';
         $this->_generate_users();
     }
 
     public function down()
     {
-        //echo '<p>Drop Tables</p><hr/><code>';
-        //$this->load->model('Script_runner_model');
-        //echo $this->Script_runner_model->run_script($this->_drop_tables_script())['output_str'];
-        //echo '</code><hr/>';
+        echo '<p>Drop Tables</p><hr/><code>';
         $this->load->model('Script_runner_model');
-        $this->Script_runner_model->run_script($this->_drop_tables_script());
+        echo $this->Script_runner_model->run_script($this->_drop_tables_script())['output_str'];
+        echo '</code><hr/>';
         echo '<p>Tables Dropped</p><hr/>';
     }
 
